@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>JDK 8 新特性 之 函数接口</title>
+    <url>/2019/12/25/JDK8_FunctionInterface/</url>
+    <content><![CDATA[<h3 id="函数接口"><a href="#函数接口" class="headerlink" title="函数接口"></a>函数接口</h3><blockquote>
+<p>定义:接口中只有唯一的一个抽象方法，该接口就称之为函数接口。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//函数接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface1</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1、只有一个方法的接口，默认称之为函数接口</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//非函数接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get1</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<p>@FunctionInterface: <br/><br> JDK 8推出了一个重要的注解@FunctionInterface<br> @FunctionInterface:作用主要用来强制约定一个接口只允许一个抽象方法。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1、只有一个方法的接口，默认称之为函数接口</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2、使用@FunctionInterface注解后，该接口只能有一个抽象方法，</span></span><br><span class="line">    <span class="comment">//   get2() 方法放开会报错</span></span><br><span class="line">    <span class="comment">//void get2();</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数接口中支持 default 和 static 关键字修饰我们的方法，允许存在Object类中equals方法。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1、只有一个方法的接口，默认称之为函数接口</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2、使用@FunctionInterface注解后，该接口只能有一个抽象方法，</span></span><br><span class="line">    <span class="comment">//void get2();</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//3、函数接口中支持 default 和 static 关键字修饰我们的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">defaultFunction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我是default修饰的方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">staticFunction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我是static修饰的方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4、重点：允许存在Object类中equals方法。</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>JDK中存在的函数接口：<br/><br>&nbsp;&nbsp;&nbsp;&nbsp;Runnable:用于创建线程 <br/><br>&nbsp;&nbsp;&nbsp;&nbsp;Comparator:用于比较对象</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JDK8</category>
+      </categories>
+      <tags>
+        <tag>JDK8 新特性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JDK 8 新特性 之 default关键字</title>
+    <url>/2019/12/23/JDK8_default/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><ul>
+<li>Jdk1.8之前的接口中只声明方法，方法具体实现应在子类中进行。<br/></li>
+<li>Jdk1.8打破了这样的用法：接口中可以实现具体的方法体，只需要加上关键字static或者default修饰即可。<br/><a id="more"></a></li>
+</ul>
+<ol>
+<li><p>default关键字</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line">    //自定义方法</span><br><span class="line">    void getUsername();</span><br><span class="line">    //默认方法</span><br><span class="line">    default void <span class="function"><span class="title">defaultUsername</span></span>()&#123;</span><br><span class="line">        System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    //默认方法,子类重写</span><br><span class="line">    default void <span class="function"><span class="title">overrideDefaultUsername</span></span>()&#123;</span><br><span class="line">        System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">getUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">overrideDefaultUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService userService = new UserServiceImpl();</span><br><span class="line">        userService.getUsername();</span><br><span class="line">        userService.defaultUsername();</span><br><span class="line">        userService.overrideDefaultUsername();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">"结果打印数据："</span></span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername</span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>static关键字</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line"></span><br><span class="line">void getUsername();</span><br><span class="line"></span><br><span class="line">default void <span class="function"><span class="title">defaultUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">default void <span class="function"><span class="title">overrideDefaultUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void <span class="function"><span class="title">staticUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;staticUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">getUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">overrideDefaultUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">在子类中发现不能重写被static关键字修饰的方法。</span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService userService = new UserServiceImpl();</span><br><span class="line">        userService.getUsername();</span><br><span class="line">        userService.defaultUsername();</span><br><span class="line">        userService.overrideDefaultUsername();</span><br><span class="line">        UserService.staticUsername();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">"结果打印数据"</span></span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername</span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;staticUsername</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结<br>&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. detault关键字修饰的方法称为默认方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 子类可以选择性的是否重写该方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 接口中的default方法通过实例对象来调用<br>&nbsp;&nbsp;static:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. static关键字修饰的方法称为静态方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 子类不能重写该方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 接口中的静态方法通过接口名.方法名()的方式来</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JDK8</category>
+      </categories>
+      <tags>
+        <tag>JDK8 新特性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/12/18/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+</search>
