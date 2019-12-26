@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="JDK8 新特性," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -114,17 +114,21 @@
 
 
 
-<meta name="description" content="前言 Jdk1.8之前的接口中只声明方法，方法具体实现应在子类中进行。 Jdk1.8打破了这样的用法：接口中可以实现具体的方法体，只需要加上关键字static或者default修饰即可。">
+<meta name="description" content="宗旨&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。） 一个皇帝原则&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;皇帝每天要上朝接待臣子、处理政务，臣子每天要叩拜皇帝，皇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK 8 新特性 之 default关键字">
-<meta property="og:url" content="http://wuzq.club/2019/12/23/JDK8_default/index.html">
+<meta property="og:title" content="设计模式 之 单例模式">
+<meta property="og:url" content="http://wuzq.club/2019/12/26/designMode_singleton/index.html">
 <meta property="og:site_name" content="wuzq">
-<meta property="og:description" content="前言 Jdk1.8之前的接口中只声明方法，方法具体实现应在子类中进行。 Jdk1.8打破了这样的用法：接口中可以实现具体的方法体，只需要加上关键字static或者default修饰即可。">
-<meta property="article:published_time" content="2019-12-23T12:50:48.327Z">
-<meta property="article:modified_time" content="2019-12-25T13:19:17.216Z">
+<meta property="og:description" content="宗旨&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。） 一个皇帝原则&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;皇帝每天要上朝接待臣子、处理政务，臣子每天要叩拜皇帝，皇">
+<meta property="og:image" content="https://img1.doubanio.com/view/ark_works_pic/common-largeshow/public/87117.jpg">
+<meta property="og:image" content="https://img9.doubanio.com/view/ark_works_pic/common-largeshow/public/87326.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/ark_works_pic/common-largeshow/public/87335.jpg">
+<meta property="article:published_time" content="2019-12-26T12:22:34.030Z">
+<meta property="article:modified_time" content="2019-12-26T12:22:34.780Z">
 <meta property="article:author" content="wuzq">
-<meta property="article:tag" content="JDK8 新特性">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.doubanio.com/view/ark_works_pic/common-largeshow/public/87117.jpg">
 
 
 
@@ -154,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://wuzq.club/2019/12/23/JDK8_default/"/>
+  <link rel="canonical" href="http://wuzq.club/2019/12/26/designMode_singleton/"/>
 
 
 
 
 
-  <title>JDK 8 新特性 之 default关键字 - wuzq的博客</title>
+  <title>设计模式 之 单例模式 - wuzq的博客</title>
   
 
 
@@ -363,7 +367,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2019/12/23/JDK8_default/">
+    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2019/12/26/designMode_singleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuzq">
@@ -380,7 +384,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JDK 8 新特性 之 default关键字</h2>
+          <h2 class="post-title" itemprop="name headline">设计模式 之 单例模式</h2>
         
 
         <div class="post-meta">
@@ -393,8 +397,8 @@
                 <font color="blue"><i class="fa fa-calendar"></i></font>
               </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T20:50:48+08:00">
-                <font color="blue">2019-12-23</font>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T20:22:34+08:00">
+                <font color="blue">2019-12-26</font>
               </time>
             
 
@@ -415,8 +419,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK8/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">设计模式</span></font>
                   </a>
                 </span>
 
@@ -434,7 +438,7 @@
 
           
           
-             <span id="/2019/12/23/JDK8_default/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 default关键字">
+             <span id="/2019/12/26/designMode_singleton/" class="leancloud_visitors" data-flag-title="设计模式 之 单例模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <!-- 阅读量图标颜色 -->
@@ -460,7 +464,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  462
+                  3,768
                 </span></font>
               
 
@@ -485,22 +489,80 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><ul>
-<li>Jdk1.8之前的接口中只声明方法，方法具体实现应在子类中进行。<br/></li>
-<li>Jdk1.8打破了这样的用法：接口中可以实现具体的方法体，只需要加上关键字static或者default修饰即可。<br/><a id="more"></a></li>
+        <h4 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h4><p>&ensp;&ensp;&ensp;&ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。）</p>
+<h4 id="一个皇帝原则"><a href="#一个皇帝原则" class="headerlink" title="一个皇帝原则"></a>一个皇帝原则</h4><p>&ensp;&ensp;&ensp;&ensp;皇帝每天要上朝接待臣子、处理政务，臣子每天要叩拜皇帝，皇帝只能有一个，也就是一个类只能产生一个对象，该怎么实现呢？对象产生是通过new关键字完成的（当然也有其他方式，比如对象拷贝、反射等），这个怎么控制呀，但是大家别忘记了构造函数，使用new关键字创建对象时，都会根据输入的参数调用相应的构造函数，如果我们把构造函数设置为private私有访问权限不就可以禁止外部创建对象了吗？臣子叩拜唯一皇帝的过程如类图7-1所示。 </p>
+<a id="more"></a>
+<p><img src="https://img1.doubanio.com/view/ark_works_pic/common-largeshow/public/87117.jpg" alt="7-1"></p>
+<p>&ensp;&ensp;&ensp;&ensp;图7-1 臣子叩拜皇帝类图</p>
+<p>&ensp;&ensp;&ensp;&ensp;只有两个类，Emperor代表皇帝类，Minister代表臣子类，关联到皇帝类非常简单。Emperor如代码清单7-1所示。</p>
+<p>&ensp;&ensp;&ensp;&ensp;代码清单7-1 皇帝类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emperor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Emperor emperor = <span class="keyword">new</span> Emperor();<span class="comment">//初始化一个皇帝</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//世俗和道德约束你，目的就是不希望产生第二个皇帝</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Emperor <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> emperor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//皇帝发话了</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我就是皇帝wuzq..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;通过定义一个私有访问权限的构造函数，避免被其他类new出来一个对象，而Emperor自己则可以new一个对象出来，其他类对该类的访问都可以通过getInstance获得同一个对象。<br>&ensp;&ensp;&ensp;&ensp;皇帝有了，臣子要出场，其类如代码清单7-2所示。</p>
+<p>&ensp;&ensp;&ensp;&ensp;代码清单7-2 臣子类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码清单7-2 臣子类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Minister</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> day=<span class="number">0</span>;day&lt;<span class="number">3</span>;day++)&#123;</span><br><span class="line">            Emperor emperor = Emperor.getInstance();</span><br><span class="line">            <span class="comment">//打印一下地址,判断是否相同</span></span><br><span class="line">            System.out.println(emperor);</span><br><span class="line">            emperor.say();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">臣子参拜皇帝的运行结果如下所示。</span><br><span class="line">我就是皇帝wuzq...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝wuzq...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝wuzq...</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;臣子天天要上朝参见皇帝，今天参拜的皇帝应该和昨天、前天的一样（过渡期的不考虑，别找茬哦），大臣磕完头，抬头一看，嗨，还是昨天那个皇帝，老熟人了，容易讲话，这就是单例模式。</p>
+<h4 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a>单例模式的定义</h4><p>&ensp;&ensp;&ensp;&ensp;单例模式（Singleton Pattern）是一个比较简单的模式，其定义如下：<br>&ensp;&ensp;&ensp;&ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。）</p>
+<p>&ensp;&ensp;&ensp;&ensp;单例模式的通用类图如图7-2所示</p>
+<p><img src="https://img9.doubanio.com/view/ark_works_pic/common-largeshow/public/87326.jpg" alt="7-2"></p>
+<p>&ensp;&ensp;&ensp;&ensp;如图7-2 单例模式通用类</p>
+<p>&ensp;&ensp;&ensp;&ensp;Singleton类称为单例类，通过使用private的构造函数确保了在一个应用中只产生一个实例，并且是自行实例化的（在Singleton中自己使用new Singleton（））。</p>
+<p>&ensp;&ensp;&ensp;&ensp;单例模式的通用源代码如代码清单7-3所示。</p>
+<p>&ensp;&ensp;&ensp;&ensp;代码清单7-3 单例模式通用代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emperor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Emperor emperor = <span class="keyword">new</span> Emperor();<span class="comment">//初始化一个皇帝</span></span><br><span class="line">    <span class="comment">//限制产生多个对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//通过该方法获取实例对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Emperor <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> emperor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"皇帝要睡觉了..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="单例模式的应用"><a href="#单例模式的应用" class="headerlink" title="单例模式的应用"></a>单例模式的应用</h4><h5 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h5><ul>
+<li><p>由于单例模式在内存中只有一个实例，减少了内存开支，特别是一个对象需要频繁地创建、销毁时，而且创建或销毁时性能又无法优化，单例模式的优势就非常明显。</p>
+</li>
+<li><p>由于单例模式只生成一个实例，所以减少了系统的性能开销，当一个对象的产生需要比较多的资源时，如读取配置、产生其他依赖对象时，则可以通过在应用启动时直接产生一个单例对象，然后用永久驻留内存的方式来解决（在Java EE中采用单例模式时需要注意JVM垃圾回收机制）。</p>
+</li>
+<li><p>单例模式可以避免对资源的多重占用，例如一个写文件动作，由于只有一个实例存在内存中，避免对同一个资源文件的同时写操作。</p>
+</li>
+<li><p>单例模式可以在系统设置全局的访问点，优化和共享资源访问，例如可以设计一个单例类，负责所有数据表的映射处理。</p>
+<h5 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h5></li>
+<li><p>单例模式一般没有接口，扩展很困难，若要扩展，除了修改代码基本上没有第二种途径可以实现。单例模式为什么不能增加接口呢？因为接口对单例模式是没有任何意义的，它要求“自行实例化”，并且提供单一实例、接口或抽象类是不可能被实例化的。当然，在特殊情况下，单例模式可以实现接口、被继承等，需要在系统开发中根据环境判断。</p>
+</li>
+<li><p>单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。</p>
+</li>
+<li><p>单例模式与单一职责原则有冲突。一个类应该只实现一个逻辑，而不关心它是否是单例的，是不是要单例取决于环境，单例模式把“要单例”和业务逻辑融合在一个类中。</p>
+<h5 id="单例模式的使用场景"><a href="#单例模式的使用场景" class="headerlink" title="单例模式的使用场景"></a>单例模式的使用场景</h5><p>&ensp;&ensp;&ensp;&ensp;在一个系统中，要求一个类有且仅有一个对象，如果出现多个对象就会出现“不良反应”，可以采用单例模式，具体的场景如下：</p>
+</li>
+<li><p>要求生成唯一序列号的环境；</p>
+</li>
+<li><p>在整个项目中需要一个共享访问点或共享数据，例如一个Web页面上的计数器，可以不用把每次刷新都记录到数据库中，使用单例模式保持计数器的值，并确保是线程安全的；</p>
+</li>
+<li><p>创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源；</p>
+</li>
+<li><p>需要定义大量的静态常量和静态方法（如工具类）的环境，可以采用单例模式（当然，也可以直接声明为static的方式）。</p>
+<h5 id="单例模式的注意事项"><a href="#单例模式的注意事项" class="headerlink" title="单例模式的注意事项"></a>单例模式的注意事项</h5><p>&ensp;&ensp;&ensp;&ensp;首先，在高并发情况下，请注意单例模式的线程同步问题。单例模式有几种不同的实现方式，上面的例子不会出现产生多个实例的情况，但是如代码清单7-4所示的单例模式就需要考虑线程同步。</p>
+</li>
 </ul>
-<ol>
-<li><p>default关键字</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line">    //自定义方法</span><br><span class="line">    void getUsername();</span><br><span class="line">    //默认方法</span><br><span class="line">    default void <span class="function"><span class="title">defaultUsername</span></span>()&#123;</span><br><span class="line">        System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    //默认方法,子类重写</span><br><span class="line">    default void <span class="function"><span class="title">overrideDefaultUsername</span></span>()&#123;</span><br><span class="line">        System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">getUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">overrideDefaultUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService userService = new UserServiceImpl();</span><br><span class="line">        userService.getUsername();</span><br><span class="line">        userService.defaultUsername();</span><br><span class="line">        userService.overrideDefaultUsername();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">"结果打印数据："</span></span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername</span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>static关键字</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line"></span><br><span class="line">void getUsername();</span><br><span class="line"></span><br><span class="line">default void <span class="function"><span class="title">defaultUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">default void <span class="function"><span class="title">overrideDefaultUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void <span class="function"><span class="title">staticUsername</span></span>()&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;staticUsername"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">getUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">overrideDefaultUsername</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">"UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">在子类中发现不能重写被static关键字修饰的方法。</span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService userService = new UserServiceImpl();</span><br><span class="line">        userService.getUsername();</span><br><span class="line">        userService.defaultUsername();</span><br><span class="line">        userService.overrideDefaultUsername();</span><br><span class="line">        UserService.staticUsername();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">"结果打印数据"</span></span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;getUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;defaultUsername</span><br><span class="line">UserServiceImpl&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;overrideDefaultUsername</span><br><span class="line">UserService&gt;&gt;&gt;&gt;&gt;&gt;&gt;staticUsername</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>总结<br>&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. detault关键字修饰的方法称为默认方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 子类可以选择性的是否重写该方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 接口中的default方法通过实例对象来调用<br>&nbsp;&nbsp;static:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. static关键字修饰的方法称为静态方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 子类不能重写该方法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 接口中的静态方法通过接口名.方法名()的方式来</p>
-</blockquote>
-</li>
-</ol>
+<p>&ensp;&ensp;&ensp;&ensp;代码清单7-4 线程不安全的单例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">            singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;该单例模式在低并发的情况下尚不会出现问题，若系统压力增大，并发量增加时则可能在内存中出现多个实例，破坏了最初的预期。为什么会出现这种情况呢？如一个线程A执行到singleton=new Singleton（），但还没有获得对象（对象初始化是需要时间的），第二个线程B也在执行，执行到（singleton==null）判断，那么线程B获得判断条件也是为真，于是继续运行下去，线程A获得了一个对象，线程B也获得了一个对象，在内存中就出现两个对象！</p>
+<p>&ensp;&ensp;&ensp;&ensp;解决线程不安全的方法有很多，可以在getSingleton方法前加synchronized关键字，也可以在getSingleton方法内增加synchronized来实现，但都不是最优秀的单例模式，建议读者使用如代码清单7-3所示的方式（有的书上把代码清单7-3中的单例称为饿汉式单例，在代码清单7-4中增加了synchronized的单例称为懒汉式单例）。</p>
+<p>&ensp;&ensp;&ensp;&ensp;其次，需要考虑对象的复制情况。在Java中，对象默认是不可以被复制的，若实现了Cloneable接口，并实现了clone方法，则可以直接通过对象复制方式创建一个新对象，对象复制是不用调用类的构造函数，因此即使是私有的构造函数，对象仍然可以被复制。在一般情况下，类复制的情况不需要考虑，很少会出现一个单例类会主动要求被复制的情况，解决该问题的最好方法就是单例类不要实现Cloneable接口。</p>
+<p>&ensp;&ensp;&ensp;&ensp;如果一个类可以产生多个对象，对象的数量不受限制，则是非常容易实现的，直接使用new关键字就可以了，如果只要有一个对象，使用单例模式就可以了，但是如果要求一个类只能产生两三个对象呢？该怎么实现？我们还以皇帝为例来说明。</p>
+<p>&ensp;&ensp;&ensp;&ensp;一般情况下，一个朝代的同一个时代只有一个皇帝，那有没有出现两个皇帝的情况呢？确实有，就出现在明朝，那三国期间的算不算？不算，各自称帝，各有各的地盘，国号不同。大家还记得《石灰吟》这首诗吗？作者是谁？于谦。他是被谁杀死的？明英宗朱祁镇。对，就是那个在土木堡之变中被瓦刺俘虏的皇帝，被俘虏后，他弟弟朱祁钰当上了皇帝，就是明景帝，估计刚当上皇帝乐疯了，忘记把他哥哥朱祁镇升级为太上皇，在那个时期就出现了两个皇帝，这期间的的大臣是非常郁闷的，为什么呀？因为可能出现今天参拜的皇帝和昨天的皇帝不相同，昨天给那个皇帝汇报，今天还要给这个皇帝汇报一遍，该情况的类图如图7-3所示。</p>
+<p><img src="https://img3.doubanio.com/view/ark_works_pic/common-largeshow/public/87335.jpg" alt="7-3"></p>
+<p>&ensp;&ensp;&ensp;&ensp;图7-3 多个皇帝类</p>
+<p>&ensp;&ensp;&ensp;&ensp;这个类图看起来还算简单，但是实现就有点复杂了。Emperor类如代码清单7-5所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码清单7-5 固定数量的皇帝类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emperor2</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义最多能产生的实例数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> maxNumOfEmperor = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//每个皇帝都有名字，使用一个ArrayList来容纳，每个对象的私有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;String&gt; nameList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    <span class="comment">//定义一个列表，容纳所有的皇帝实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;Emperor2&gt; emperorList = <span class="keyword">new</span> ArrayList&lt;Emperor2&gt;();</span><br><span class="line">    <span class="comment">//当前皇帝序列号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> countNumOfEmperor = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//产生所有的对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;maxNumOfEmperor;i++)&#123;</span><br><span class="line">            emperorList.add(<span class="keyword">new</span> Emperor2(<span class="string">"皇帝"</span>+i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//皇帝名称</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor2</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        nameList.add(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Emperor2 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        countNumOfEmperor = random.nextInt(maxNumOfEmperor);</span><br><span class="line">        <span class="keyword">return</span> emperorList.get(countNumOfEmperor);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(nameList.get(countNumOfEmperor));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>&ensp;&ensp;&ensp;&ensp;在Emperor中使用了两个ArrayList分别存储实例和实例变量。当然，如果考虑到线程安全问题可以使用Vector来代替。臣子参拜皇帝的过程如代码清单7-6所示。</p>
+<p>&ensp;&ensp;&ensp;&ensp;代码清单7-6 臣子参拜皇帝的过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Minister2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义5个大臣</span></span><br><span class="line">        <span class="keyword">int</span> ministerNum=<span class="number">5</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ministerNum;i++) &#123;</span><br><span class="line">            Emperor2 emperor = Emperor2.getInstance();</span><br><span class="line">            System.out.print(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"个大臣参拜的是："</span>+emperor);</span><br><span class="line">            emperor.say();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">大臣参拜皇帝的结果如下所示。</span><br><span class="line">第<span class="number">1</span>个大臣参拜的是：cn.wzq.design.mode.singleton.Emperor2@<span class="number">383534</span>aa皇帝<span class="number">1</span></span><br><span class="line">第<span class="number">2</span>个大臣参拜的是：cn.wzq.design.mode.singleton.Emperor2@<span class="number">383534</span>aa皇帝<span class="number">1</span></span><br><span class="line">第<span class="number">3</span>个大臣参拜的是：cn.wzq.design.mode.singleton.Emperor2@<span class="number">6</span>bc168e5皇帝<span class="number">0</span></span><br><span class="line">第<span class="number">4</span>个大臣参拜的是：cn.wzq.design.mode.singleton.Emperor2@<span class="number">6</span>bc168e5皇帝<span class="number">0</span></span><br><span class="line">第<span class="number">5</span>个大臣参拜的是：cn.wzq.design.mode.singleton.Emperor2@<span class="number">383534</span>aa皇帝<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>&ensp;&ensp;&ensp;&ensp;看，果然每个大臣参拜的皇帝都可能不一样，大臣们就开始糊涂了，A大臣给皇1帝汇报了一件事情，皇2帝不知道，然后就开始怀疑大臣A是皇1帝的亲信，然后就想办法开始整……<br>这种需要产生固定数量对象的模式就叫做有上限的多例模式，它是单例模式的一种扩展，采用有上限的多例模式，我们可以在设计时决定在内存中有多少个实例，方便系统进行扩展，修正单例可能存在的性能问题，提供系统的响应速度。例如读取文件，我们可以在系统启动时完成初始化工作，在内存中启动固定数量的reader实例，然后在需要读取文件时就可以快速响应。</p>
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><p>&ensp;&ensp;&ensp;&ensp;单例模式是23个模式中比较简单的模式，应用也非常广泛，如在Spring中，每个Bean默认就是单例的，这样做的优点是Spring容器可以管理这些Bean的生命期，决定什么时候创建出来，什么时候销毁，销毁的时候要如何处理，等等。如果采用非单例模式（Prototype类型），则Bean初始化后的管理交由J2EE容器，Spring容器不再跟踪管理Bean的生命周期。</p>
+<p>&ensp;&ensp;&ensp;&ensp;使用单例模式需要注意的一点就是JVM的垃圾回收机制，如果我们的一个单例对象在内存中长久不使用，JVM就认为这个对象是一个垃圾，在CPU资源空闲的情况下该对象会被清理掉，下次再调用时就需要重新产生一个对象。如果我们在应用中使用单例类作为有状态值（如计数器）的管理，则会出现恢复原状的情况，应用就会出现故障。如果确实需要采用单例模式来记录有状态的值，有两种办法可以解决该问题：</p>
+<ul>
+<li><p>由容器管理单例的生命周期</p>
+<p>  Java EE容器或者框架级容器（如Spring）可以让对象长久驻留内存。当然，自行通过管理对象的生命期也是一个可行的办法，既然有那么多的工具提供给我们，为什么不用呢？</p>
+</li>
+<li><p>状态随时记录</p>
+<p>  可以使用异步记录的方式，或者使用观察者模式，记录状态的变化，写入文件或写入数据库中，确保即使单例对象重新初始化也可以从资源环境获得销毁前的数据，避免应用数据丢失。</p>
+</li>
+</ul>
+<h4 id="摘自：《设计模式之禅》-—-秦小波"><a href="#摘自：《设计模式之禅》-—-秦小波" class="headerlink" title="摘自：《设计模式之禅》 — 秦小波"></a>摘自：《设计模式之禅》 — 秦小波</h4>
       
     </div>
 
@@ -560,7 +622,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wuzq.club/2019/12/23/JDK8_default/" title="JDK 8 新特性 之 default关键字">http://wuzq.club/2019/12/23/JDK8_default/</a>
+    <a href="http://wuzq.club/2019/12/26/designMode_singleton/" title="设计模式 之 单例模式">http://wuzq.club/2019/12/26/designMode_singleton/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -585,7 +647,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag"><i class="fa fa-tag"></i> JDK8 新特性</a>
+            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 设计模式</a>
           
         </div>
       
@@ -611,8 +673,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/18/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/12/25/JDK8_method/" rel="next" title="JDK 8 新特性 之 方法引用">
+                <i class="fa fa-chevron-left"></i> JDK 8 新特性 之 方法引用
               </a>
             
           </div>
@@ -621,8 +683,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/25/JDK8_FunctionInterface/" rel="prev" title="JDK 8 新特性 之 函数接口">
-                JDK 8 新特性 之 函数接口 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/26/JDK8_strams/" rel="prev" title="JDK 8 新特性 之 Strams简单使用">
+                JDK 8 新特性 之 Strams简单使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -798,7 +860,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#宗旨"><span class="nav-number">1.</span> <span class="nav-text">宗旨</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个皇帝原则"><span class="nav-number">2.</span> <span class="nav-text">一个皇帝原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的定义"><span class="nav-number">3.</span> <span class="nav-text">单例模式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的应用"><span class="nav-number">4.</span> <span class="nav-text">单例模式的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单例模式的优点"><span class="nav-number">4.1.</span> <span class="nav-text">单例模式的优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单例模式的缺点"><span class="nav-number">4.2.</span> <span class="nav-text">单例模式的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单例模式的使用场景"><span class="nav-number">4.3.</span> <span class="nav-text">单例模式的使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单例模式的注意事项"><span class="nav-number">4.4.</span> <span class="nav-text">单例模式的注意事项</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最佳实践"><span class="nav-number">5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摘自：《设计模式之禅》-—-秦小波"><span class="nav-number">6.</span> <span class="nav-text">摘自：《设计模式之禅》 — 秦小波</span></a></li></ol></div>
             
 
           </div>
