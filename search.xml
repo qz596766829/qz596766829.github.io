@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>IllegalArgumentException:argument type mismatch</title>
+    <url>/2019/12/30/Bug-IdAutoException/</url>
+    <content><![CDATA[<h4 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h4><p>&ensp;&ensp;&ensp;&ensp;nested exception is org.apache.ibatis.reflection.ReflectionException: Could not set property ‘id’ of ‘class com.wzq.test.demo.entity.Fee’ with value ‘1211518556674199553’Cause:java.lang.IllegalArgumentException: argument type mismatch</p>
+<a id="more"></a>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景:"></a>场景:</h4><pre><code>添加不传ID使用数据库中的自增。提示类型转换错误,Long转换Integer错误,原因ID初始化值过大转化成Integer错误。</code></pre><h4 id="解决"><a href="#解决" class="headerlink" title="解决:"></a>解决:</h4><pre><code>设置ID的初始化值:ALTER TABLE TABLENAME AUTO_INCREMENT=1;</code></pre>]]></content>
+      <categories>
+        <category>BUG</category>
+      </categories>
+      <tags>
+        <tag>BUG</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JDK 8 新特性 之 Strams简单使用</title>
     <url>/2019/12/26/JDK8_strams/</url>
     <content><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><hr>
