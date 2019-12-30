@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IllegalArgumentException:argument type mismatch</title>
+    <title>IllegalArgumentException：argument type mismatch</title>
     <url>/2019/12/30/Bug-IdAutoException/</url>
     <content><![CDATA[<h4 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h4><p>&ensp;&ensp;&ensp;&ensp;nested exception is org.apache.ibatis.reflection.ReflectionException: Could not set property ‘id’ of ‘class com.wzq.test.demo.entity.Fee’ with value ‘1211518556674199553’Cause:java.lang.IllegalArgumentException: argument type mismatch</p>
 <a id="more"></a>
