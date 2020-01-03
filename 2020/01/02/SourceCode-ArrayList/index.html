@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head>
+  <meta name="google-site-verification" content="-YPbgjltFVFljoCm04Ktk0m38A8CkQxpifuKVZXtawA" />
+  <mate name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/site-logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/site-logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/site-logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/site-logo.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="源码,ArrayList," />
+
+
+
+
+
+  <link rel="alternate" href="https://bestzuo.cn/atom.xml" title="wuzq" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="介绍ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。 结构ArrayList继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。如下图： 12public class ArrayList&lt;E&gt; extends AbstractList&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArrayList 源码分析">
+<meta property="og:url" content="http://wuzq.club/2020/01/02/SourceCode-ArrayList/index.html">
+<meta property="og:site_name" content="wuzq">
+<meta property="og:description" content="介绍ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。 结构ArrayList继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。如下图： 12public class ArrayList&lt;E&gt; extends AbstractList&amp;lt">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/arraylist_jiegou.png">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/new_arraylist.png">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/add_1.png">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/add_2.jpg">
+<meta property="article:published_time" content="2020-01-02T12:50:22.000Z">
+<meta property="article:modified_time" content="2020-01-03T11:59:31.608Z">
+<meta property="article:author" content="wuzq">
+<meta property="article:tag" content="源码">
+<meta property="article:tag" content="ArrayList">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/arraylist_jiegou.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuzq.club/2020/01/02/SourceCode-ArrayList/"/>
+
+
+
+
+
+  <title>ArrayList 源码分析 - wuzq的博客</title>
+  
+
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139884627-1"></script>
+  <link rel="stylesheet" href="/dist/css/share.min.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-139884627-1');
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9d4a3700a4e6444240fe13acb69c87fc";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <div class="headband"></div>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <!-- <span class="logo-line-before"><i></i></span> -->
+        <!-- <img width="150px" height="auto" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/logo-bestzuo.png"/> -->
+        <span class="site-title">wuzq</span>
+	     <!-- <img width="150px" height="auto" src="/images/site-logo.png" /> -->
+        <!-- <span class="logo-line-after"><i></i></span> -->
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            热门
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-plus"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-messageboard">
+          <a href="/messageboard" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2020/01/02/SourceCode-ArrayList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wuzq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wuzq">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ArrayList 源码分析</h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-02T20:50:22+08:00">
+                <font color="blue">2020-01-02</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">源码</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/02/SourceCode-ArrayList/" class="leancloud_visitors" data-flag-title="ArrayList 源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  4,478
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。</p>
+<h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>ArrayList继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。如下图：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/arraylist_jiegou.png" alt="ArrayList结构图"></p>
+<a id="more"></a>
+<ul>
+<li>ArrayList 继承了AbstractList，实现了List。AbstractList、List提供了相关的添加、删除、修改、遍历等功能。</li>
+<li>ArrayList 实现了RandmoAccess接口，即提供了随机访问功能。在ArrayList中，我们即可以通过元素的序号快速获取元素对象,这就是快速随机访问。</li>
+<li>ArrayList 实现了Cloneable接口，实现clone()，实现克隆。</li>
+<li>ArrayList 实现java.io.Serializable接口，意味着ArrayList支持序列化，能通过序列化去传输。</li>
+</ul>
+<blockquote>
+<p>扩展：ArrayList和Vector不同，ArrayList中的操作不是线程安全的！所以，建议在单线程中才使用ArrayList，而在多线程中可以选择Vector。</p>
+</blockquote>
+<h4 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8683452581122892189L</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Default initial capacity.</span></span><br><span class="line"><span class="comment"> * 默认初始化容量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Shared empty array instance used for empty instances.</span></span><br><span class="line"><span class="comment"> * 空数组，当用户创建空实例时，返回该数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Shared empty array instance used for default sized empty instances. We</span></span><br><span class="line"><span class="comment"> * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when</span></span><br><span class="line"><span class="comment"> * first element is added.</span></span><br><span class="line"><span class="comment"> * 空数组实例</span></span><br><span class="line"><span class="comment"> * - 当用户没有指定 ArrayList 的容量时(即调用无参构造函数)，返回的是该数组==&gt;刚创建一个 ArrayList 时，其内数据量为 0。</span></span><br><span class="line"><span class="comment"> * - 当用户第一次添加元素时，该数组将会扩容，变成默认容量为 10(DEFAULT_CAPACITY) 的一个数组===&gt;通过  ensureCapacityInternal() 实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The array buffer into which the elements of the ArrayList are stored.</span></span><br><span class="line"><span class="comment"> * The capacity of the ArrayList is the length of this array buffer. Any</span></span><br><span class="line"><span class="comment"> * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span></span><br><span class="line"><span class="comment"> * will be expanded to DEFAULT_CAPACITY when the first element is added.</span></span><br><span class="line"><span class="comment"> * 数组对象</span></span><br><span class="line"><span class="comment"> * - 当前数据对象存放地方</span></span><br><span class="line"><span class="comment"> * - 当前对象不参与序列化</span></span><br><span class="line"><span class="comment"> * - transient 关键字最主要的作用就是当序列化时，被transient修饰的内容将不会被序列化</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The size of the ArrayList (the number of elements it contains).</span></span><br><span class="line"><span class="comment"> * 数组中的元素个数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@serial</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这个列表在结构上被修改的次数。结构修改是指改变列表的大小，或者以一种正在进行的迭代可能会保留不正确结果的方式扰乱列表。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：size和elementData.length是不相同的。size是指当前集合中存在的元素个数，elementData.length是指当前集合指定的容量大小例如，如果我们ArrayList()时，ArrayList只是给我们默认的elementData=DEFAULTCAPACITY_EMPTY_ELEMENTDATA,此时只是空数组，只有第一次add时才默认数组的大小为DEFAULT_CAPACITY=10 ，此时elementData.length=10,而size=0</p>
+</blockquote>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><h4 id="ArrayList提供了三种构造方法："><a href="#ArrayList提供了三种构造方法：" class="headerlink" title="ArrayList提供了三种构造方法："></a>ArrayList提供了三种构造方法：</h4><h5 id="ArrayList-int-initialCapacity"><a href="#ArrayList-int-initialCapacity" class="headerlink" title="ArrayList(int initialCapacity)"></a>ArrayList(int initialCapacity)</h5><p>构造一个指定容量的ArrayList。这是一个带初始容量大小的有参构造函数。</p>
+<ul>
+<li>初始容量&gt;0：返回指定容量的大小</li>
+<li>初始容量=0：返回空数组</li>
+<li>初始容量&lt;0：抛出异常 IllegalArgumentException<!-- more -->
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Constructs an empty list with the specified initial capacity.</span></span><br><span class="line"><span class="comment"> * - 构造一个指定容量的ArrayList。这是一个带初始容量大小的有参构造函数。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  initialCapacity  the initial capacity of the list</span></span><br><span class="line"><span class="comment"> * - 初始化容量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IllegalArgumentException if the specified initial capacity</span></span><br><span class="line"><span class="comment"> *         is negative</span></span><br><span class="line"><span class="comment"> * - 如果指定的初始容量为负，抛出异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList()"></a>ArrayList()</h5><p>无参构造方法，创建ArrayList对象的时候不传入参数，则使用此无参构造方法创建ArrayList对象。从前面知道DEFAULTCAPACITY_EMPTY_ELEMENTDATA是一个空的Object[]，给到elementData进行初始化，elementData也是个Object[]类型。<font color ="#CC0000">当有元素进行第一次添加 add() 时，elementData将会变成默认的长度10。</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Constructs an empty list with an initial capacity of ten.</span></span><br><span class="line"><span class="comment"> * - 无参构造方法，创建ArrayList对象的时候不传入参数，则使用此无参构造方法创建ArrayList对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：默认容量为10，调用无参构造此时的容量0，当第一次调用 add() 方法时才进行扩容为10。    </p>
+</blockquote>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/new_arraylist.png" alt=""></p>
+<h5 id="ArrayList-Collection-lt-extends-E-gt-c"><a href="#ArrayList-Collection-lt-extends-E-gt-c" class="headerlink" title="ArrayList(Collection&lt;? extends E&gt; c)"></a>ArrayList(Collection&lt;? extends E&gt; c)</h5><p>构造一个包含指定 collection 的元素的列表，这些元素是按照该 collection 的迭代器返回它们的顺序排列的。</p>
+<ul>
+<li>将 Collection 对象转换成数组并赋值给 elementData。</li>
+<li>判断数组大小是否等于0，将空数组 EMPTY_ELEMENTDATA 赋值给 elementData。</li>
+<li>如果size的值大于0，则执行Arrays.copy方法，把collection对象的内容(可以理解为深拷贝)拷贝到elementData中。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Constructs a list containing the elements of the specified</span></span><br><span class="line"><span class="comment"> * collection, in the order they are returned by the collection's</span></span><br><span class="line"><span class="comment"> * iterator.</span></span><br><span class="line"><span class="comment"> * - 构造一个包含指定 collection 的元素的列表，这些元素是按照该 collection 的迭代器返回它们的顺序排列的。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> c the collection whose elements are to be placed into this list</span></span><br><span class="line"><span class="comment"> * - 放入此列表的集合</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if the specified collection is null</span></span><br><span class="line"><span class="comment"> * - 如果集合为空，抛出异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    <span class="keyword">if</span> ((size = elementData.length) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// c.toArray might (incorrectly) not return Object[] (see 6260652)</span></span><br><span class="line">        <span class="keyword">if</span> (elementData.getClass() != Object[]<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">            // <span class="title">copyOf</span>(要复制的数组,要返回的副本的长度,要返回的副本的类)</span></span><br><span class="line"><span class="class">            <span class="title">elementData</span> </span>= Arrays.copyOf(elementData, size, Object[]<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// replace with empty array.</span></span><br><span class="line">        <span class="comment">// 将空数组 EMPTY_ELEMENTDATA 赋值给 elementData。</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>总结：ArrayList 构造方法就是初始化存储数据容器。存储数据容器其本质就是数组，在ArrayList中叫elementData。</p>
+</blockquote>
+<h3 id="普通方法"><a href="#普通方法" class="headerlink" title="普通方法"></a>普通方法</h3><h4 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h4><h5 id="add-E-e"><a href="#add-E-e" class="headerlink" title="add(E e)"></a>add(E e)</h5><p>将指定的元素添加此集合的末尾。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Appends the specified element to the end of this list.</span></span><br><span class="line"><span class="comment"> * - 将指定的元素添加此集合的末尾。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> e element to be appended to this list</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; (as specified by &#123;<span class="doctag">@link</span> Collection#add&#125;)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查数组容量，不够，容器+1，</span></span><br><span class="line">    <span class="comment">// 注意：只+1，因为add()一次只添加一个元素，并且也能确保资源不被浪费。</span></span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    <span class="comment">//添加对象，自增size 等同于 elementData[size]; size++;</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 检查数组容量，不够扩容。</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateCapacity</span><span class="params">(Object[] elementData, <span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        <span class="comment">//若 elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA 则取 DEFAULT_CAPACITY 和 minCapacity 的最大值</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minCapacity;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查数组容量，不够扩容。</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="comment">//最小容量 &gt; 数组长度 = 扩容</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Increases the capacity to ensure that it can hold at least the</span></span><br><span class="line"><span class="comment"> * number of elements specified by the minimum capacity argument.</span></span><br><span class="line"><span class="comment"> * - 数组扩容，以确保它至少可以容纳由最小容量参数指定的元素数量。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> minCapacity the desired minimum capacity</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="comment">// &gt;&gt;：表示右移，如果该数为正，则高位补0，若为负数，则高位补1</span></span><br><span class="line">    <span class="comment">// eg : 10 的二进制(1010) 右移 变成 0101(十进制5)，所以扩容是1.5倍</span></span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    <span class="comment">// 拷贝数组，改变容量大小。</span></span><br><span class="line">    <span class="comment">// Arrays.copyof(原数组，新的数组长度)</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进行大容量分配</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hugeCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果minCapacity&lt;0，抛出异常</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity &lt; <span class="number">0</span>) <span class="comment">// overflow</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> OutOfMemoryError();</span><br><span class="line">    <span class="comment">// 如果想要的容量大于MAX_ARRAY_SIZE，则分配Integer.MAX_VALUE，否则分配MAX_ARRAY_SIZE</span></span><br><span class="line">    <span class="keyword">return</span> (minCapacity &gt; MAX_ARRAY_SIZE) ?</span><br><span class="line">        Integer.MAX_VALUE :</span><br><span class="line">        MAX_ARRAY_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/add_1.png" alt=""></p>
+<ol>
+<li>第一次调用add方法流程分析<ol>
+<li>调用 add() ,此时 size=0 ,size+1=1;</li>
+<li>调用 ensureCapacityInternal(minCapacity) ,此时 minCapacity=1;</li>
+<li>调用 calculateCapacity(elementData,minCapacity) ,此时 minCapacity=1 ,elementData={}, DEFAULT_CAPACITY=10 ,DEFAULTCAPACITY_EMPTY_ELEMENTDATA={};</li>
+<li>因为 elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA 所以取 DEFAULT_CAPACITY ,minCapacity两数最大值 DEFAULT_CAPACITY;</li>
+<li>返回 ensureCapacityInternal后,调用 ensureExplicitCapacity(minCapacity) ,此时 minCapacity=10, elementData.length=0;</li>
+<li>因为 minCapacity - elementData.length &gt; 0调用 grow();</li>
+<li>先扩容 newCapacity = newCapacity + ( newCapacity &gt;&gt; 1 )，判断 newCapacity - minCapacity &lt; 0，所以 newCapacity = minCapacity = 10;</li>
+<li>拷贝数组，改变容量大小;</li>
+<li>一并返回到 add(),添加对象，自增size;</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/add_2.jpg" alt=""></p>
+<ol start="2">
+<li>第二次扩容：第二次扩容是指当前集合中已经存在10(默认容量10)个元素后，继续添加第11个元素。<ol>
+<li>调用 add() ,此时 size=10 ,size+1=11;</li>
+<li>调用 ensureCapacityInternal(minCapacity) ,此时 minCapacity=11;</li>
+<li>调用 calculateCapacity(elementData,minCapacity) ,此时 minCapacity=11 ,elementData.length=10, DEFAULT_CAPACITY=10 ,DEFAULTCAPACITY_EMPTY_ELEMENTDATA.length=0;</li>
+<li>因为 elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA ,所以取 minCapacity=11;</li>
+<li>返回 ensureCapacityInternal 后,调用 ensureExplicitCapacity(minCapacity) ,此时 minCapacity=11 ,elementData.length=10;</li>
+<li>因为 minCapacity - elementData.length &gt; 0 调用 grow();</li>
+<li>先扩容 newCapacity = newCapacity + ( newCapacity &gt;&gt; 1 ) ，判断 newCapacity - minCapacity &gt; 0，所以 newCapacity = newCapacity = 15;</li>
+<li>拷贝数组，改变容量大小;</li>
+<li>一并返回到add(),添加对象，自增size;</li>
+</ol>
+</li>
+</ol>
+<h5 id="add-int-index-E-element"><a href="#add-int-index-E-element" class="headerlink" title="add(int index, E element)"></a>add(int index, E element)</h5><p>指定元素插入到列表中的指定位置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Inserts the specified element at the specified position in this</span></span><br><span class="line"><span class="comment"> * list. Shifts the element currently at that position (if any) and</span></span><br><span class="line"><span class="comment"> * any subsequent elements to the right (adds one to their indices).</span></span><br><span class="line"><span class="comment"> * - 将指定元素插入到列表中的指定位置。将当前位于该位置的元素(如果有)和任何后续元素向右移动(将一个元素添加到它们的索引中)。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> index index at which the specified element is to be inserted</span></span><br><span class="line"><span class="comment"> * - 要插入指定元素的索引</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> element element to be inserted</span></span><br><span class="line"><span class="comment"> * - 要插入的元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment"> * - 抛出异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查索引是否越界</span></span><br><span class="line">    rangeCheckForAdd(index);</span><br><span class="line">    <span class="comment">// 检查数组容量，不够，扩容</span></span><br><span class="line">    <span class="comment">// 注意：只+1，因为add()一次只添加一个元素，并且也能确保资源不被浪费。</span></span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    <span class="comment">// System.arraycopy(源数组，源数组起始索引，目标数组，目标数组起始索引，要拷贝的长度)</span></span><br><span class="line">    <span class="comment">// 主要思想：将当前位于该位置的元素(如果有)和任何后续元素向右移动(将一个元素添加到它们的索引中)。</span></span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>, size - index);</span><br><span class="line">    <span class="comment">// 指定索引位置赋值   </span></span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    <span class="comment">// 大小+1</span></span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A version of rangeCheck used by add and addAll.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rangeCheckForAdd</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//要插入的索引位置不能小于0，不能大于size</span></span><br><span class="line">    <span class="keyword">if</span> (index &gt; size || index &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：add(int index, E element)先检查索引是否越界，再判断是否需要扩容，再将需要右移的元素右移，最后赋值，修改大小。</p>
+</blockquote>
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><h5 id="remove-int-index"><a href="#remove-int-index" class="headerlink" title="remove(int index)"></a>remove(int index)</h5><p>删除列表中指定位置的元素。将后续所有元素向左移动(从它们的索引中减去1)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Removes the element at the specified position in this list.</span></span><br><span class="line"><span class="comment"> * Shifts any subsequent elements to the left (subtracts one from their</span></span><br><span class="line"><span class="comment"> * indices).</span></span><br><span class="line"><span class="comment"> * - 删除列表中指定位置的元素。将后续所有元素向左移动(从它们的索引中减去1)。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> index the index of the element to be removed</span></span><br><span class="line"><span class="comment"> * - 指定要删除的索引</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the element that was removed from the list</span></span><br><span class="line"><span class="comment"> * - 删除的元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment"> * - 抛出异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查索引是否越界</span></span><br><span class="line">    rangeCheck(index);</span><br><span class="line"></span><br><span class="line">    modCount++;</span><br><span class="line">    E oldValue = elementData(index);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 主要思想：</span></span><br><span class="line">    <span class="comment">// - 1. 先计算出需要左移的元素长度</span></span><br><span class="line">    <span class="comment">// - 2. 将后续所有元素向左移动(从它们的索引中减去1)。</span></span><br><span class="line">    <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="comment">// System.arraycopy(源数组，源数组起始索引，目标数组，目标数组起始索引，要拷贝的长度)</span></span><br><span class="line">        System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index, numMoved);</span><br><span class="line">    <span class="comment">// 左移后，将最后一个元素至空</span></span><br><span class="line">    elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line">    <span class="comment">// 返回删除的元素值</span></span><br><span class="line">    <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Checks if the given index is in range.  If not, throws an appropriate</span></span><br><span class="line"><span class="comment"> * runtime exception.  This method does *not* check if the index is</span></span><br><span class="line"><span class="comment"> * negative: It is always used immediately prior to an array access,</span></span><br><span class="line"><span class="comment"> * which throws an ArrayIndexOutOfBoundsException if index is negative.</span></span><br><span class="line"><span class="comment"> * - 检查给定的索引是否在范围内。如果不是，则抛出适当的运行时异常。该方法不*not*检查索引是否为负数:它总是在数组访问之前使用，如果索引为负数，则会抛出ArrayIndexOutOfBoundsException。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rangeCheck</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Constructs an IndexOutOfBoundsException detail message.</span></span><br><span class="line"><span class="comment"> * Of the many possible refactorings of the error handling code,</span></span><br><span class="line"><span class="comment"> * this "outlining" performs best with both server and client VMs.</span></span><br><span class="line"><span class="comment"> * - 构造一个角标越界提示信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">outOfBoundsMsg</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Index: "</span>+index+<span class="string">", Size: "</span>+size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取指定索引的值</span></span><br><span class="line"><span class="function">E <span class="title">elementData</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (E) elementData[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：remove(int index)先检查索引是否越界，然后计算出要左移的元素长度，最后左移。将最后一个元素至空。</p>
+</blockquote>
+<h5 id="remove-Object-o"><a href="#remove-Object-o" class="headerlink" title="remove(Object o)"></a>remove(Object o)</h5><p>从该列表中删除指定元素的第一个匹配项(如果存在)。如果列表不包含该元素，它将保持不变。确切的说，删除索引最小的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Removes the first occurrence of the specified element from this list,</span></span><br><span class="line"><span class="comment"> * if it is present.  If the list does not contain the element, it is</span></span><br><span class="line"><span class="comment"> * unchanged.  More formally, removes the element with the lowest index</span></span><br><span class="line"><span class="comment"> * - 从该列表中删除指定元素的第一个匹配项(如果存在)。如果列表不包含该元素，它将保持不变。确切的说，删除索引最小的元素</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;i&lt;/tt&gt; such that</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;(o==null ?  get(i) == null : o.equals(get(i)))&lt;/tt&gt;</span></span><br><span class="line"><span class="comment"> * (if such an element exists).  Returns &lt;tt&gt;true&lt;/tt&gt; if this list</span></span><br><span class="line"><span class="comment"> * contained the specified element (or equivalently, if this list</span></span><br><span class="line"><span class="comment"> * changed as a result of the call).</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> o element to be removed from this list, if present</span></span><br><span class="line"><span class="comment"> * - 要删除的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; if this list contained the specified element</span></span><br><span class="line"><span class="comment"> * - 返回true or false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (elementData[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[index])) &#123;</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Private remove method that skips bounds checking and does not</span></span><br><span class="line"><span class="comment"> * return the value removed.</span></span><br><span class="line"><span class="comment"> * - 私有移除方法，该方法跳过边界检查且不返回被移除的值。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fastRemove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="comment">// 计算要左移元素的长度</span></span><br><span class="line">    <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="comment">// System.arraycopy(源数组，源数组起始索引，目标数组，目标数组起始索引，要拷贝的长度)</span></span><br><span class="line">        System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index, numMoved);</span><br><span class="line">    <span class="comment">// 左移后，将最后一个元素至空</span></span><br><span class="line">    elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：remove(Object o)：删除指定元素，不用检查索引越界。此方法只删除索引值最小的元素。</p>
+</blockquote>
+<h4 id="get-int-index"><a href="#get-int-index" class="headerlink" title="get(int index)"></a>get(int index)</h4><p>返回列表中指定位置的元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment"> * - 返回列表中指定位置的元素。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  index index of the element to return</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the element at the specified position in this list</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查索引是否越界</span></span><br><span class="line">    rangeCheck(index);</span><br><span class="line">    <span class="comment">// 获取指定索引上的元素</span></span><br><span class="line">    <span class="keyword">return</span> elementData(index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="set-int-index-E-element"><a href="#set-int-index-E-element" class="headerlink" title="set(int index, E element)"></a>set(int index, E element)</h4><p>将列表中指定位置的元素替换为指定元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Replaces the element at the specified position in this list with</span></span><br><span class="line"><span class="comment"> * the specified element.</span></span><br><span class="line"><span class="comment"> * - 将列表中指定位置的元素替换为指定元素。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> index index of the element to replace</span></span><br><span class="line"><span class="comment"> * - 要替换的元素的索引</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> element element to be stored at the specified position</span></span><br><span class="line"><span class="comment"> * - 元素存储在指定位置</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the element previously at the specified position</span></span><br><span class="line"><span class="comment"> * - 先前位于指定位置的元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查索引越界</span></span><br><span class="line">    rangeCheck(index);</span><br><span class="line">    <span class="comment">// 获取指定位置的元素</span></span><br><span class="line">    E oldValue = elementData(index);</span><br><span class="line">    <span class="comment">// 替换指定位置的元素</span></span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    <span class="comment">// 返回被替换的元素</span></span><br><span class="line">    <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="indexOf-Object-o"><a href="#indexOf-Object-o" class="headerlink" title="indexOf(Object o)"></a>indexOf(Object o)</h4><p>返回该列表中指定元素第一次出现的索引，如果该列表不包含该元素，则返回-1。确切的说，返回最低的索引的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the index of the first occurrence of the specified element</span></span><br><span class="line"><span class="comment"> * in this list, or -1 if this list does not contain the element.</span></span><br><span class="line"><span class="comment"> * More formally, returns the lowest index &lt;tt&gt;i&lt;/tt&gt; such that</span></span><br><span class="line"><span class="comment"> * - 返回该列表中指定元素第一次出现的索引，如果该列表不包含该元素，则返回-1。确切的说，返回最低的索引的元素</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;(o==null ? get(i)==null : o.equals(get(i)))&lt;/tt&gt;,</span></span><br><span class="line"><span class="comment"> * or -1 if there is no such index.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">            <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="lastIndexOf-Object-o"><a href="#lastIndexOf-Object-o" class="headerlink" title="lastIndexOf(Object o)"></a>lastIndexOf(Object o)</h4><p>返回指定元素最后一次出现的索引，如果该列表不包含该元素，则返回-1。确切的说，返回最高的索引的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the index of the last occurrence of the specified element</span></span><br><span class="line"><span class="comment"> * in this list, or -1 if this list does not contain the element.</span></span><br><span class="line"><span class="comment"> * More formally, returns the highest index &lt;tt&gt;i&lt;/tt&gt; such that</span></span><br><span class="line"><span class="comment"> * - 返回指定元素最后一次出现的索引，如果该列表不包含该元素，则返回-1。确切的说，返回最高的索引的元素</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;(o==null ? get(i)==null : o.equals(get(i)))&lt;/tt&gt;,</span></span><br><span class="line"><span class="comment"> * or -1 if there is no such index.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>从列表中删除所有元素。该调用返回后，列表将为空。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Removes all of the elements from this list.  The list will</span></span><br><span class="line"><span class="comment"> * be empty after this call returns.</span></span><br><span class="line"><span class="comment"> * - 从列表中删除所有元素。该调用返回后，列表将为空。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// clear to let GC do its work</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">        elementData[i] = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+
+
+
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果这篇文章对您很有帮助，不妨</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="wuzq 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="wuzq 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    wuzq
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuzq.club/2020/01/02/SourceCode-ArrayList/" title="ArrayList 源码分析">http://wuzq.club/2020/01/02/SourceCode-ArrayList/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    	<div>
+	   
+             <div>
+    
+        <div style="margin-top: 30px;text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+           
+        </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%BA%90%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 源码</a>
+          
+            <a href="/tags/ArrayList/" rel="tag"><i class="fa fa-tag"></i> ArrayList</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/30/Bug-IdAutoException/" rel="next" title="IllegalArgumentException：argument type mismatch">
+                <i class="fa fa-chevron-left"></i> IllegalArgumentException：argument type mismatch
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+
+      <!-- 引入share.js -->
+      <div data-weibo-title="分享到微博" data-qq-title="分享到QQ" data-douban-title="分享到豆瓣" class="social-share" class="share-component" data-disabled="twitter,facebook" data-description="Share.js - 一键分享到微博，QQ空间，腾讯微博，人人，豆瓣">分享到：</div>
+  </div>
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments comment" id="comments"></div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpeg"
+                alt="wuzq" />
+            
+              <p class="site-author-name" itemprop="name">wuzq</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="https://bestzuo.cn/atom.xml" target="_blank" rel="alternate noopener">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结构"><span class="nav-number">2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字段"><span class="nav-number">3.</span> <span class="nav-text">字段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number"></span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList提供了三种构造方法："><span class="nav-number">1.</span> <span class="nav-text">ArrayList提供了三种构造方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList-int-initialCapacity"><span class="nav-number">1.1.</span> <span class="nav-text">ArrayList(int initialCapacity)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.2.</span> <span class="nav-text">ArrayList()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList-Collection-lt-extends-E-gt-c"><span class="nav-number">1.3.</span> <span class="nav-text">ArrayList(Collection&lt;? extends E&gt; c)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通方法"><span class="nav-number"></span> <span class="nav-text">普通方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#add"><span class="nav-number">1.</span> <span class="nav-text">add()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-E-e"><span class="nav-number">1.1.</span> <span class="nav-text">add(E e)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#add-int-index-E-element"><span class="nav-number">1.2.</span> <span class="nav-text">add(int index, E element)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">2.</span> <span class="nav-text">remove</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-int-index"><span class="nav-number">2.1.</span> <span class="nav-text">remove(int index)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-Object-o"><span class="nav-number">2.2.</span> <span class="nav-text">remove(Object o)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get-int-index"><span class="nav-number">3.</span> <span class="nav-text">get(int index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-int-index-E-element"><span class="nav-number">4.</span> <span class="nav-text">set(int index, E element)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf-Object-o"><span class="nav-number">5.</span> <span class="nav-text">indexOf(Object o)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lastIndexOf-Object-o"><span class="nav-number">6.</span> <span class="nav-text">lastIndexOf(Object o)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear"><span class="nav-number">7.</span> <span class="nav-text">clear()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <font color="red"><i class="fa fa-heartbeat" aria-hidden="true"></i></font>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wuzq</span>
+  &nbsp;
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="全站总字数">11.4k</span>
+  
+</div>
+
+
+
+
+
+<div style="width:300px;margin:0 auto; padding:0 0;">
+   <font size="1px"><font color="#222">Powered by <a href="https://hexo.io" target="_blank" rel="noopener" style="color:#232220">Hexo</a> and <a href="https://bestzuo.cn" target="_blank" rel="noopener" style="color:#232220">Sanarous</a> Bear Simple.</font></font>
+</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <!-- <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <script async src="/js/src/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站总访客</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问 </i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="/js/src/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    new Valine({
+        lang: 'zh-cn',
+        admin_email: 'zuoxiang@whut.edu.cn',
+        el: '#comments' ,
+        appId: 'A7Ny5JW4l2XoShLWoQfpND2b-gzGzoHsz',
+        appKey: 'lTbAjSoXEDQETkbAcE4zpYpu',
+        emoticon_url: 'https://cloud.panjunwen.com/alu',
+        emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+        placeholder: '点击此处填写昵称和邮箱才能留言噢~',
+  });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <!-- <script src="https://dp2px.com/demo/av-min.js"></script> -->
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 17880,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/linkcard.js"></script>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <script src="/dist/js/social-share.min.js"></script>
+</body>
+</html>
