@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="JDK8 新特性," />
+  <meta name="keywords" content="源码,String," />
 
 
 
@@ -114,16 +114,17 @@
 
 
 
-<meta name="description" content="前言  Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。 Lambda 允许把函数作为参数传递进方法中。 使用 Lambda 表达式可以使代码变的更加简洁紧凑。 lambda表达式的重要特征: 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。 可选的大括号：如果主体包含了一个语句，就不">
+<meta name="description" content="12345678910111213141516171819202122232425public boolean equals(Object anObject) &amp;#123;	&#x2F;&#x2F; &#x3D;&#x3D;:比较的引用类型，比较的是地址值是否相同    if (this &#x3D;&#x3D; anObject) &amp;#123; &#x2F;&#x2F;地址值相等，返回true        return true;    &amp;#125;    &#x2F;&#x2F; inst">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK 8 新特性 之 Lambda表达式">
-<meta property="og:url" content="http://wuzq.club/2019/12/25/JDK8_Lambda/index.html">
+<meta property="og:title" content="String equals()方法 源码分析">
+<meta property="og:url" content="http://wuzq.club/2020/01/06/String-equals/index.html">
 <meta property="og:site_name" content="wuzq">
-<meta property="og:description" content="前言  Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。 Lambda 允许把函数作为参数传递进方法中。 使用 Lambda 表达式可以使代码变的更加简洁紧凑。 lambda表达式的重要特征: 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。 可选的大括号：如果主体包含了一个语句，就不">
-<meta property="article:published_time" content="2019-12-25T15:20:23.481Z">
-<meta property="article:modified_time" content="2019-12-25T16:00:29.019Z">
+<meta property="og:description" content="12345678910111213141516171819202122232425public boolean equals(Object anObject) &amp;#123;	&#x2F;&#x2F; &#x3D;&#x3D;:比较的引用类型，比较的是地址值是否相同    if (this &#x3D;&#x3D; anObject) &amp;#123; &#x2F;&#x2F;地址值相等，返回true        return true;    &amp;#125;    &#x2F;&#x2F; inst">
+<meta property="article:published_time" content="2020-01-06T11:48:15.000Z">
+<meta property="article:modified_time" content="2020-01-06T11:52:10.967Z">
 <meta property="article:author" content="wuzq">
-<meta property="article:tag" content="JDK8 新特性">
+<meta property="article:tag" content="源码">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
 
 
@@ -154,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://wuzq.club/2019/12/25/JDK8_Lambda/"/>
+  <link rel="canonical" href="http://wuzq.club/2020/01/06/String-equals/"/>
 
 
 
 
 
-  <title>JDK 8 新特性 之 Lambda表达式 - wuzq的博客</title>
+  <title>String equals()方法 源码分析 - wuzq的博客</title>
   
 
 
@@ -363,7 +364,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2019/12/25/JDK8_Lambda/">
+    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2020/01/06/String-equals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuzq">
@@ -380,7 +381,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JDK 8 新特性 之 Lambda表达式</h2>
+          <h2 class="post-title" itemprop="name headline">String equals()方法 源码分析</h2>
         
 
         <div class="post-meta">
@@ -393,8 +394,8 @@
                 <font color="blue"><i class="fa fa-calendar"></i></font>
               </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-25T23:20:23+08:00">
-                <font color="blue">2019-12-25</font>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T19:48:15+08:00">
+                <font color="blue">2020-01-06</font>
               </time>
             
 
@@ -415,8 +416,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK8/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
+                  <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">源码</span></font>
                   </a>
                 </span>
 
@@ -434,7 +435,7 @@
 
           
           
-             <span id="/2019/12/25/JDK8_Lambda/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 Lambda表达式">
+             <span id="/2020/01/06/String-equals/" class="leancloud_visitors" data-flag-title="String equals()方法 源码分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <!-- 阅读量图标颜色 -->
@@ -460,7 +461,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  547
+                  193
                 </span></font>
               
 
@@ -485,28 +486,12 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><hr>
-<ul>
-<li>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</li>
-<li>Lambda 允许把函数作为参数传递进方法中。</li>
-<li>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</li>
-<li>lambda表达式的重要特征:<ol>
-<li>可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。</li>
-<li>可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。</li>
-<li>可选的大括号：如果主体包含了一个语句，就不需要使用大括号。</li>
-<li>可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。<a id="more"></a>
-</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h6 id="JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。"><a href="#JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。" class="headerlink" title="JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。"></a>JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface functionInterface = <span class="keyword">new</span> FunctionInterface() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"get方法"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        functionInterface.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="使用Lambda表达式调用接口中的方法"><a href="#使用Lambda表达式调用接口中的方法" class="headerlink" title="使用Lambda表达式调用接口中的方法"></a>使用Lambda表达式调用接口中的方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface ft = () -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">"JDK8 Lambda表达式调用：get方法"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        ft.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// ==:比较的引用类型，比较的是地址值是否相同</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123; <span class="comment">//地址值相等，返回true</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// instanceOf判断一个对象是不是某个类型的实例</span></span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        String anotherString = (String)anObject;</span><br><span class="line">        <span class="keyword">int</span> n = value.length;</span><br><span class="line">        <span class="comment">// 判断长度是否相等</span></span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="keyword">char</span> v1[] = value;</span><br><span class="line">            <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 比较每一个元素，只要有一个元素不想等 返回 false</span></span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
-<p>() : 表示抽象方法所需的参数列表,(参数1，参数2)<br>-&gt; : 固定格式<br>{} ：表示抽象方法的方法体</p>
+<p>总结：String equals()方法思路：先比较地址值是否相等，在比较字符串的长度是否相等，最后对每个字符做一一对应比较。</p>
 </blockquote>
-<h6 id="有返回值的Lambda表达式调用方法"><a href="#有返回值的Lambda表达式调用方法" class="headerlink" title="有返回值的Lambda表达式调用方法"></a>有返回值的Lambda表达式调用方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface2</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface2 functionInterface2 = () -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"有返回值的Lambda表达式调用方法"</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        System.out.println(functionInterface2.get());</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 优化：有返回值的Lambda表达式调用方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        FunctionInterface2 functionInterface3 = () -&gt; <span class="string">"优化：有返回值的Lambda表达式调用方法"</span>;</span><br><span class="line">        System.out.println(functionInterface3.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="有参数，有返回值的Lambda表达式调用方法"><a href="#有参数，有返回值的Lambda表达式调用方法" class="headerlink" title="有参数，有返回值的Lambda表达式调用方法"></a>有参数，有返回值的Lambda表达式调用方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface3</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">get</span><span class="params">(String s)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface3 ft3 = (String s)-&gt; s;</span><br><span class="line">        System.out.println(ft3.get(<span class="string">"有参数，有返回值的Lambda表达式调用方法"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -566,7 +551,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wuzq.club/2019/12/25/JDK8_Lambda/" title="JDK 8 新特性 之 Lambda表达式">http://wuzq.club/2019/12/25/JDK8_Lambda/</a>
+    <a href="http://wuzq.club/2020/01/06/String-equals/" title="String equals()方法 源码分析">http://wuzq.club/2020/01/06/String-equals/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -591,7 +576,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag"><i class="fa fa-tag"></i> JDK8 新特性</a>
+            <a href="/tags/%E6%BA%90%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 源码</a>
+          
+            <a href="/tags/String/" rel="tag"><i class="fa fa-tag"></i> String</a>
           
         </div>
       
@@ -617,8 +604,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/25/JDK8_FunctionInterface/" rel="next" title="JDK 8 新特性 之 函数接口">
-                <i class="fa fa-chevron-left"></i> JDK 8 新特性 之 函数接口
+              <a href="/2020/01/02/SourceCode-ArrayList/" rel="next" title="ArrayList 源码分析">
+                <i class="fa fa-chevron-left"></i> ArrayList 源码分析
               </a>
             
           </div>
@@ -626,10 +613,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/25/JDK8_method/" rel="prev" title="JDK 8 新特性 之 方法引用">
-                JDK 8 新特性 之 方法引用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,17 +671,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -794,22 +768,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用Lambda表达式调用接口中的方法"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">使用Lambda表达式调用接口中的方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有返回值的Lambda表达式调用方法"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">有返回值的Lambda表达式调用方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有参数，有返回值的Lambda表达式调用方法"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">有参数，有返回值的Lambda表达式调用方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
