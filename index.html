@@ -684,7 +684,7 @@
 
 <div class="tag-cloud">
   <div class="tag-cloud-tags" id="tags">
-    <a href="/tags/ArrayList/" style="font-size: 14px; color: #fff">ArrayList</a> <a href="/tags/BUG/" style="font-size: 14px; color: #fff">BUG</a> <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" style="font-size: 14px; color: #fff">JDK8 新特性</a> <a href="/tags/String/" style="font-size: 14px; color: #fff">String</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #fff">源码</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 14px; color: #fff">设计模式</a>
+    <a href="/tags/BUG/" style="font-size: 14px; color: #fff">BUG</a> <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" style="font-size: 14px; color: #fff">JDK8 新特性</a> <a href="/tags/List-%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #fff">List 源码</a> <a href="/tags/String-%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #fff">String 源码</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 14px; color: #fff">设计模式</a>
   </div>
 </div>
 <br>
@@ -732,6 +732,197 @@
 </style>
 
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2020/01/11/SourceCode-LinkedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wuzq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wuzq">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/11/SourceCode-LinkedList/" itemprop="url">LinkedList 源码分析</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T11:40:38+08:00">
+                <font color="blue">2020-01-11</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LinkedList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">LinkedList 源码</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/11/SourceCode-LinkedList/" class="leancloud_visitors" data-flag-title="LinkedList 源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  3,439
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LinkedList 底层是一个双向链表。是一个直线型的链表结构。</p>
+<p>LinkedList 特点：查询慢，增删快。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>LinkedList继承于AbstractSequentialList 实现了List、Deque、Cloneable、java.io.Serializable这些接口。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/LinkedListUML.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/11/SourceCode-LinkedList/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -800,8 +991,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">源码</span></font>
+                  <a href="/categories/String-equls-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">String.equls() 源码</span></font>
                   </a>
                 </span>
 
@@ -987,8 +1178,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">源码</span></font>
+                  <a href="/categories/ArrayList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">ArrayList 源码</span></font>
                   </a>
                 </span>
 
@@ -2444,201 +2635,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuzq.club/2019/12/18/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wuzq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wuzq">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/18/hello-world/" itemprop="url">Hello World</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-18T20:21:11+08:00">
-                <font color="blue">2019-12-18</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">hexo</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2019/12/18/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  78
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/18/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -2688,7 +2691,7 @@ Quick StartCreate a new post1$ hexo new "My New Post"
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2699,7 +2702,7 @@ Quick StartCreate a new post1$ hexo new "My New Post"
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2710,7 +2713,7 @@ Quick StartCreate a new post1$ hexo new "My New Post"
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2791,7 +2794,7 @@ Quick StartCreate a new post1$ hexo new "My New Post"
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="全站总字数">11.9k</span>
+    <span title="全站总字数">15.4k</span>
   
 </div>
 
