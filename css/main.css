@@ -189,7 +189,7 @@ body {
   font-size: 14px;
   line-height: 2;
   color: #555;
-  background: #fff;
+  background: #fafafa;
 }
 @media (max-width: 767px) {
   body {
@@ -2010,7 +2010,7 @@ a:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #959a4e;
+  background: #e96eff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3252,8 +3252,8 @@ a:hover {
   -webkit-box-shadow: #666 0px 0px 10px;
   -moz-box-shadow: #666 0px 0px 10px;
   box-shadow: #666 0px 0px 10px;
-  background: #f3f2ee;
-/*background: #fff;*/
+/*background: rgba(243, 242, 238, 1);*/
+  background: #fff;
   behavior: url("/images/PIE.htc");
 /*border: 1px solid rgba(128, 128, 128, 0.4);*/
 /*   border-left: 1px solid darkgray;
