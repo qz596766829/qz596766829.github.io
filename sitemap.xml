@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuzq.club/2019/12/26/designMode_singleton/</loc>
+    
+    <lastmod>2020-01-17T13:26:54.099Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuzq.club/2020/01/02/SourceCode-ArrayList/</loc>
     
     <lastmod>2020-01-14T15:08:43.910Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://wuzq.club/2020/01/11/SourceCode-LinkedList/</loc>
     
     <lastmod>2020-01-14T14:38:56.295Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuzq.club/2019/12/26/designMode_singleton/</loc>
-    
-    <lastmod>2020-01-14T14:24:43.166Z</lastmod>
     
   </url>
   

@@ -100,7 +100,7 @@
 
 
 
-  <link rel="alternate" href="https://bestzuo.cn/atom.xml" title="wuzq" type="application/atom+xml" />
+  <link rel="alternate" href="https://bestzuo.cn/atom.xml" title="Jacob" type="application/atom+xml" />
 
 
 
@@ -111,14 +111,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式 之 单例模式">
 <meta property="og:url" content="http://wuzq.club/2019/12/26/designMode_singleton/index.html">
-<meta property="og:site_name" content="wuzq">
+<meta property="og:site_name" content="Jacob">
 <meta property="og:description" content="宗旨&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。） 一个皇帝原则&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;皇帝每天要上朝接待臣子、处理政务，臣子每天要叩拜皇帝，皇">
 <meta property="og:image" content="https://img1.doubanio.com/view/ark_works_pic/common-largeshow/public/87117.jpg">
 <meta property="og:image" content="https://img9.doubanio.com/view/ark_works_pic/common-largeshow/public/87326.jpg">
 <meta property="og:image" content="https://img3.doubanio.com/view/ark_works_pic/common-largeshow/public/87335.jpg">
 <meta property="article:published_time" content="2019-12-26T12:22:34.030Z">
-<meta property="article:modified_time" content="2020-01-14T14:24:43.166Z">
-<meta property="article:author" content="wuzq">
+<meta property="article:modified_time" content="2020-01-17T13:26:54.099Z">
+<meta property="article:author" content="Jacob">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img1.doubanio.com/view/ark_works_pic/common-largeshow/public/87117.jpg">
@@ -157,7 +157,7 @@
 
 
 
-  <title>设计模式 之 单例模式 - wuzq的博客</title>
+  <title>设计模式 之 单例模式 - Jacob的博客</title>
   
 
 
@@ -208,7 +208,7 @@
       <a href="/"  class="brand" rel="start">
         <!-- <span class="logo-line-before"><i></i></span> -->
         <!-- <img width="150px" height="auto" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/logo-bestzuo.png"/> -->
-        <span class="site-title">wuzq</span>
+        <span class="site-title">Jacob</span>
 	     <!-- <img width="150px" height="auto" src="/images/site-logo.png" /> -->
         <!-- <span class="logo-line-after"><i></i></span> -->
       </a>
@@ -363,13 +363,13 @@
     <link itemprop="mainEntityOfPage" href="http://wuzq.club/2019/12/26/designMode_singleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wuzq">
+      <meta itemprop="name" content="Jacob">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/touxiang.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wuzq">
+      <meta itemprop="name" content="Jacob">
     </span>
 
     
@@ -489,10 +489,10 @@
 <p>&ensp;&ensp;&ensp;&ensp;图7-1 臣子叩拜皇帝类图</p>
 <p>&ensp;&ensp;&ensp;&ensp;只有两个类，Emperor代表皇帝类，Minister代表臣子类，关联到皇帝类非常简单。Emperor如代码清单7-1所示。</p>
 <p>&ensp;&ensp;&ensp;&ensp;代码清单7-1 皇帝类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emperor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Emperor emperor = <span class="keyword">new</span> Emperor();<span class="comment">//初始化一个皇帝</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//世俗和道德约束你，目的就是不希望产生第二个皇帝</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Emperor <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> emperor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//皇帝发话了</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我就是皇帝wuzq..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emperor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Emperor emperor = <span class="keyword">new</span> Emperor();<span class="comment">//初始化一个皇帝</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Emperor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//世俗和道德约束你，目的就是不希望产生第二个皇帝</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Emperor <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> emperor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//皇帝发话了</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我就是皇帝Jacob..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&ensp;&ensp;&ensp;&ensp;通过定义一个私有访问权限的构造函数，避免被其他类new出来一个对象，而Emperor自己则可以new一个对象出来，其他类对该类的访问都可以通过getInstance获得同一个对象。<br>&ensp;&ensp;&ensp;&ensp;皇帝有了，臣子要出场，其类如代码清单7-2所示。</p>
 <p>&ensp;&ensp;&ensp;&ensp;代码清单7-2 臣子类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码清单7-2 臣子类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Minister</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> day=<span class="number">0</span>;day&lt;<span class="number">3</span>;day++)&#123;</span><br><span class="line">            Emperor emperor = Emperor.getInstance();</span><br><span class="line">            <span class="comment">//打印一下地址,判断是否相同</span></span><br><span class="line">            System.out.println(emperor);</span><br><span class="line">            emperor.say();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">臣子参拜皇帝的运行结果如下所示。</span><br><span class="line">我就是皇帝wuzq...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝wuzq...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝wuzq...</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码清单7-2 臣子类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Minister</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> day=<span class="number">0</span>;day&lt;<span class="number">3</span>;day++)&#123;</span><br><span class="line">            Emperor emperor = Emperor.getInstance();</span><br><span class="line">            <span class="comment">//打印一下地址,判断是否相同</span></span><br><span class="line">            System.out.println(emperor);</span><br><span class="line">            emperor.say();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">臣子参拜皇帝的运行结果如下所示。</span><br><span class="line">我就是皇帝Jacob...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝Jacob...</span><br><span class="line">cn.wzq.design.mode.singleton.Emperor@<span class="number">299</span>a06ac</span><br><span class="line">我就是皇帝Jacob...</span><br></pre></td></tr></table></figure>
 <p>&ensp;&ensp;&ensp;&ensp;臣子天天要上朝参见皇帝，今天参拜的皇帝应该和昨天、前天的一样（过渡期的不考虑，别找茬哦），大臣磕完头，抬头一看，嗨，还是昨天那个皇帝，老熟人了，容易讲话，这就是单例模式。</p>
 <h4 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a>单例模式的定义</h4><p>&ensp;&ensp;&ensp;&ensp;单例模式（Singleton Pattern）是一个比较简单的模式，其定义如下：<br>&ensp;&ensp;&ensp;&ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。）</p>
 <p>&ensp;&ensp;&ensp;&ensp;单例模式的通用类图如图7-2所示</p>
@@ -586,14 +586,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wx_pay.jpg" alt="wuzq 微信支付"/>
+        <img id="wechat_qr" src="/images/wx_pay.jpg" alt="Jacob 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/ali_pay.jpg" alt="wuzq 支付宝"/>
+        <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Jacob 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -611,7 +611,7 @@
         <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
-    wuzq
+    Jacob
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
@@ -753,9 +753,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/touxiang.jpeg"
-                alt="wuzq" />
+                alt="Jacob" />
             
-              <p class="site-author-name" itemprop="name">wuzq</p>
+              <p class="site-author-name" itemprop="name">Jacob</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -876,7 +876,7 @@
   <span class="with-love">
     <font color="red"><i class="fa fa-heartbeat" aria-hidden="true"></i></font>
   </span>
-  <span class="author" itemprop="copyrightHolder">wuzq</span>
+  <span class="author" itemprop="copyrightHolder">Jacob</span>
   &nbsp;
 
   

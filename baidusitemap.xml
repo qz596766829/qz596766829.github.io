@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://wuzq.club/2019/12/26/designMode_singleton/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
     <loc>http://wuzq.club/2020/01/02/SourceCode-ArrayList/</loc>
     <lastmod>2020-01-14</lastmod>
   </url>  <url>
     <loc>http://wuzq.club/2020/01/11/SourceCode-LinkedList/</loc>
-    <lastmod>2020-01-14</lastmod>
-  </url>  <url>
-    <loc>http://wuzq.club/2019/12/26/designMode_singleton/</loc>
     <lastmod>2020-01-14</lastmod>
   </url>  <url>
     <loc>http://wuzq.club/2020/01/06/String-equals/</loc>
