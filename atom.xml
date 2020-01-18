@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://jacob.org.cn/"/>
+  <link href="http://jacob.org.cn/"/>
   <updated>2020-01-14T14:38:56.295Z</updated>
-  <id>https://jacob.org.cn/</id>
+  <id>http://jacob.org.cn/</id>
   
   <author>
     <name>Jacob</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>LinkedList 源码分析</title>
-    <link href="https://jacob.org.cn/2020/01/11/SourceCode-LinkedList/"/>
-    <id>https://jacob.org.cn/2020/01/11/SourceCode-LinkedList/</id>
+    <link href="http://jacob.org.cn/2020/01/11/SourceCode-LinkedList/"/>
+    <id>http://jacob.org.cn/2020/01/11/SourceCode-LinkedList/</id>
     <published>2020-01-11T03:40:38.000Z</published>
     <updated>2020-01-14T14:38:56.295Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="LinkedList 源码" scheme="https://jacob.org.cn/categories/LinkedList-%E6%BA%90%E7%A0%81/"/>
+      <category term="LinkedList 源码" scheme="http://jacob.org.cn/categories/LinkedList-%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="List 源码" scheme="https://jacob.org.cn/tags/List-%E6%BA%90%E7%A0%81/"/>
+      <category term="List 源码" scheme="http://jacob.org.cn/tags/List-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>String equals()方法 源码分析</title>
-    <link href="https://jacob.org.cn/2020/01/06/String-equals/"/>
-    <id>https://jacob.org.cn/2020/01/06/String-equals/</id>
+    <link href="http://jacob.org.cn/2020/01/06/String-equals/"/>
+    <id>http://jacob.org.cn/2020/01/06/String-equals/</id>
     <published>2020-01-06T11:48:15.000Z</published>
     <updated>2020-01-14T14:24:43.164Z</updated>
     
@@ -57,17 +57,17 @@
     
     </summary>
     
-      <category term="String.equls() 源码" scheme="https://jacob.org.cn/categories/String-equls-%E6%BA%90%E7%A0%81/"/>
+      <category term="String.equls() 源码" scheme="http://jacob.org.cn/categories/String-equls-%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="String 源码" scheme="https://jacob.org.cn/tags/String-%E6%BA%90%E7%A0%81/"/>
+      <category term="String 源码" scheme="http://jacob.org.cn/tags/String-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>ArrayList 源码分析</title>
-    <link href="https://jacob.org.cn/2020/01/02/SourceCode-ArrayList/"/>
-    <id>https://jacob.org.cn/2020/01/02/SourceCode-ArrayList/</id>
+    <link href="http://jacob.org.cn/2020/01/02/SourceCode-ArrayList/"/>
+    <id>http://jacob.org.cn/2020/01/02/SourceCode-ArrayList/</id>
     <published>2020-01-02T12:50:22.000Z</published>
     <updated>2020-01-14T15:08:43.910Z</updated>
     
@@ -82,17 +82,17 @@
     
     </summary>
     
-      <category term="ArrayList 源码" scheme="https://jacob.org.cn/categories/ArrayList-%E6%BA%90%E7%A0%81/"/>
+      <category term="ArrayList 源码" scheme="http://jacob.org.cn/categories/ArrayList-%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="List 源码" scheme="https://jacob.org.cn/tags/List-%E6%BA%90%E7%A0%81/"/>
+      <category term="List 源码" scheme="http://jacob.org.cn/tags/List-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>IllegalArgumentException：argument type mismatch</title>
-    <link href="https://jacob.org.cn/2019/12/30/Bug-IdAutoException/"/>
-    <id>https://jacob.org.cn/2019/12/30/Bug-IdAutoException/</id>
+    <link href="http://jacob.org.cn/2019/12/30/Bug-IdAutoException/"/>
+    <id>http://jacob.org.cn/2019/12/30/Bug-IdAutoException/</id>
     <published>2019-12-30T12:42:54.000Z</published>
     <updated>2020-01-14T14:24:43.148Z</updated>
     
@@ -104,17 +104,17 @@
     
     </summary>
     
-      <category term="BUG" scheme="https://jacob.org.cn/categories/BUG/"/>
+      <category term="BUG" scheme="http://jacob.org.cn/categories/BUG/"/>
     
     
-      <category term="BUG" scheme="https://jacob.org.cn/tags/BUG/"/>
+      <category term="BUG" scheme="http://jacob.org.cn/tags/BUG/"/>
     
   </entry>
   
   <entry>
     <title>JDK 8 新特性 之 Strams简单使用</title>
-    <link href="https://jacob.org.cn/2019/12/26/JDK8_strams/"/>
-    <id>https://jacob.org.cn/2019/12/26/JDK8_strams/</id>
+    <link href="http://jacob.org.cn/2019/12/26/JDK8_strams/"/>
+    <id>http://jacob.org.cn/2019/12/26/JDK8_strams/</id>
     <published>2019-12-26T12:22:40.252Z</published>
     <updated>2020-01-14T14:24:43.157Z</updated>
     
@@ -127,17 +127,17 @@
     
     </summary>
     
-      <category term="JDK8" scheme="https://jacob.org.cn/categories/JDK8/"/>
+      <category term="JDK8" scheme="http://jacob.org.cn/categories/JDK8/"/>
     
     
-      <category term="JDK8 新特性" scheme="https://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+      <category term="JDK8 新特性" scheme="http://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>设计模式 之 单例模式</title>
-    <link href="https://jacob.org.cn/2019/12/26/designMode_singleton/"/>
-    <id>https://jacob.org.cn/2019/12/26/designMode_singleton/</id>
+    <link href="http://jacob.org.cn/2019/12/26/designMode_singleton/"/>
+    <id>http://jacob.org.cn/2019/12/26/designMode_singleton/</id>
     <published>2019-12-26T12:22:34.030Z</published>
     <updated>2020-01-17T13:26:54.099Z</updated>
     
@@ -150,17 +150,17 @@
     
     </summary>
     
-      <category term="设计模式" scheme="https://jacob.org.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="http://jacob.org.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
-      <category term="设计模式" scheme="https://jacob.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="http://jacob.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>JDK 8 新特性 之 方法引用</title>
-    <link href="https://jacob.org.cn/2019/12/25/JDK8_method/"/>
-    <id>https://jacob.org.cn/2019/12/25/JDK8_method/</id>
+    <link href="http://jacob.org.cn/2019/12/25/JDK8_method/"/>
+    <id>http://jacob.org.cn/2019/12/25/JDK8_method/</id>
     <published>2019-12-25T15:42:42.728Z</published>
     <updated>2020-01-14T14:24:43.155Z</updated>
     
@@ -181,17 +181,17 @@
     
     </summary>
     
-      <category term="JDK8" scheme="https://jacob.org.cn/categories/JDK8/"/>
+      <category term="JDK8" scheme="http://jacob.org.cn/categories/JDK8/"/>
     
     
-      <category term="JDK8 新特性" scheme="https://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+      <category term="JDK8 新特性" scheme="http://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>JDK 8 新特性 之 Lambda表达式</title>
-    <link href="https://jacob.org.cn/2019/12/25/JDK8_Lambda/"/>
-    <id>https://jacob.org.cn/2019/12/25/JDK8_Lambda/</id>
+    <link href="http://jacob.org.cn/2019/12/25/JDK8_Lambda/"/>
+    <id>http://jacob.org.cn/2019/12/25/JDK8_Lambda/</id>
     <published>2019-12-25T15:20:23.481Z</published>
     <updated>2020-01-14T14:24:43.150Z</updated>
     
@@ -212,17 +212,17 @@
     
     </summary>
     
-      <category term="JDK8" scheme="https://jacob.org.cn/categories/JDK8/"/>
+      <category term="JDK8" scheme="http://jacob.org.cn/categories/JDK8/"/>
     
     
-      <category term="JDK8 新特性" scheme="https://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+      <category term="JDK8 新特性" scheme="http://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>JDK 8 新特性 之 函数接口</title>
-    <link href="https://jacob.org.cn/2019/12/25/JDK8_FunctionInterface/"/>
-    <id>https://jacob.org.cn/2019/12/25/JDK8_FunctionInterface/</id>
+    <link href="http://jacob.org.cn/2019/12/25/JDK8_FunctionInterface/"/>
+    <id>http://jacob.org.cn/2019/12/25/JDK8_FunctionInterface/</id>
     <published>2019-12-25T13:05:13.959Z</published>
     <updated>2020-01-14T14:24:43.144Z</updated>
     
@@ -237,17 +237,17 @@
     
     </summary>
     
-      <category term="JDK8" scheme="https://jacob.org.cn/categories/JDK8/"/>
+      <category term="JDK8" scheme="http://jacob.org.cn/categories/JDK8/"/>
     
     
-      <category term="JDK8 新特性" scheme="https://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+      <category term="JDK8 新特性" scheme="http://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>JDK 8 新特性 之 default关键字</title>
-    <link href="https://jacob.org.cn/2019/12/23/JDK8_default/"/>
-    <id>https://jacob.org.cn/2019/12/23/JDK8_default/</id>
+    <link href="http://jacob.org.cn/2019/12/23/JDK8_default/"/>
+    <id>http://jacob.org.cn/2019/12/23/JDK8_default/</id>
     <published>2019-12-23T12:50:48.327Z</published>
     <updated>2020-01-14T14:24:43.153Z</updated>
     
@@ -261,10 +261,10 @@
     
     </summary>
     
-      <category term="JDK8" scheme="https://jacob.org.cn/categories/JDK8/"/>
+      <category term="JDK8" scheme="http://jacob.org.cn/categories/JDK8/"/>
     
     
-      <category term="JDK8 新特性" scheme="https://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+      <category term="JDK8 新特性" scheme="http://jacob.org.cn/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
