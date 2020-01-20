@@ -111,7 +111,7 @@
 <meta name="description" content="Jacob的个人博客，主要涉及到编程(Java,Linux,SQL等)，个人提升学习。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jacob">
-<meta property="og:url" content="http://jacob.org.cn/archives/2020/01/index.html">
+<meta property="og:url" content="http://jacob.org.cn/page/2/index.html">
 <meta property="og:site_name" content="Jacob">
 <meta property="og:description" content="Jacob的个人博客，主要涉及到编程(Java,Linux,SQL等)，个人提升学习。">
 <meta property="article:author" content="Jacob">
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://jacob.org.cn/archives/2020/01/"/>
+  <link rel="canonical" href="http://jacob.org.cn/page/2/"/>
 
 
 
 
 
-  <title>归档 - Jacob的博客</title>
+  <title>Jacob</title>
   
 
 
@@ -188,7 +188,8 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left 
+  page-home">
 
     <div class="headband"></div>
     
@@ -340,180 +341,587 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+<style type="text/css">
 
-      
+.glyphicon-chevron-left:before{
+	/*content: "<"*/
+	/*background: url(https://site-1258928558.cos.ap-guangzhou.myqcloud.com/left-icon-slides.png);*/
+}
+.glyphicon-chevron-right:before{
+	/*content: ">"*/
+}
 
-        
-        
-        
+@media (max-width: 767px){
+	.rights{
+		display: none;
+	}
+	.carousel{
+		display: none;
+	}
+	.slide{
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.tag-cloud{
+		display: none;
+	}
+}
 
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2020">2020</h2>
-          </div>
-        
-        
+.carousel{
+	width: 65%;
+	height: 100%;
+	position: relative;
+}
 
-        
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
 
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  /*width: 15%;*/
+  /*opacity: 0.5;*/
+  /*filter: alpha(opacity=50);*/
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+  left: auto;
+  right: 0px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+/*.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  background: url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/icon-slides.png');
+  background-position-x: -83px; 
+  left: 9px;
+}*/
+
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left:hover {
+  background: url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/icon-slides.png');
+  left: 9px;
+}
+/*.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  background: url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/icon-slides.png');
+  background-position-x: -125px; 
+  right: 0px;
+}*/
+
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right:hover {
+  background: url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/icon-slides.png');
+  background-position-x: -41px; 
+  right: 0px;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  font-family: serif;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  text-indent: -999px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  background-color: rgba(0,0,0,.24);
+}
+.carousel-indicators .active {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 60px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    /*margin-right: -10px;*/
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 0px;
+  }
+}
+</style>
+<div height="320px" width="100%" style="border: 0px; overflow: hidden; border-radius: 10px;padding:6px" scrolling="no">
+			
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" style="float:left">
+		<!-- 轮播（Carousel）指标 -->
+		<ol class="carousel-indicators">
+		
+		
+
+			<li data-target="#myCarousel" data-slide-to="0"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			
+
+		
+		</ol>
+		<!-- 轮播（Carousel）项目 -->
+		<div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+
+		
+		 
+		
+	    	
+				<a class="item active" href="#" target="_blank" style="height: 100%;">
+					<img class="nofancybox" src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/2020.jpg"   style="width: 100%; height: 100%" >
+				</a>
+				
+				
+
+		
+		
+	    	
+					<a class="item" href="/messageboard/" target="_blank" style="height: 100%;">
+						<img class="nofancybox" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/blog/blog-welcome.png"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+
+		</div>
+		<!-- 轮播（Carousel）导航 -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
+		</a>
+	</div>
+
+	<div  class="rights" style="width: 30%; height: 300px; margin-right: 0px;margin-left: 20px;float: left;">
 	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-19T09:08:26+08:00"
-              content="2020-01-19" >
-          01-19
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/19/java-bit-operation/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;Java 按位运算符(&,|,^,>>,<<,>>>)</span>
-              
-            </a>
-        
-      </h3>
+	   <!-- 天气插件 -->
+       <iframe class="blog-weather" width="420" scrolling="no" height="15%" frameborder="0" allowtransparency="true" src="https://i.tianqi.com/index.php?c=code&id=12&icon=1&num=2&site=12&py=hangzhou"></iframe>
 
-    </header>
-  </article>
+	   <!-- 关于博主 -->
+	   <a href="/about/"  target="_blank" style="text-align: right; width: 100%;"><img class="blog-about nofancybox" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/about.png" width="100%"/></a>
+	   <div style="height: 9px;"></div>
 
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+	   <!-- 推荐阅读 -->
+	   <a href="/books/" target="_blank" style="width: 100%; text-align: right;"><img  class="blog-read nofancybox" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/read.png" width="100%"/></a>
+	   <div style="height: 9px;"></div>
 	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-11T11:40:38+08:00"
-              content="2020-01-11" >
-          01-11
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/11/SourceCode-LinkedList/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;LinkedList 源码分析</span>
-              
-            </a>
-        
-      </h3>
+	   <!-- 光影留念 -->
+	  <a href="/photos/" target="_blank" style="width: 100%; text-align: right;"><img class="blog-photo nofancybox" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/photo.png" width="100%"/></a>
+	  <div style="height: 9px;"></div>
 
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-06T19:48:15+08:00"
-              content="2020-01-06" >
-          01-06
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/06/String-equals/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;String equals()方法 源码分析</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-02T20:50:22+08:00"
-              content="2020-01-02" >
-          01-02
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/02/SourceCode-ArrayList/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;ArrayList 源码分析</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
-      
-
+	  <!-- 留下脚印 -->
+	  <a href="/messageboard/"><img class="blog-messageboard nofancybox" src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7_meitu_5.png"/></a>
     </div>
+
+<div class="tag-cloud">
+  <div class="tag-cloud-tags" id="tags">
+    <a href="/tags/BUG/" style="font-size: 14px; color: #fff">BUG</a> <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" style="font-size: 14px; color: #fff">JDK8 新特性</a> <a href="/tags/Java/" style="font-size: 14px; color: #fff">Java</a> <a href="/tags/List-%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #fff">List 源码</a> <a href="/tags/String-%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #fff">String 源码</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 14px; color: #fff">设计模式</a>
+  </div>
+</div>
+<br>
+
+<script type="text/javascript">
+   var alltags=document.getElementById('tags');
+   var tags=alltags.getElementsByTagName('a');
+
+   for (var i = tags.length - 1; i >= 0; i--) {
+     var r=Math.floor(Math.random()*75+130);
+     var g=Math.floor(Math.random()*75+100);
+     var b=Math.floor(Math.random()*75+80);
+     tags[i].style.background = "rgb("+r+","+g+","+b+")";
+   }
+</script>
+
+<style type="text/css">
+	div#posts.posts-expand .tag-cloud a{
+   		background-color: #f5f7f1;
+   		border-radius: 6px;
+   		padding-left: 10px;
+   		padding-right: 10px;
+   		margin-top: 18px;
+ 	}
+
+ 	.tag-cloud a{
+   		background-color: #f5f7f1;
+   		border-radius: 4px;
+   		padding-right: 5px;
+   		padding-left: 5px;
+   		margin-right: 5px;
+   		margin-left: 0px;
+   		margin-top: 8px;
+   		margin-bottom: 0px;
+ 	}
+
+ 	.tag-cloud a:before{
+       content: "🔖";
+ 	}
+
+ 	.tag-cloud-tags{
+   	   text-align: left;
+   	   counter-reset: tags;
+ 	}
+</style>
+
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2019/12/23/JDK8_default/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/23/JDK8_default/" itemprop="url">JDK 8 新特性 之 default关键字</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T20:50:48+08:00">
+                <font color="blue">2019-12-23</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JDK8/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2019/12/23/JDK8_default/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 default关键字">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  462
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><ul>
+<li>Jdk1.8之前的接口中只声明方法，方法具体实现应在子类中进行。<br/></li>
+<li>Jdk1.8打破了这样的用法：接口中可以实现具体的方法体，只需要加上关键字static或者default修饰即可。<br/>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/23/JDK8_default/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&lt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

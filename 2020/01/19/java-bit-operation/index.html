@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Java,hexo,next,个人博客,博客,编程,IT,CSS,javascript,前端,后端,web开发" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -108,13 +108,16 @@
 
 
 
-<meta name="description" content="Jacob的个人博客，主要涉及到编程(Java,Linux,SQL等)，个人提升学习。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jacob">
-<meta property="og:url" content="http://jacob.org.cn/archives/2020/01/index.html">
+<meta name="description" content="&amp;（按位与）1234567定义：针对二进制，只要有一个为0，就为0。2 &amp; 5 &#x3D; 02的二进制：00000000 00000000 00000000 000000105的二进制：00000000 00000000 00000000 00000101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 按位运算符(&amp;,|,^,&gt;&gt;,&lt;&lt;,&gt;&gt;&gt;)">
+<meta property="og:url" content="http://jacob.org.cn/2020/01/19/java-bit-operation/index.html">
 <meta property="og:site_name" content="Jacob">
-<meta property="og:description" content="Jacob的个人博客，主要涉及到编程(Java,Linux,SQL等)，个人提升学习。">
+<meta property="og:description" content="&amp;（按位与）1234567定义：针对二进制，只要有一个为0，就为0。2 &amp; 5 &#x3D; 02的二进制：00000000 00000000 00000000 000000105的二进制：00000000 00000000 00000000 00000101">
+<meta property="article:published_time" content="2020-01-19T01:08:26.000Z">
+<meta property="article:modified_time" content="2020-01-20T00:55:21.812Z">
 <meta property="article:author" content="Jacob">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
 
@@ -145,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://jacob.org.cn/archives/2020/01/"/>
+  <link rel="canonical" href="http://jacob.org.cn/2020/01/19/java-bit-operation/"/>
 
 
 
 
 
-  <title>归档 - Jacob的博客</title>
+  <title>Java 按位运算符(&,|,^,>>,<<,>>>) - Jacob的博客</title>
   
 
 
@@ -188,7 +191,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
 
     <div class="headband"></div>
     
@@ -340,180 +343,291 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/19/java-bit-operation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">Java 按位运算符(&,|,^,>>,<<,>>>)</h2>
         
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-19T09:08:26+08:00">
+                <font color="blue">2020-01-19</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Java 基础</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/19/java-bit-operation/" class="leancloud_visitors" data-flag-title="Java 按位运算符(&,|,^,>>,<<,>>>)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  455
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
-        
-        
-        
+      
+        <h3 id="amp-（按位与）"><a href="#amp-（按位与）" class="headerlink" title="&amp;（按位与）"></a>&amp;（按位与）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：针对二进制，只要有一个为0，就为0。</span><br><span class="line"></span><br><span class="line">2 &amp; 5 &#x3D; 0</span><br><span class="line"></span><br><span class="line">2的二进制：00000000 00000000 00000000 00000010</span><br><span class="line"></span><br><span class="line">5的二进制：00000000 00000000 00000000 00000101</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="（按位或）"><a href="#（按位或）" class="headerlink" title="|（按位或）"></a>|（按位或）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：针对二进制，只要有一个为1，就为1。</span><br><span class="line"></span><br><span class="line">2 | 5 &#x3D; 7</span><br><span class="line"></span><br><span class="line">2的二进制：00000000 00000000 00000000 00000010</span><br><span class="line"></span><br><span class="line">5的二进制：00000000 00000000 00000000 00000101</span><br></pre></td></tr></table></figure>
+<h3 id="（按位亦或）"><a href="#（按位亦或）" class="headerlink" title="^（按位亦或）"></a>^（按位亦或）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">定义：针对二进制，相同的为0，不同的为1。</span><br><span class="line"></span><br><span class="line">2 ^ 5 &#x3D; 7</span><br><span class="line"></span><br><span class="line">2的二进制：00000000 00000000 00000000 00000010</span><br><span class="line"></span><br><span class="line">5的二进制：00000000 00000000 00000000 00000101</span><br><span class="line"></span><br><span class="line">2 ^ 3 &#x3D; 1</span><br><span class="line"></span><br><span class="line">2的二进制：00000000 00000000 00000000 00000010</span><br><span class="line"></span><br><span class="line">3的二进制：00000000 00000000 00000000 00000011</span><br></pre></td></tr></table></figure>
+<h3 id="（按位非）"><a href="#（按位非）" class="headerlink" title="~（按位非）"></a>~（按位非）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">定义：按位取反运算符翻转操作数的每一位，即0变成1，1变成0。</span><br><span class="line"></span><br><span class="line">~8 &#x3D; -9</span><br><span class="line"></span><br><span class="line">8的二进制：00000000 00000000 00000000 00000100</span><br><span class="line"></span><br><span class="line">~8的二进制：11111111 11111111 11111111 11110111</span><br><span class="line"></span><br><span class="line">因为高位是1，所以该数为负数。&lt;font color &#x3D;&quot;#CC0000&quot;&gt;负数的补码是其绝对值的原码取反，末尾再加1。&lt;&#x2F;font&gt;</span><br><span class="line"></span><br><span class="line">末尾减1得反码：11111111 11111111 11111111 11110110</span><br><span class="line"></span><br><span class="line">将反码取反：00000000 00000000 00000000 00001001 &#x3D; 9</span><br></pre></td></tr></table></figure>
+<h3 id="lt-lt-（向左位移）"><a href="#lt-lt-（向左位移）" class="headerlink" title="&lt;&lt;（向左位移）"></a>&lt;&lt;（向左位移）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：针对二进制，转换成二进制后向左移动3位，后面用0补齐。</span><br><span class="line"></span><br><span class="line">3 &lt;&lt; 1 &#x3D; 6</span><br><span class="line"></span><br><span class="line">3的二进制：00000000 00000000 00000000 00000011</span><br><span class="line"></span><br><span class="line">3左移后进制数：00000000 00000000 00000000 00000110</span><br></pre></td></tr></table></figure>
+<h3 id="gt-gt-（向右位移）"><a href="#gt-gt-（向右位移）" class="headerlink" title="&gt;&gt;（向右位移）"></a>&gt;&gt;（向右位移）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：针对二进制，转换成二进制后向右移动3位。</span><br><span class="line"></span><br><span class="line">3 &gt;&gt; 1 &#x3D; 1</span><br><span class="line"></span><br><span class="line">3的二进制：00000000 00000000 00000000 00000011</span><br><span class="line"></span><br><span class="line">3右移后进制数：00000000 00000000 00000000 00000001</span><br></pre></td></tr></table></figure>
+<h3 id="gt-gt-gt-（无符号右移）"><a href="#gt-gt-gt-（无符号右移）" class="headerlink" title="&gt;&gt;&gt;（无符号右移）"></a>&gt;&gt;&gt;（无符号右移）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：忽略符号位，空位都以0补齐。</span><br><span class="line"></span><br><span class="line">-1 &gt;&gt;&gt; 1 &#x3D; 2147483647</span><br><span class="line"></span><br><span class="line">-1的二进制(补码表示法)：11111111 11111111 11111111 11111111</span><br><span class="line"></span><br><span class="line">右移后：01111111 11111111 11111111 11111111</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-        
+    
+      
+
+
+
+
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果这篇文章对您很有帮助，不妨</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx_pay.jpg" alt="Jacob 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Jacob 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Jacob
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jacob.org.cn/2020/01/19/java-bit-operation/" title="Java 按位运算符(&,|,^,>>,<<,>>>)">http://jacob.org.cn/2020/01/19/java-bit-operation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    	<div>
+	   
+             <div>
+    
+        <div style="margin-top: 30px;text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+           
+        </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2020">2020</h2>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
           </div>
         
-        
 
         
 
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-19T09:08:26+08:00"
-              content="2020-01-19" >
-          01-19
-        </time>
-      </div>
-      <h3 class="my-post-title">
         
-            <a class="my-post-title-link" href="/2020/01/19/java-bit-operation/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;Java 按位运算符(&,|,^,>>,<<,>>>)</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/11/SourceCode-LinkedList/" rel="next" title="LinkedList 源码分析">
+                <i class="fa fa-chevron-left"></i> LinkedList 源码分析
+              </a>
+            
+          </div>
 
-        
-        
+          <span class="post-nav-divider"></span>
 
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-11T11:40:38+08:00"
-              content="2020-01-11" >
-          01-11
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/11/SourceCode-LinkedList/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;LinkedList 源码分析</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-06T19:48:15+08:00"
-              content="2020-01-06" >
-          01-06
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/06/String-equals/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;String equals()方法 源码分析</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="my-post" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-	
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2020-01-02T20:50:22+08:00"
-              content="2020-01-02" >
-          01-02
-        </time>
-      </div>
-      <h3 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2020/01/02/SourceCode-ArrayList/" itemprop="url">
-              
-                <span itemprop="name">&nbsp;ArrayList 源码分析</span>
-              
-            </a>
-        
-      </h3>
-
-    </header>
-  </article>
-
-
-
       
-
-    </div>
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+
+      <!-- 引入share.js -->
+      <div data-weibo-title="分享到微博" data-qq-title="分享到QQ" data-douban-title="分享到豆瓣" class="social-share" class="share-component" data-disabled="twitter,facebook" data-description="Share.js - 一键分享到微博，QQ空间，腾讯微博，人人，豆瓣">分享到：</div>
+  </div>
 
 
 
@@ -522,6 +636,12 @@
 
 
           
+
+  
+    <div class="comments comment" id="comments"></div>
+  
+
+
 
         </div>
         
@@ -544,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,6 +770,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-（按位与）"><span class="nav-number">1.</span> <span class="nav-text">&amp;（按位与）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（按位或）"><span class="nav-number">2.</span> <span class="nav-text">|（按位或）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（按位亦或）"><span class="nav-number">3.</span> <span class="nav-text">^（按位亦或）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（按位非）"><span class="nav-number">4.</span> <span class="nav-text">~（按位非）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-lt-（向左位移）"><span class="nav-number">5.</span> <span class="nav-text">&lt;&lt;（向左位移）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-（向右位移）"><span class="nav-number">6.</span> <span class="nav-text">&gt;&gt;（向右位移）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-（无符号右移）"><span class="nav-number">7.</span> <span class="nav-text">&gt;&gt;&gt;（无符号右移）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -803,6 +948,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1314,6 +1463,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 17880,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 

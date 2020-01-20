@@ -1,3 +1,4 @@
+http://jacob.org.cn/2020/01/19/java-bit-operation/
 http://jacob.org.cn/top/index.html
 http://jacob.org.cn/2019/12/26/designMode_singleton/
 http://jacob.org.cn/2020/01/02/SourceCode-ArrayList/
