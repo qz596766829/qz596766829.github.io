@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2019 个人总结</title>
+    <url>/2020/01/20/2019summarize/</url>
+    <content><![CDATA[<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/2019.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="奔波的2019"><a href="#奔波的2019" class="headerlink" title="奔波的2019"></a>奔波的2019</h3><p>2019是奔波的一年，从老家到上海到苏州到宁波到杭州。归其原因还是工作，从在上海待了两个月后不计后果裸辞，到一路面试。从上海面到苏州面到宁波面，一路奔波终归在宁波落脚。面试之路是坎坷的，是艰辛的也是最容易迷失自己的。也曾几度想转行，销售，助教，课程顾问，大堂经理都有面试过。当拿到其他行业的offer时总有那么些不甘，最终不考虑转行听取家人建议尝试去周边城市面试。苏州、宁波各去了一个也收到offer，最终选择宁波。从宁波到杭州是因为公司业务拓展。</p>
+<h3 id="收获的2019"><a href="#收获的2019" class="headerlink" title="收获的2019"></a>收获的2019</h3><p>尽管2019是奔波的，但也是收获的。重点可以分为态度与经验。从以前的手足无措到现在的井井有条；从以前的程序小白到现在懂得分析源码。优秀谈不上，感谢自己现在的状态，积极向上。</p>
+<h3 id="个人展望"><a href="#个人展望" class="headerlink" title="个人展望"></a>个人展望</h3><p>未来职业方向是走技术架构这条路线。</p>
+<p>2020个人展望：</p>
+<p>系统学习SpringBoot、SpringCloud。</p>
+<p>学习Docker，Mysql高级，Srping源码。</p>
+<p>感谢</p>
+]]></content>
+      <categories>
+        <category>程序人生</category>
+      </categories>
+      <tags>
+        <tag>程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 按位运算符(&amp;,|,^,&gt;&gt;,&lt;&lt;,&gt;&gt;&gt;)</title>
     <url>/2020/01/19/java-bit-operation/</url>
     <content><![CDATA[<h3 id="amp-（按位与）"><a href="#amp-（按位与）" class="headerlink" title="&amp;（按位与）"></a>&amp;（按位与）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">定义：针对二进制，只要有一个为0，就为0。</span><br><span class="line"></span><br><span class="line">2 &amp; 5 &#x3D; 0</span><br><span class="line"></span><br><span class="line">2的二进制：00000000 00000000 00000000 00000010</span><br><span class="line"></span><br><span class="line">5的二进制：00000000 00000000 00000000 00000101</span><br></pre></td></tr></table></figure>
