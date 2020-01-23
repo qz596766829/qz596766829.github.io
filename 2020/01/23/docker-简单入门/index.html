@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="JDK8 新特性," />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -108,17 +108,22 @@
 
 
 
-<meta name="description" content="概述 Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。Stream API可以极大提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。这种风格将要处理的元素集合看作一种流， 流在管道中传输， 并且可以在管道的上进行操作处理，">
+<meta name="description" content="Docker 简介Docker是一个开源的容器引擎，它有助于更快地交付应。Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序-样进行管理。使用Docker，可更快地打包、测试以及部署应用程序,并可以缩短从编写到部署运行代码的周期。  Docker的官方网站: https:&#x2F;&#x2F;www.docker.com&#x2F;Docker的GitHub: https:&#x2F;&#x2F;github.com&#x2F;docke">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK 8 新特性 之 Strams简单使用">
-<meta property="og:url" content="http://jacob.org.cn/2019/12/26/JDK8_strams/index.html">
+<meta property="og:title" content="Docker 简单入门(一)">
+<meta property="og:url" content="http://jacob.org.cn/2020/01/23/docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Jacob">
-<meta property="og:description" content="概述 Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。Stream API可以极大提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。这种风格将要处理的元素集合看作一种流， 流在管道中传输， 并且可以在管道的上进行操作处理，">
-<meta property="article:published_time" content="2019-12-26T12:22:40.252Z">
-<meta property="article:modified_time" content="2020-01-14T14:24:43.157Z">
+<meta property="og:description" content="Docker 简介Docker是一个开源的容器引擎，它有助于更快地交付应。Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序-样进行管理。使用Docker，可更快地打包、测试以及部署应用程序,并可以缩短从编写到部署运行代码的周期。  Docker的官方网站: https:&#x2F;&#x2F;www.docker.com&#x2F;Docker的GitHub: https:&#x2F;&#x2F;github.com&#x2F;docke">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-version.png">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/1579793979.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/1579794108.jpg">
+<meta property="article:published_time" content="2020-01-23T03:24:21.000Z">
+<meta property="article:modified_time" content="2020-01-23T15:57:19.422Z">
 <meta property="article:author" content="Jacob">
-<meta property="article:tag" content="JDK8 新特性">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker.jpg">
 
 
 
@@ -148,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="http://jacob.org.cn/2019/12/26/JDK8_strams/"/>
+  <link rel="canonical" href="http://jacob.org.cn/2020/01/23/docker-简单入门/"/>
 
 
 
 
 
-  <title>JDK 8 新特性 之 Strams简单使用 - Jacob的博客</title>
+  <title>Docker 简单入门(一) - Jacob的博客</title>
   
 
 
@@ -357,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2019/12/26/JDK8_strams/">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/23/docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jacob">
@@ -374,7 +379,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JDK 8 新特性 之 Strams简单使用</h2>
+          <h2 class="post-title" itemprop="name headline">Docker 简单入门(一)</h2>
         
 
         <div class="post-meta">
@@ -387,8 +392,8 @@
                 <font color="blue"><i class="fa fa-calendar"></i></font>
               </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T20:22:40+08:00">
-                <font color="blue">2019-12-26</font>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-23T11:24:21+08:00">
+                <font color="blue">2020-01-23</font>
               </time>
             
 
@@ -409,8 +414,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK8/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Docker</span></font>
                   </a>
                 </span>
 
@@ -428,7 +433,7 @@
 
           
           
-             <span id="/2019/12/26/JDK8_strams/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 Strams简单使用">
+             <span id="/2020/01/23/docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/" class="leancloud_visitors" data-flag-title="Docker 简单入门(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <!-- 阅读量图标颜色 -->
@@ -454,7 +459,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  1,473
+                  1,378
                 </span></font>
               
 
@@ -479,52 +484,68 @@
       
 
       
-        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><hr>
-<p>Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。<br>Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。<br>Stream API可以极大提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。<br>这种风格将要处理的元素集合看作一种流， 流在管道中传输， 并且可以在管道的上进行操作处理， 比如筛选， 排序，聚合等。<br>元素流在管道中经过中间的一系列操作（intermediate operation）和处理，最后由最终操作(terminal operation)得到前面处理的结果。</p>
-<a id="more"></a>
-<h4 id="什么是-Stream？"><a href="#什么是-Stream？" class="headerlink" title="什么是 Stream？"></a>什么是 Stream？</h4><p>Stream（流）是一个来自数据源的元素队列并支持聚合操作</p>
-<ul>
-<li>元素是特定类型的对象，形成一个队列。 Java中的Stream并不会存储元素，而是按需计算。</li>
-<li>数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。</li>
-<li>聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。</li>
-</ul>
-<p>和以前的Collection操作不同， Stream操作还有两个基础的特征：</p>
-<ul>
-<li>Pipelining: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。 </li>
-<li>内部迭代： 以前对集合遍历都是通过Iterator或者For-Each的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。 Stream提供了内部迭代的方式， 通过访问者模式(Visitor)实现。</li>
-</ul>
-<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><ol>
-<li>场景一：过滤集合内的元素<blockquote>
-<p>JDK8之前 对集合进行过滤</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            List&lt;String&gt; strList = Arrays.asList(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"c"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>);</span><br><span class="line">            System.out.println(<span class="string">"初始化数据： "</span> + strList);</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">            * JDK8之前 对集合进行过滤</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="comment">//过滤掉小写字母c</span></span><br><span class="line">            strList = getFilterOutput(strList, <span class="string">"c"</span>);</span><br><span class="line">            System.out.println(<span class="string">"过滤小写字母c后数据："</span>+strList);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 过滤掉小写字母c</span></span><br><span class="line"><span class="comment">        * <span class="doctag">@param</span> strList   集合</span></span><br><span class="line"><span class="comment">        * <span class="doctag">@param</span> strFilter 需要过滤的字符</span></span><br><span class="line"><span class="comment">        * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getFilterOutput</span><span class="params">(List&lt;String&gt; strList, String strFilter)</span> </span>&#123;</span><br><span class="line">            List&lt;String&gt; filterList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (String s : strList) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!s.equals(<span class="string">"c"</span>)) &#123;</span><br><span class="line">                    filterList.add(s);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> filterList;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="Docker-简介"><a href="#Docker-简介" class="headerlink" title="Docker 简介"></a>Docker 简介</h3><p>Docker是一个开源的容器引擎，它有助于更快地交付应。Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序-样进行管理。使用Docker，可更快地打包、测试以及部署应用程序,并可以缩短从编写到部署运行代码的周期。</p>
 <blockquote>
-<p>JDK8 后 使用Streams中 filter() and collect() 方法进行过滤数据和收集数据</p>
+<p>Docker的官方网站: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a><br>Docker的GitHub: <a href="https://github.com/docker/docker/" target="_blank" rel="noopener">https://github.com/docker/docker/</a></p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; strList = Arrays.asList(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"c"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>);</span><br><span class="line">        System.out.println(<span class="string">"初始化数据： "</span> + strList);</span><br><span class="line">        strList = strList.stream().filter(s -&gt;</span><br><span class="line">                !s.equals(<span class="string">"c"</span>)</span><br><span class="line">        ).collect(Collectors.toList());</span><br><span class="line">        System.out.println(<span class="string">"过滤小写字母c后数据："</span> + strList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- strList.stream() : 将List转换为stram<br> filter() : 过滤并返回<br> collect() : 将返回的结果转换为List</li>
-<li>场景二：通过username获取对象<blockquote>
-<p>JDK8 之前 通过username获取对象</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; userList = Arrays.asList(<span class="keyword">new</span> User(<span class="string">"user1"</span>, <span class="string">"password1"</span>), <span class="keyword">new</span> User(<span class="string">"username2"</span>, <span class="string">"password2"</span>), <span class="keyword">new</span> User(<span class="string">"username3"</span>, <span class="string">"password3"</span>));</span><br><span class="line">        User user = getFilterUser(userList, <span class="string">"username2"</span>);</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 通过username获取对象</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> userList</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> username</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> User <span class="title">getFilterUser</span><span class="params">(List&lt;User&gt; userList,String username)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (User user : userList) &#123;</span><br><span class="line">            <span class="keyword">if</span> (username.equals(user.getUsername()))&#123;</span><br><span class="line">                <span class="keyword">return</span> user;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"username='"</span> + username + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", password='"</span> + password + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>JDK8 使用Streams中 filter(), findAny() and orElse() 方法进行过滤数据和收集数据</p>
-</blockquote>
+<h3 id="Docker-架构"><a href="#Docker-架构" class="headerlink" title="Docker 架构"></a>Docker 架构</h3><p>Docker 架构图如下:<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker.jpg" alt=""><br>图中包含的组件：</p>
+<ul>
+<li><p>Docker daemon ( Docker守护进程)<br>  Docker daemon是一个运行在宿主机( DOCKER HOST )的后台进程。可通过Docker客户端与之通信。</p>
+</li>
+<li><p>Client ( Docker 客户端）<br>  DoCker 客户端是 DOCke ：的用户界面，它可以接受用户命令和配置标识，并与 DOCker daemon 通信。图中， docke : build 等都是 Docke ：的相关命令。</p>
+</li>
+<li><p>Images ( Docker 镜像）<br>  DOCker 镜像是一个只读模板，它包含创建 DoCker 容器的说明。它和系统安装光盘有点像 ― 使用系统安装光盘可以安装系统，同理，使用 D 。 cke ：镜像可以运行 Docker 镜像中的程序。</p>
+</li>
+<li><p>Container （容器）<br>  容器是镜像的可运行实例。镜像和容器的关系有点类似于面向对象中，类和对象的关系。可通过 Docker API 或者 Cll 命令来启停、移动、删除容器。</p>
+</li>
+<li><p>Registry<br>  Docker Registry 是一个集中存储与分发镜像的服务。构建完 Docker 镜像后，就可在当前宿主机上运行。但如果想要在其他机器上运行这个镜像，就需要手动复制。此时可借助 Docker Registry 来避免镜像的手动复制。一个 Docker Registry 可包含多个 Doclcer 仓库，每个仓库可包含多个镜像标签，每个标签对应一个 Docker 镜像。这跟 Maven 的仓库有点类似，如果把 Docker Registry 比作 Maven 仓库的话，那么 Docker 仓库就可理解为某 jar 包的路径，而镜像标签则可理解为 jar 包的版本号。</p>
+<p>  Docker Registry 可分为公有 Docker Registry 和私有 Docker Registry 。最常用的 Docker Registry 莫过于官方的 Docker Hub ，这也是默认的 Doclcer Registry 。 Doclcer 枷 b 上存放着大量优秀的镜像，可使用 DoCker 命令下载并使用。</p>
+</li>
+</ul>
+<h3 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h3><p>DoCker 官方建议将 Docker 运行在 Linux 操作系统上。当然Docke也可运行在其他的平台，例如windows、MacOS 等。<br>本次将演示如何在 CentOS 上安装 Docker ，其他操作系统上的安装可参考官方文档： <a href="https://docs.docker.com/engine/installation/。" target="_blank" rel="noopener">https://docs.docker.com/engine/installation/。</a></p>
+<h4 id="Docker-系统要求"><a href="#Docker-系统要求" class="headerlink" title="Docker 系统要求"></a>Docker 系统要求</h4><p>Docker 运行在 CentOS 7 . X 之上。<br>Docke ：需要安装在 64 位平台.</p>
+<h4 id="卸载旧版Docker"><a href="#卸载旧版Docker" class="headerlink" title="卸载旧版Docker"></a>卸载旧版Docker</h4><p>sudo yum -y remove docker-ce 执行该命令只会移除旧版本的 docker-ce , /var/lib/docker 目录中的内容不会被删除，因此，旧版本 Docker-ce所创建的镜像、容器、卷等都会保留下来。</p>
+<h4 id="设置-Yum-源"><a href="#设置-Yum-源" class="headerlink" title="设置 Yum 源"></a>设置 Yum 源</h4><p>Docker 有很多中安装方式：例如Yum安装、RPM安装、Shell安装。本次以Yum安装为例。</p>
+<ol>
+<li>安装 yum-utils，这样就能使用 yum-config-manager 工具设置 Yum 源。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils</span><br></pre></td></tr></table></figure></li>
+<li>执行以下命令，添加 Docker 的 Yum 源。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo</span><br></pre></td></tr></table></figure></li>
+<li>[可选]启用测试仓库<br> 测试仓库包含在 docker.repo 文件中，但默认情况下是禁用的。如需启用测试仓库，可使用以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-conflg-manager -enable docker-testing</span><br></pre></td></tr></table></figure>
+ 想要禁用测-试仓库，可执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager -disable docker-testing</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; userList = Arrays.asList(<span class="keyword">new</span> User(<span class="string">"user1"</span>, <span class="string">"password1"</span>), <span class="keyword">new</span> User(<span class="string">"username2"</span>, <span class="string">"password2"</span>), <span class="keyword">new</span> User(<span class="string">"username3"</span>, <span class="string">"password3"</span>));</span><br><span class="line">        User user = userList.stream().filter(username -&gt; <span class="string">"username2"</span>.equals(username)).findAny().orElse(<span class="keyword">null</span>);</span><br><span class="line">        System.out.println(user);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"username='"</span> + username + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", password='"</span> + password + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>filter() : 过滤并返回
-findAny() : 若有返回参数，直接返回
-orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
-<li>场景三：从对象集合中取出某个字段的集合<blockquote>
-<p>JDK 8 之前从对象集合中取出某个字段的集合</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义list集合</span></span><br><span class="line">        List&lt;admin&gt; list = Arrays.asList(<span class="keyword">new</span> admin(<span class="number">1</span>, <span class="string">"周杰"</span>), <span class="keyword">new</span> admin(<span class="number">2</span>, <span class="string">"周捷"</span>), <span class="keyword">new</span> admin(<span class="number">3</span>, <span class="string">"周洁"</span>));</span><br><span class="line">        List&lt;String&gt; names = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (admin admin : list) &#123;</span><br><span class="line">            names.add(admin.getName());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(names);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">admin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">admin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">admin</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>JDK8 使用Streams中 map(), collect()方法进行过滤数据和收集数据</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test6</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义list集合</span></span><br><span class="line">        List&lt;admin&gt; list = Arrays.asList(<span class="keyword">new</span> admin(<span class="number">1</span>, <span class="string">"周杰"</span>), <span class="keyword">new</span> admin(<span class="number">2</span>, <span class="string">"周捷"</span>), <span class="keyword">new</span> admin(<span class="number">3</span>, <span class="string">"周洁"</span>));</span><br><span class="line">        <span class="comment">//从list集合中，取出字段name的列表</span></span><br><span class="line">        List&lt;String&gt; names = list.stream().map(p -&gt; p.getName()).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        System.out.println(names);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">admin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">admin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">admin</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h4><ol>
+<li><p>更新 Yum 包的索引。 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></li>
+<li><p>安装最新版本的 Docker。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y Install docker-ce</span><br></pre></td></tr></table></figure>
+<p> 这样，经过-段时间的等待后， Doclcer 就安装完成了。</p>
 </li>
+<li><p>在生产系统中，可能需要安装指定版本的 Docker ，而并不总是安装最新版本。执行以下命令，即可列出可用的 Docker 版本。 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce.x86_64_showduplicates |sort -r</span><br></pre></td></tr></table></figure>
+<p> 其中， sort -r 命令表示对结果由高到低排序。列出 Docker 版本，可使用以下命令安装指定版本的 Docker。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     sudo yum - y install docker-ce-＜VERSION_STRIN6&gt;</span><br><span class="line">    &#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">4. 设置开机启动</span><br><span class="line">&#96;&#96;&#96; linux </span><br><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure></li>
+<li><p>启动 DokCero </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></li>
+<li><p>执行以下命令，验证安装是否正确。 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hell0-World</span><br></pre></td></tr></table></figure>
+<p> 如看到类似于如下的结果，则说明安装正确。<br> Unable to find image ‘hello-world:latest’ locally<br> …<br> Hello from docker!<br> This message shows that your installation appears to be working correctly.<br> …</p>
+</li>
+<li><p>查看 Docker 版本。<br>docker version 可看到类似于如下的结果：<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-version.png" alt=""></p>
+</li>
+</ol>
+<h4 id="卸载-Docker"><a href="#卸载-Docker" class="headerlink" title="卸载 Docker"></a>卸载 Docker</h4><ol>
+<li>卸载 Doclcer 软件包。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y remove docker-ce</span><br></pre></td></tr></table></figure></li>
+<li>如需删除镜像、容器、卷以及自定义的配置文件，可执行以下命令: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf &#x2F;var&#x2F;docker</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="配置阿里镜像加速器"><a href="#配置阿里镜像加速器" class="headerlink" title="配置阿里镜像加速器"></a>配置阿里镜像加速器</h3><p>国内访问 Docker Hub 的速度很不稳定，有时甚至出现连接不上的情况。本节来为 Docker 配置镜像加速器，从而解决这个问题。目前国内很多云服务商都提供了镜像加速的服务。常用的镜像加速器有：阿里云加速器、 DaoCloud 加速器等。各厂商镜像加速器的使用方式大致类似，本节以阿里云加速器为例进行讲解。</p>
+<ol>
+<li>打开阿里云控制台-容器镜像服务-镜像中心-镜像加速器<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/1579793979.jpg" alt=""></li>
+<li>修改配置文件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br></pre></td></tr></table></figure>
+ 添加加速地址<br> <img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/1579794108.jpg" alt=""></li>
+<li>重启docker<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -532,44 +553,6 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
 
     
       
-
-  <div class="popular-posts-header">相关文章推荐</div>
-  <ul class="popular-posts">
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\25\JDK8_FunctionInterface\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 函数接口</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\25\JDK8_Lambda\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 Lambda表达式</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\23\JDK8_default\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 default关键字</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\25\JDK8_method\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 方法引用</a></div>
-      
-    </div>
-  
-  </ul>
-  <style type="text/css">
-    a:hover{
-      text-decoration: none;
-    }
-  </style>
 
 
 
@@ -624,7 +607,7 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jacob.org.cn/2019/12/26/JDK8_strams/" title="JDK 8 新特性 之 Strams简单使用">http://jacob.org.cn/2019/12/26/JDK8_strams/</a>
+    <a href="http://jacob.org.cn/2020/01/23/docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/" title="Docker 简单入门(一)">http://jacob.org.cn/2020/01/23/docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -649,7 +632,7 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
       
         <div class="post-tags">
           
-            <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag"><i class="fa fa-tag"></i> JDK8 新特性</a>
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
           
         </div>
       
@@ -675,8 +658,8 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/26/designMode_singleton/" rel="next" title="设计模式 之 单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式 之 单例模式
+              <a href="/2020/01/20/2019summarize/" rel="next" title="2019 个人总结">
+                <i class="fa fa-chevron-left"></i> 2019 个人总结
               </a>
             
           </div>
@@ -684,10 +667,6 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/30/Bug-IdAutoException/" rel="prev" title="IllegalArgumentException：argument type mismatch">
-                IllegalArgumentException：argument type mismatch <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -862,7 +841,7 @@ orElse() : 若没有返回参数，返回null</code></pre><ol start="3">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-Stream？"><span class="nav-number">2.</span> <span class="nav-text">什么是 Stream？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单使用"><span class="nav-number">3.</span> <span class="nav-text">简单使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-简介"><span class="nav-number">1.</span> <span class="nav-text">Docker 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-架构"><span class="nav-number">2.</span> <span class="nav-text">Docker 架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-安装"><span class="nav-number">3.</span> <span class="nav-text">Docker 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-系统要求"><span class="nav-number">3.1.</span> <span class="nav-text">Docker 系统要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载旧版Docker"><span class="nav-number">3.2.</span> <span class="nav-text">卸载旧版Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置-Yum-源"><span class="nav-number">3.3.</span> <span class="nav-text">设置 Yum 源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Docker"><span class="nav-number">3.4.</span> <span class="nav-text">安装 Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载-Docker"><span class="nav-number">3.5.</span> <span class="nav-text">卸载 Docker</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置阿里镜像加速器"><span class="nav-number">4.</span> <span class="nav-text">配置阿里镜像加速器</span></a></li></ol></div>
             
 
           </div>
