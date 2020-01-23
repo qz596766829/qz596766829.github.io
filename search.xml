@@ -7,6 +7,7 @@
 <blockquote>
 <p>Docker的官方网站: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a><br>Docker的GitHub: <a href="https://github.com/docker/docker/" target="_blank" rel="noopener">https://github.com/docker/docker/</a></p>
 </blockquote>
+<a id="more"></a>
 <h3 id="Docker-架构"><a href="#Docker-架构" class="headerlink" title="Docker 架构"></a>Docker 架构</h3><p>Docker 架构图如下:<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker.jpg" alt=""><br>图中包含的组件：</p>
 <ul>
 <li><p>Docker daemon ( Docker守护进程)<br>  Docker daemon是一个运行在宿主机( DOCKER HOST )的后台进程。可通过Docker客户端与之通信。</p>
