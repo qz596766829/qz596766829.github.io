@@ -11,10 +11,10 @@
 <li>DESCRIPTION ：镜像仓库描述。</li>
 <li>STARS ：镜像仓库收藏数，表示该镜像仓库的受欢迎程度，类似于 GitHub 的 Stars 。</li>
 <li>OFFICIAL ：表示是否为官方仓库，该列标记为 [OK] 的镜像均由各软件的官方项目组创建和维护。由结果可知，前8个镜像仓库是官方仓库，而其他的仓库都不是镜像仓库。</li>
-<li>AuTOMATED ：表示是否是自动构建的镜像仓库。</li>
+<li>AuTOMATED ：表示是否是自动构建的镜像仓库。<a id="more"></a></li>
 </ul>
 <ul>
-<li>下载镜像<br>使用命令 docker pull 命令即可从 Docker Registry 上下载镜像，例如： docker putl j ava 执行该命令后， Docker 会从 Docker Hub 中的 Java 仓库下载最新版本的 Jaya 镜像。若镜像下载缓慢，可配置镜像加速器，<a href="https://jacob.org.cn/2020/01/23/7docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/">Docker 简单入门(一)</a>。该命令还可指定想要下载的镜像标签以及 Docker Registry 地址，例如： docker pull reg.itmuch.com/java:7 这样就可以从指定的 Docker Registry 中下载标签为 7 的 Java 镜像。</li>
+<li>下载镜像<br>使用命令 docker pull 命令即可从 Docker Registry 上下载镜像，例如： docker putl j ava 执行该命令后， Docker 会从 Docker Hub 中的 Java 仓库下载最新版本的 Jaya 镜像。若镜像下载缓慢，可配置镜像加速器，<a href="https://jacob.org.cn/2020/01/23/Docker1-JianDanRuMen/">Docker 简单入门(一)</a>。该命令还可指定想要下载的镜像标签以及 Docker Registry 地址，例如： docker pull reg.itmuch.com/java:7 这样就可以从指定的 Docker Registry 中下载标签为 7 的 Java 镜像。</li>
 <li>列出镜像<br>使用 docker images 命令即可列出已下载的镜像。执行该命令后，将会看到类似于如下的表格：<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-images.jpg" alt=""><br>该表格包含了 5 列，含义如下。</li>
 </ul>
 <ul>
