@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="JDK8 新特性," />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -108,17 +108,21 @@
 
 
 
-<meta name="description" content="前言  Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。 Lambda 允许把函数作为参数传递进方法中。 使用 Lambda 表达式可以使代码变的更加简洁紧凑。 lambda表达式的重要特征: 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。 可选的大括号：如果主体包含了一个语句，就不">
+<meta name="description" content="Docker 镜像常用命令 搜索镜像可使用 docker search 命令搜索存放在 Docker Hub 中的镜像。例如： docker search java 执行该命令后， Docker 就会在 Docker Hub 中搜索含有 java 这个关键词的镜像仓库。执行该命令后，可看到类似于如下的表格：该表格包含五列，含义如下。   NAME ：镜像仓库名称。 DESCRIPTION ：镜像仓">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK 8 新特性 之 Lambda表达式">
-<meta property="og:url" content="http://jacob.org.cn/2019/12/25/JDK8_Lambda/index.html">
+<meta property="og:title" content="Docker 常用命令(二)">
+<meta property="og:url" content="http://jacob.org.cn/2020/01/24/Docker2-ChangYongMingLing/index.html">
 <meta property="og:site_name" content="Jacob">
-<meta property="og:description" content="前言  Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。 Lambda 允许把函数作为参数传递进方法中。 使用 Lambda 表达式可以使代码变的更加简洁紧凑。 lambda表达式的重要特征: 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。 可选的大括号：如果主体包含了一个语句，就不">
-<meta property="article:published_time" content="2019-12-25T15:20:23.481Z">
-<meta property="article:modified_time" content="2020-01-14T14:24:43.150Z">
+<meta property="og:description" content="Docker 镜像常用命令 搜索镜像可使用 docker search 命令搜索存放在 Docker Hub 中的镜像。例如： docker search java 执行该命令后， Docker 就会在 Docker Hub 中搜索含有 java 这个关键词的镜像仓库。执行该命令后，可看到类似于如下的表格：该表格包含五列，含义如下。   NAME ：镜像仓库名称。 DESCRIPTION ：镜像仓">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-java.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-images.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-ps.jpg">
+<meta property="article:published_time" content="2020-01-24T10:30:55.000Z">
+<meta property="article:modified_time" content="2020-01-24T13:45:33.837Z">
 <meta property="article:author" content="Jacob">
-<meta property="article:tag" content="JDK8 新特性">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-java.jpg">
 
 
 
@@ -148,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://jacob.org.cn/2019/12/25/JDK8_Lambda/"/>
+  <link rel="canonical" href="http://jacob.org.cn/2020/01/24/Docker2-ChangYongMingLing/"/>
 
 
 
 
 
-  <title>JDK 8 新特性 之 Lambda表达式 - Jacob的博客</title>
+  <title>Docker 常用命令(二) - Jacob的博客</title>
   
 
 
@@ -357,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2019/12/25/JDK8_Lambda/">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/24/Docker2-ChangYongMingLing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jacob">
@@ -374,7 +378,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JDK 8 新特性 之 Lambda表达式</h2>
+          <h2 class="post-title" itemprop="name headline">Docker 常用命令(二)</h2>
         
 
         <div class="post-meta">
@@ -387,8 +391,8 @@
                 <font color="blue"><i class="fa fa-calendar"></i></font>
               </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-25T23:20:23+08:00">
-                <font color="blue">2019-12-25</font>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-24T18:30:55+08:00">
+                <font color="blue">2020-01-24</font>
               </time>
             
 
@@ -409,8 +413,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK8/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Docker</span></font>
                   </a>
                 </span>
 
@@ -428,7 +432,7 @@
 
           
           
-             <span id="/2019/12/25/JDK8_Lambda/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 Lambda表达式">
+             <span id="/2020/01/24/Docker2-ChangYongMingLing/" class="leancloud_visitors" data-flag-title="Docker 常用命令(二)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <!-- 阅读量图标颜色 -->
@@ -454,7 +458,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  547
+                  1,315
                 </span></font>
               
 
@@ -479,28 +483,53 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><hr>
+        <h3 id="Docker-镜像常用命令"><a href="#Docker-镜像常用命令" class="headerlink" title="Docker 镜像常用命令"></a>Docker 镜像常用命令</h3><ul>
+<li>搜索镜像<br>可使用 docker search 命令搜索存放在 Docker Hub 中的镜像。例如： docker search java 执行该命令后， Docker 就会在 Docker Hub 中搜索含有 java 这个关键词的镜像仓库。执行该命令后，可看到类似于如下的表格：<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-java.jpg" alt=""><br>该表格包含五列，含义如下。</li>
+</ul>
 <ul>
-<li>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</li>
-<li>Lambda 允许把函数作为参数传递进方法中。</li>
-<li>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</li>
-<li>lambda表达式的重要特征:<ol>
-<li>可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。</li>
-<li>可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。</li>
-<li>可选的大括号：如果主体包含了一个语句，就不需要使用大括号。</li>
-<li>可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。<a id="more"></a>
-</li>
-</ol>
+<li>NAME ：镜像仓库名称。</li>
+<li>DESCRIPTION ：镜像仓库描述。</li>
+<li>STARS ：镜像仓库收藏数，表示该镜像仓库的受欢迎程度，类似于 GitHub 的 Stars 。</li>
+<li>OFFICIAL ：表示是否为官方仓库，该列标记为 [OK] 的镜像均由各软件的官方项目组创建和维护。由结果可知，前8个镜像仓库是官方仓库，而其他的仓库都不是镜像仓库。</li>
+<li>AuTOMATED ：表示是否是自动构建的镜像仓库。</li>
+</ul>
+<ul>
+<li>下载镜像<br>使用命令 docker pull 命令即可从 Docker Registry 上下载镜像，例如： docker putl j ava 执行该命令后， Docker 会从 Docker Hub 中的 Java 仓库下载最新版本的 Jaya 镜像。若镜像下载缓慢，可配置镜像加速器，<a href="https://jacob.org.cn/2020/01/23/7docker-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/">Docker 简单入门(一)</a>。该命令还可指定想要下载的镜像标签以及 Docker Registry 地址，例如： docker pull reg.itmuch.com/java:7 这样就可以从指定的 Docker Registry 中下载标签为 7 的 Java 镜像。</li>
+<li>列出镜像<br>使用 docker images 命令即可列出已下载的镜像。执行该命令后，将会看到类似于如下的表格：<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-images.jpg" alt=""><br>该表格包含了 5 列，含义如下。</li>
+</ul>
+<ul>
+<li>REPOSITORY ：镜像所属仓库名称。</li>
+<li>TAG ：镜像标签。默认是 latest ，表示最新。</li>
+<li>IMAGE ID ：镜像 ID ，表示镜像唯一标识。</li>
+<li>CREATED ：镜像创建时间。</li>
+<li>SIZE ：镜像大小</li>
+</ul>
+<ul>
+<li><p>删除本地镜像<br>使用 docker rmi 命令即可删除指定镜像。</p>
+<p>  例1 ：删除指定名称的镜像。<br>  doCker rmi hello-world 表示删除 hello-world 这个镜像。<br>  例 2 ：删除所有镜像。<br>  docker rmi -f $(docker images)<br>  -f 参数表示强制删除。</p>
 </li>
 </ul>
-<hr>
-<h6 id="JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。"><a href="#JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。" class="headerlink" title="JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。"></a>JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface functionInterface = <span class="keyword">new</span> FunctionInterface() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"get方法"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        functionInterface.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="使用Lambda表达式调用接口中的方法"><a href="#使用Lambda表达式调用接口中的方法" class="headerlink" title="使用Lambda表达式调用接口中的方法"></a>使用Lambda表达式调用接口中的方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface ft = () -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">"JDK8 Lambda表达式调用：get方法"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        ft.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>() : 表示抽象方法所需的参数列表,(参数1，参数2)<br>-&gt; : 固定格式<br>{} ：表示抽象方法的方法体</p>
+<h3 id="Docker-容器的常用命令"><a href="#Docker-容器的常用命令" class="headerlink" title="Docker 容器的常用命令"></a>Docker 容器的常用命令</h3><ol>
+<li>新建并启动容器<br>使用一下docker run 命令即可新建并启动一个容器。<br>该命令是最常用的命令，它有很多选项下面将列举一些常用的选项：<br> -d选项:表示后台运行<br> -P选项:随机端口映射<br> -p选项:指定端口映射,有以下四种格式。<pre><code>ip: hostPort: containerPort
+p: containerport
+hostPort: containerPort
+container port</code></pre> network选项:指定网络模式,该选项有以下可选参数:<br> –network=bridge:默认选项,表示连接到默认的网桥。<br> –network=host:容器使用宿主机的网络。<br> –network=container:NAME_or_ID:告诉 Docker让新建的容器使用已有容器的网络配置<br> –network=none:不配置该容器的网络,用户可自定义网络配置。<br> 示例1 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run java &#x2F;bin&#x2F;echo &#39;Hello World&#39;</span><br></pre></td></tr></table></figure>
+ 这样终端会打印 Hello world的字样,跟在本地直接执行/bin/echo” Hello World”一样。<br> 示例2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d-p 91: 80 nginx</span><br></pre></td></tr></table></figure>
+ 这样就能启动一个Ngnx容器。在本例中,为 docker run添加了两个参数,含义如下:<br> -d # 后台运行<br> -p宿主机端口:容器端口 # 开放容器端口到宿主机端口<br> 访问htt: Docker宿主机IP:91/<blockquote>
+<p>需要注意的是,使用 docker run命令创建容器时,会先检查本地是否存在指定镜像。如果本地不存在该名称的镜像, Docker就会自动从 Docker Hub下载镜像并启动一个 Docker容器。</p>
 </blockquote>
-<h6 id="有返回值的Lambda表达式调用方法"><a href="#有返回值的Lambda表达式调用方法" class="headerlink" title="有返回值的Lambda表达式调用方法"></a>有返回值的Lambda表达式调用方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface2</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface2 functionInterface2 = () -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"有返回值的Lambda表达式调用方法"</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        System.out.println(functionInterface2.get());</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 优化：有返回值的Lambda表达式调用方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        FunctionInterface2 functionInterface3 = () -&gt; <span class="string">"优化：有返回值的Lambda表达式调用方法"</span>;</span><br><span class="line">        System.out.println(functionInterface3.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="有参数，有返回值的Lambda表达式调用方法"><a href="#有参数，有返回值的Lambda表达式调用方法" class="headerlink" title="有参数，有返回值的Lambda表达式调用方法"></a>有参数，有返回值的Lambda表达式调用方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionInterface3</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">get</span><span class="params">(String s)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FunctionTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FunctionInterface3 ft3 = (String s)-&gt; s;</span><br><span class="line">        System.out.println(ft3.get(<span class="string">"有参数，有返回值的Lambda表达式调用方法"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>列出容器<br> 使用 docker ps命令即可列出运行中的容器执行该命令后,可看到类似于如下的表格。<br> <img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-ps.jpg" alt=""><br> 如需列出所有容器(包括已停止的容器),可使用-a参数。<br> 该表格包含了7列,含义如下。<br> CONTAINER ID:表示容器I。<br> MAGE:表示镜像名称。<br> COMMAND:表示启动容器时运行的命令。<br> CREATED:表示容器的创建时间。<br> STATUS:表示容器运行的状态。U表示运行中, Exited表示已停止<br> PORTS:表示容器对外的端口号。<br> NAMES:表示容器名称。该名称默认由 Docker自动生成,也可使用 docker run 命令的-name选项自行指定。</li>
+<li>停止容器<br>使用 docker stop命令,即可停止容器。例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 784fd3b294d7</span><br></pre></td></tr></table></figure>
+中784635294d7是容器ID,当然也可使用 ocker stop容器名称来停止指定容器。</li>
+<li>强制停容器<br>可使用 docker kill命令发送 SIGKILL信号来强制停止容器。例如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker kill 784fd3b294d7</span><br></pre></td></tr></table></figure></li>
+<li>启动已停止的容器<br>使用 docker run命令,即可新建并启动一个容器。对于已停止的容器,可使用 docker start命令来启动。例如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 784fd3b294d7</span><br></pre></td></tr></table></figure></li>
+<li>重启容器<br>可使用 docker restart命令来重启容器。该命令实际上是先执行了 locker stop命令,然后执行了 docker start 命令。</li>
+<li>进入容器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container exec -i -t 容器ID &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure></li>
+<li>删除容器<br>使用 docker rm 命令即可删除看定溶器。<br>例1:删除指定容器。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 784fd3b294d7</span><br></pre></td></tr></table></figure>
+该命令尽能删除已停止的容器,如需删除正在运行的容器,可使用 -f 参数。<br>例2:删除所有的容器。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f $(docker ps -a -q)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
 
@@ -513,28 +542,7 @@
     <div class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\2019\12\25\JDK8_FunctionInterface\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 函数接口</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\23\JDK8_default\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 default关键字</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\25\JDK8_method\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 方法引用</a></div>
-      
-    </div>
-  
-    <div class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\12\26\JDK8_strams\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;JDK 8 新特性 之 Strams简单使用</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\23\Docker1-JianDanRuMen\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 简单入门(一)</a></div>
       
     </div>
   
@@ -598,7 +606,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jacob.org.cn/2019/12/25/JDK8_Lambda/" title="JDK 8 新特性 之 Lambda表达式">http://jacob.org.cn/2019/12/25/JDK8_Lambda/</a>
+    <a href="http://jacob.org.cn/2020/01/24/Docker2-ChangYongMingLing/" title="Docker 常用命令(二)">http://jacob.org.cn/2020/01/24/Docker2-ChangYongMingLing/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -623,7 +631,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JDK8-%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag"><i class="fa fa-tag"></i> JDK8 新特性</a>
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
           
         </div>
       
@@ -649,8 +657,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/25/JDK8_FunctionInterface/" rel="next" title="JDK 8 新特性 之 函数接口">
-                <i class="fa fa-chevron-left"></i> JDK 8 新特性 之 函数接口
+              <a href="/2020/01/23/Docker1-JianDanRuMen/" rel="next" title="Docker 简单入门(一)">
+                <i class="fa fa-chevron-left"></i> Docker 简单入门(一)
               </a>
             
           </div>
@@ -658,10 +666,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/25/JDK8_method/" rel="prev" title="JDK 8 新特性 之 方法引用">
-                JDK 8 新特性 之 方法引用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -836,7 +840,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JDK8-之前调用接口的方式是通过匿名内部类，调用接口中的方法。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">JDK8 之前调用接口的方式是通过匿名内部类，调用接口中的方法。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用Lambda表达式调用接口中的方法"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">使用Lambda表达式调用接口中的方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有返回值的Lambda表达式调用方法"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">有返回值的Lambda表达式调用方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有参数，有返回值的Lambda表达式调用方法"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">有参数，有返回值的Lambda表达式调用方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-镜像常用命令"><span class="nav-number">1.</span> <span class="nav-text">Docker 镜像常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-容器的常用命令"><span class="nav-number">2.</span> <span class="nav-text">Docker 容器的常用命令</span></a></li></ol></div>
             
 
           </div>
