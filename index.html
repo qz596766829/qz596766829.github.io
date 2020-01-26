@@ -753,7 +753,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/20/2019summarize/">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jacob">
@@ -772,15 +772,12 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/20/2019summarize/" itemprop="url">2019 个人总结</a></h2>
+                <a class="post-title-link" href="/2020/01/25/Docker3-Deockerfile/" itemprop="url">Docker 使用Dockerfile构建Docker(三)</a></h2>
         
 
         <div class="post-meta">
       <!-- 增加置顶功能 -->
 	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -788,8 +785,8 @@
                 <font color="blue"><i class="fa fa-calendar"></i></font>
               </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-20T09:34:09+08:00">
-                <font color="blue">2020-01-20</font>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-25T03:32:31+08:00">
+                <font color="blue">2020-01-25</font>
               </time>
             
 
@@ -810,8 +807,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">程序人生</span></font>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Docker</span></font>
                   </a>
                 </span>
 
@@ -829,7 +826,7 @@
 
           
           
-             <span id="/2020/01/20/2019summarize/" class="leancloud_visitors" data-flag-title="2019 个人总结">
+             <span id="/2020/01/25/Docker3-Deockerfile/" class="leancloud_visitors" data-flag-title="Docker 使用Dockerfile构建Docker(三)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <!-- 阅读量图标颜色 -->
@@ -855,7 +852,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  318
+                  1,898
                 </span></font>
               
 
@@ -881,397 +878,16 @@
 
       
         
-          <p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/2019.jpg" alt=""></p>
+          
+          Dockerfile 简单使用先来编写一个最简单的 Dockerfile。
+
+例如：12FROM nginxRUN echo '&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。FROM 指令用于指定基础镜像 RUN 指令用于执行命令 
+在 Dockerfile 所在路径执行一下命令构建镜像：
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/01/20/2019summarize/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/02/SourceCode-ArrayList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jacob">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacob">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/02/SourceCode-ArrayList/" itemprop="url">ArrayList 源码分析</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-02T20:50:22+08:00">
-                <font color="blue">2020-01-02</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ArrayList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">ArrayList 源码</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2020/01/02/SourceCode-ArrayList/" class="leancloud_visitors" data-flag-title="ArrayList 源码分析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  4,478
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>ArrayList继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。如下图：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
-<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/arraylist_jiegou.png" alt="ArrayList结构图"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/02/SourceCode-ArrayList/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/11/SourceCode-LinkedList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jacob">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacob">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/11/SourceCode-LinkedList/" itemprop="url">LinkedList 源码分析</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T11:40:38+08:00">
-                <font color="blue">2020-01-11</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LinkedList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">LinkedList 源码</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2020/01/11/SourceCode-LinkedList/" class="leancloud_visitors" data-flag-title="LinkedList 源码分析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  3,439
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LinkedList 底层是一个双向链表。是一个直线型的链表结构。</p>
-<p>LinkedList 特点：查询慢，增删快。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>LinkedList继承于AbstractSequentialList 实现了List、Deque、Cloneable、java.io.Serializable这些接口。如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
-<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/LinkedListUML.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/11/SourceCode-LinkedList/#more" rel="contents">
+            <a class="btn" href="/2020/01/25/Docker3-Deockerfile/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1715,6 +1331,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/20/2019summarize/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/20/2019summarize/" itemprop="url">2019 个人总结</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+		      <font color=red>【置顶】</font>
+	        <span class="post-meta-divider">|</span>
+      
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-20T09:34:09+08:00">
+                <font color="blue">2020-01-20</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">程序人生</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/20/2019summarize/" class="leancloud_visitors" data-flag-title="2019 个人总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  318
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/2019.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/20/2019summarize/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/19/java-bit-operation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1902,6 +1708,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/11/SourceCode-LinkedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/11/SourceCode-LinkedList/" itemprop="url">LinkedList 源码分析</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+		      <font color=red>【置顶】</font>
+	        <span class="post-meta-divider">|</span>
+      
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T11:40:38+08:00">
+                <font color="blue">2020-01-11</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LinkedList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">LinkedList 源码</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/11/SourceCode-LinkedList/" class="leancloud_visitors" data-flag-title="LinkedList 源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  3,439
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LinkedList 底层是一个双向链表。是一个直线型的链表结构。</p>
+<p>LinkedList 特点：查询慢，增删快。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>LinkedList继承于AbstractSequentialList 实现了List、Deque、Cloneable、java.io.Serializable这些接口。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/LinkedListUML.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/11/SourceCode-LinkedList/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/06/String-equals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2031,6 +2031,199 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/01/06/String-equals/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/02/SourceCode-ArrayList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/02/SourceCode-ArrayList/" itemprop="url">ArrayList 源码分析</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+		      <font color=red>【置顶】</font>
+	        <span class="post-meta-divider">|</span>
+      
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-02T20:50:22+08:00">
+                <font color="blue">2020-01-02</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ArrayList-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">ArrayList 源码</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/02/SourceCode-ArrayList/" class="leancloud_visitors" data-flag-title="ArrayList 源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  4,478
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>ArrayList继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。如下图：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/arraylist_jiegou.png" alt="ArrayList结构图"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/02/SourceCode-ArrayList/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2451,194 +2644,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2019/12/26/designMode_singleton/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jacob">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacob">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/26/designMode_singleton/" itemprop="url">设计模式 之 单例模式</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T20:22:34+08:00">
-                <font color="blue">2019-12-26</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">设计模式</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2019/12/26/designMode_singleton/" class="leancloud_visitors" data-flag-title="设计模式 之 单例模式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  3,768
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h4><p>&ensp;&ensp;&ensp;&ensp;Ensure a class has only one instance,and provide a global point of access to it.（确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。）</p>
-<h4 id="一个皇帝原则"><a href="#一个皇帝原则" class="headerlink" title="一个皇帝原则"></a>一个皇帝原则</h4><p>&ensp;&ensp;&ensp;&ensp;皇帝每天要上朝接待臣子、处理政务，臣子每天要叩拜皇帝，皇帝只能有一个，也就是一个类只能产生一个对象，该怎么实现呢？对象产生是通过new关键字完成的（当然也有其他方式，比如对象拷贝、反射等），这个怎么控制呀，但是大家别忘记了构造函数，使用new关键字创建对象时，都会根据输入的参数调用相应的构造函数，如果我们把构造函数设置为private私有访问权限不就可以禁止外部创建对象了吗？臣子叩拜唯一皇帝的过程如类图7-1所示。 </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/26/designMode_singleton/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2695,7 +2700,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2798,7 +2803,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="全站总字数">18.8k</span>
+    <span title="全站总字数">20.7k</span>
   
 </div>
 

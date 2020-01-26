@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Java,hexo,next,个人博客,博客,编程,IT,CSS,javascript,前端,后端,web开发" />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -108,16 +108,22 @@
 
 
 
-<meta name="description" content="AV.initialize(&quot;A7Ny5JW4l2XoShLWoQfpND2b-gzGzoHsz&quot;, &quot;lTbAjSoXEDQETkbAcE4zpYpu&quot;);    var time&#x3D;0   var title&#x3D;&quot;&quot;   var url&#x3D;&quot;&quot;   var query &#x3D; new AV.Query(&#39;Counter&#39;);   query.notEqualTo(&#39;id&#39;,0);   query.d">
-<meta property="og:type" content="website">
-<meta property="og:title" content="热度排行">
-<meta property="og:url" content="http://jacob.org.cn/top/index.html">
+<meta name="description" content="Dockerfile 简单使用先来编写一个最简单的 Dockerfile。  例如：12FROM nginxRUN echo &#39;&lt;h1&gt;使用Dockerfile构建镜像&lt;&#x2F;h1&gt;&#39; &gt; &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html 该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。FROM 指令用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 使用Dockerfile构建Docker(三)">
+<meta property="og:url" content="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/index.html">
 <meta property="og:site_name" content="Jacob">
-<meta property="og:description" content="AV.initialize(&quot;A7Ny5JW4l2XoShLWoQfpND2b-gzGzoHsz&quot;, &quot;lTbAjSoXEDQETkbAcE4zpYpu&quot;);    var time&#x3D;0   var title&#x3D;&quot;&quot;   var url&#x3D;&quot;&quot;   var query &#x3D; new AV.Query(&#39;Counter&#39;);   query.notEqualTo(&#39;id&#39;,0);   query.d">
-<meta property="article:published_time" content="2020-01-11T12:22:40.000Z">
-<meta property="article:modified_time" content="2020-01-18T03:41:27.071Z">
+<meta property="og:description" content="Dockerfile 简单使用先来编写一个最简单的 Dockerfile。  例如：12FROM nginxRUN echo &#39;&lt;h1&gt;使用Dockerfile构建镜像&lt;&#x2F;h1&gt;&#39; &gt; &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html 该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。FROM 指令用">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/nginx.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-build.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-swagger.jpg">
+<meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-test.jpg">
+<meta property="article:published_time" content="2020-01-24T19:32:31.000Z">
+<meta property="article:modified_time" content="2020-01-26T16:51:14.974Z">
 <meta property="article:author" content="Jacob">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/nginx.jpg">
 
 
 
@@ -147,19 +153,13 @@
 
 
 
-  <link rel="canonical" href="http://jacob.org.cn/top/"/>
+  <link rel="canonical" href="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    热度排行 - 的博客
-  
-</title>
+  <title>Docker 使用Dockerfile构建Docker(三) - Jacob的博客</title>
   
 
 
@@ -350,57 +350,366 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">热度排行</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div id="top"></div>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("A7Ny5JW4l2XoShLWoQfpND2b-gzGzoHsz", "lTbAjSoXEDQETkbAcE4zpYpu");</script>
-<script type="text/javascript">
-  var time=0
-  var title=""
-  var url=""
-  var query = new AV.Query('Counter');
-  query.notEqualTo('id',0);
-  query.descending('time');
-  query.limit(1000);
-  query.find().then(function (todo) {
-    for (var i=0;i<1000;i++){
-      var result=todo[i].attributes;
-      time=result.time;
-      title=result.title;
-      url=result.url;
-      var content="<p>"+"<font color='#1C1C1C'>"+"【文章热度:"+time+"℃】"+"</font>"+"<a href='"+"http://jacob.org.cn/"+url+"'>"+title+"</a>"+"</p>";
-      document.getElementById("top").innerHTML+=content
-    }
-  }, function (error) {
-    console.log("error");
-  });
-</script>
+          <h2 class="post-title" itemprop="name headline">Docker 使用Dockerfile构建Docker(三)</h2>
         
-      </div>
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-25T03:32:31+08:00">
+                <font color="blue">2020-01-25</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Docker</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/25/Docker3-Deockerfile/" class="leancloud_visitors" data-flag-title="Docker 使用Dockerfile构建Docker(三)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  1,898
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="Dockerfile-简单使用"><a href="#Dockerfile-简单使用" class="headerlink" title="Dockerfile 简单使用"></a>Dockerfile 简单使用</h3><p>先来编写一个最简单的 Dockerfile。</p>
+<ol>
+<li>例如：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令 </li>
+<li>在 Dockerfile 所在路径执行一下命令构建镜像：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nginx:my .</span><br></pre></td></tr></table></figure>
+其中，命令最后的点（.）用于路径参数传递，表示当前路径。</li>
+<li>执行以下命令,即可使用该镜像启动一个 Docker容器。<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 92:80 nginx:my</span></span><br></pre></td></tr></table></figure></li>
+<li>访问查看到效果(页面是因为编码问题)。<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/nginx.jpg" alt=""><br>从本例不难看出 Dockerfile的强大。仅仅编写了两行代码,就修改了原始镜像的行为。不仅如此,通过 Dockerfile,还可直观地看到修改镜像的具体过程。<blockquote>
+<p>除了使用Dockerfile构建镜像,也可手工制作 Docker镜像,但这种方式烦琐效率低,一般不适合生产。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="Dockerfile-常用指令"><a href="#Dockerfile-常用指令" class="headerlink" title="Dockerfile 常用指令"></a>Dockerfile 常用指令</h3><p>在前面的例子中,提到了FORM、RUN指令。事实上, Dockerfile有十多个指令,指令的一般格式为:指令名称参数。</p>
+<ol>
+<li><p>ADD复制文件<br>ADD 指令用于复制文件,格式为:<br>ADD &lt;src&gt;… &lt;dest&gt;<br>ADD [“&lt;srv&gt;”… “&lt;dest&gt;”]<br>从src目录复制文件到容器的dest。其中src可以是 Dockerfile所在目录的相对路径,也可以是一个URL,还可以是一个压缩包。</p>
+<blockquote>
+<p>注意:<br>1、src必须在构建的上下文内,不能使用例如:ADD ../somethine/something这样的命令,因为 docker bui1d命令首先会将上下文路径和其子目录发送到 docker daemon。<br>2、如果src是一个URL,同时dest不以斜杠结尾,dest将会被视为文件,src对应内容文件将会被下载到 dest。<br>3、如果src是一个URL,同时dest以斜杠结尾,dest将被视为目录,src对应内容将会被下载到dest目录。<br>4、如果 src 是一个目录，那么整个目录下的内容将会被复制，包括文件系统元数据。<br>5、如果文件是可识别的压缩包格式，则 doclcer 会自动解压。<br>示例：</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> microserVice-discovery-eureka-0.0.1-SNAPSHOT.jar app.jar</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>ARG 设置构建参数<br>ARG 指令用于设置构建参数，类似于 ENV。和 ARG 不同的是， ARG 设置的是构建时的环境变量，在容器运行时是不会存在这些变量的。<br>格式为： ARG &lt;name&gt; [&lt;default value&gt;]。<br>示例： ARG user=Jacob</p>
+</li>
+<li><p>CMD 容器启动命令<br>CMD 指令用于为执行容器提供默认值。每个 Dockerfile 只有一个 CMD 命令，如果指定了多个 CMD 命令，那么只有最后一条会被执行，如果启动容器时指定了运行的命令，则会覆盖掉 CMD 指定的命令。<br>支持 3 种格式：<br>CMD [&quot;executable&quot;,&quot;paraml&quot;,&quot;param2&quot;] (推荐使用)<br>CMD [&quot;param1&quot;,&quot;param2&quot;](为 ENT 盯 PoINT 指令提供预设参数)<br>CMD command param1 param2 (在 shell 中执行)<br>示例： CMD echo &quot; This 15 a test .&quot; | wc -</p>
+</li>
+<li><p>COPY 复制文件<br>复制文件，格式为：<br>COPY &lt;src&gt;… &lt;dest&gt;<br>COPY [&quot;&lt;src&gt;&quot;,… &quot;&lt;dest&gt;&quot;]<br>复制本地的 src 到容器的 dest 。COPY 指令和 ADD 指尘类似， COPY 不支持 URL 和 压缩包。</p>
+</li>
+<li><p>ENTRYPOINT 人口点<br>格式为：<br>ENTRYPOINT [&quot;executable&quot;,&quot;param1&quot;;&quot;param2&quot;]<br>ENTRYPOINT command param1 param2<br>ENTRYPOINT 和 CMD指令目的是一样的，都是指定 Docker 容器启动时执行的命令，可多次设置，但只有最后一个有效。</p>
+</li>
+<li><p>ENV 设置环境变量<br>ENV 指令用于设置环境变量，格式为：<br>ENV &lt;key&gt; &lt;value&gt;<br>ENV &lt;key&gt;=&lt;value&gt;<br>示例： ENV JAVA_HOME /path/to/java</p>
+</li>
+<li><p>EXPOSE声明暴露的端口<br>EXPOSE 指令用于声明在运行时容器提供服务的端口，格式为： EXPOSE &lt;port&gt; [&lt;port&gt;…]。<br>需要注意的是，这只是一个声明，运行时并不会因为该声明就打开相应端口。该指令的作用主要是帮助镜像使用者理解该镜像服务的守护端口；其次是当运行时使用随机映射时，会自动映射 EXP0SE 的端口。<br>示例：</p>
+</li>
+</ol>
+<ul>
+<li>声明暴露一个端口示例 EXPOSE port1</li>
+<li>相应的运行容器使用的命令 docker run -p port1 image</li>
+<li>也可使用一 P 选项启动 docker run -P image</li>
+<li>声明暴露多个端口示例 EXPOSE port1 port2 port3</li>
+<li>相应的运行容器使用的命令 docker run -p port1 -p port2 -p port3 image</li>
+<li>也可指定需要映射到宿主机器上的端口号 docker run -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image </li>
+</ul>
+<ol start="8">
+<li>FROM 指定基础镜像<br>使用 FORM 指令指定基础镜像，FORM 指令有点像 Java 里面的 extends 关键字。需要注意的是，FROM 指令必须指定且需要写在其他指令之前。 FORM 指令后的所有指令都依赖于该指令所指定的镜像。<br>支持 3 种格式：<br>FROM &lt;image&gt;<br>FROM &lt;image&gt;:&lt;tag&gt;<br>FROM &lt;image&gt;@&lt;digest&gt;</li>
+<li>LABEL 为镜像添加元数据<br>LABEL 指令用于为镜像添加元数据。<br>格式为：LABLE &lt;key&gt;=&lt;volue&gt; &lt;key&gt;=&lt;volue&gt; &lt;key&gt;=&lt;volue&gt; …。<br>使用“ “ ”和“ \ ”转换命令行。<br>示例：<br>LABEL &quot;com.example.vendor&quot;=&quot;ACME Incorporated&quot;<br>LABEL com.example.label-with-value=&quot;foo&quot;<br>LABEL version=&quot;1.0”<br>LABLE description=&quot;This text illustrates that label-values can span multlple lines.&quot;</li>
+<li>MAINTAINER 指定维护者的信息<br>MAINTAINER 指令用于指定维护者的信息，用于为 DOCkerfile 署名。格式为： MAINTAINR &lt;name&gt;。<br>示例：<br>MAINTAINER Jacob&lt;<a href="mailto:596766829@qq.com">596766829@qq.com</a>&gt;</li>
+<li>RUN 执行命令<br>该指令支持两种格式：<br>RUN &lt;Command&gt;<br>RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]<br>UuN &lt;command&gt;在 shell 终端中运行，在 Linux 中默认是/bin/Sh -C ，在 Windows 中是 cmd /s /c，使用这种格式，就像直接在命令行中输人命令一样。 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;] 使用 exec 执行，这种方式类似于函数调用。指定其他终端可以通过该方式操作，例如： RUN [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo hello&quot;] ，该方式必须使用双引号”而不能使用单引号’，因为该方式会被转换成一个 JsON 数组。</li>
+<li>USER 设置用户<br>该指令用于设置启动镜像时的用户或者 UID ，写在该指令后的 RUN 、 CMD 以及 ENTRYPOINT 指令都将使用该用户执行命令。<br>格式为：USER 用户名。<br>示例： USER Jacob</li>
+<li>VOLUME 指定挂载点<br>该指令使容器中的一个目录具有持久化存储的功能，该目录可被容器本身使用，也可共享给其他容器。当容器中的应用有持久化数据的需求时可以在 Dockerfile 中使用该指令。格式为：VOLUME [&quot;data&quot;。<br>示例： VOLUME /data </li>
+<li>WORKDIR 指定工作目录<br>格式为： WORKOIR /path/to/workdir。<br>切换目录指令，类似于 cd 命令，写在该指令后的 RUN , CMD 以及 ENTRYPOINT 指令都将该目录作为当前目录，并执行相应的命令。</li>
+<li>其他<br>Dockerfile 还有一些其他的指令，例如 STOPSINGAL、HEALTHcHECK、SHELL 等。有兴趣的可前往 <a href="https://docs.docker.com/engine/reference/builder/进行扩展阅读。" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/进行扩展阅读。</a></li>
+</ol>
+<h3 id="使用-Dockerfile-构建-Docker-镜像"><a href="#使用-Dockerfile-构建-Docker-镜像" class="headerlink" title="使用 Dockerfile 构建 Docker 镜像"></a>使用 Dockerfile 构建 Docker 镜像</h3><ol>
+<li>准备工作<br>准备一个Jar包,本次使用的Jar包是springboot整合swagger。</li>
+<li>使用Dockerfile 构建 Docker 镜像<br>创建 Dockerfile 文件,并添加一下内容<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#指定镜像</span></span><br><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="comment">#将本地文件夹挂载到当前容器</span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> /tmp</span></span><br><span class="line"><span class="comment">#复制文件到容器</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> wzq-swagger-mng.jar app.jar</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> bash -c <span class="string">'touch /app.jar'</span></span></span><br><span class="line"><span class="comment">#声明需要暴露的端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">10086</span></span><br><span class="line"><span class="comment">#配置容器启动后需要执行的命令</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"java"</span>,<span class="string">"-Djava.security.edg=file:/dev/.urandom"</span>,<span class="string">"-jar"</span>,<span class="string">"/app.jar"</span>]</span></span><br></pre></td></tr></table></figure></li>
+<li>使用 docker build 命令构建镜像<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t itouch/wzq-swagger-mng .</span><br></pre></td></tr></table></figure>
+<img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-build.jpg" alt=""></li>
+<li>启动镜像<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 10086:10086 itouch/wzq-swagger-mng</span></span><br></pre></td></tr></table></figure></li>
+<li>测试<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-swagger.jpg" alt=""><br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-test.jpg" alt=""></li>
+</ol>
+
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+  
+    <div class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2020\01\23\Docker1-JianDanRuMen\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 简单入门(一)</a></div>
+      
+    </div>
+  
+    <div class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2020\01\24\Docker2-ChangYongMingLing\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 常用命令(二)</a></div>
+      
+    </div>
+  
+  </ul>
+  <style type="text/css">
+    a:hover{
+      text-decoration: none;
+    }
+  </style>
+
+
+
+
+
+    
+
+
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果这篇文章对您很有帮助，不妨</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx_pay.jpg" alt="Jacob 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Jacob 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Jacob
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/" title="Docker 使用Dockerfile构建Docker(三)">http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    	<div>
+	   
+             <div>
+    
+        <div style="margin-top: 30px;text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+           
+        </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/24/Docker2-ChangYongMingLing/" rel="next" title="Docker 常用命令(二)">
+                <i class="fa fa-chevron-left"></i> Docker 常用命令(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+
+      <!-- 引入share.js -->
+      <div data-weibo-title="分享到微博" data-qq-title="分享到QQ" data-douban-title="分享到豆瓣" class="social-share" class="share-component" data-disabled="twitter,facebook" data-description="Share.js - 一键分享到微博，QQ空间，腾讯微博，人人，豆瓣">分享到：</div>
+  </div>
+
 
 
           </div>
@@ -408,6 +717,12 @@
 
 
           
+
+  
+    <div class="comments comment" id="comments"></div>
+  
+
+
 
         </div>
         
@@ -430,8 +745,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -527,6 +851,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-简单使用"><span class="nav-number">1.</span> <span class="nav-text">Dockerfile 简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-常用指令"><span class="nav-number">2.</span> <span class="nav-text">Dockerfile 常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Dockerfile-构建-Docker-镜像"><span class="nav-number">3.</span> <span class="nav-text">使用 Dockerfile 构建 Docker 镜像</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1204,6 +1544,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 17880,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
