@@ -878,13 +878,12 @@
 
       
         
-          
-          Dockerfile 简单使用先来编写一个最简单的 Dockerfile。
-
-例如：12FROM nginxRUN echo '&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
-该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。FROM 指令用于指定基础镜像 RUN 指令用于执行命令 
-在 Dockerfile 所在路径执行一下命令构建镜像：
-          ...
+          <h3 id="Dockerfile-简单使用"><a href="#Dockerfile-简单使用" class="headerlink" title="Dockerfile 简单使用"></a>Dockerfile 简单使用</h3><p>先来编写一个最简单的 Dockerfile。</p>
+<ol>
+<li>例如：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令 </li>
+<li>在 Dockerfile 所在路径执行一下命令构建镜像：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nginx:my .</span><br></pre></td></tr></table></figure>
+其中，命令最后的点（.）用于路径参数传递，表示当前路径。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/01/25/Docker3-Deockerfile/#more" rel="contents">
@@ -1240,7 +1239,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  1,378
+                  1,373
                 </span></font>
               
 
@@ -1356,9 +1355,6 @@
         <div class="post-meta">
       <!-- 增加置顶功能 -->
 	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1733,9 +1729,6 @@
         <div class="post-meta">
       <!-- 增加置顶功能 -->
 	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -2114,9 +2107,6 @@
         <div class="post-meta">
       <!-- 增加置顶功能 -->
 	    
-		      <font color=red>【置顶】</font>
-	        <span class="post-meta-divider">|</span>
-      
           <span class="post-time">
             
               <span class="post-meta-item-icon">
