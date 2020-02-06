@@ -753,6 +753,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/28/Docker4-Docker-Hub-Manager/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/28/Docker4-Docker-Hub-Manager/" itemprop="url">Docker-compose 安装与基本使用(四)</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-28T13:23:50+08:00">
+                <font color="blue">2020-01-28</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">Docker</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/28/Docker4-Docker-Hub-Manager/" class="leancloud_visitors" data-flag-title="Docker-compose 安装与基本使用(四)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  1,842
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="安装-Docker-Compose"><a href="#安装-Docker-Compose" class="headerlink" title="安装 Docker-Compose"></a>安装 Docker-Compose</h3><p>Compose有多种安装方式,例如通过 shell, pip以及将 Compose作为容器安装等。本次安装以Shell 为主。</p>
+<ol>
+<li>通过以下命令自动下载并安装适应系统版本的 Compose:<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure></li>
+<li>为安装脚本添加执行权限<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x/usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/28/Docker4-Docker-Hub-Manager/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -852,7 +1042,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  1,898
+                  1,894
                 </span></font>
               
 
@@ -881,7 +1071,7 @@
           <h3 id="Dockerfile-简单使用"><a href="#Dockerfile-简单使用" class="headerlink" title="Dockerfile 简单使用"></a>Dockerfile 简单使用</h3><p>先来编写一个最简单的 Dockerfile。</p>
 <ol>
 <li>例如：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
-该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令 </li>
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令</li>
 <li>在 Dockerfile 所在路径执行一下命令构建镜像：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nginx:my .</span><br></pre></td></tr></table></figure>
 其中，命令最后的点（.）用于路径参数传递，表示当前路径。
           <!--noindex-->
@@ -2446,194 +2636,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2019/12/26/JDK8_strams/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jacob">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacob">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/26/JDK8_strams/" itemprop="url">JDK 8 新特性 之 Strams简单使用</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T20:22:40+08:00">
-                <font color="blue">2019-12-26</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK8/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">JDK8</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2019/12/26/JDK8_strams/" class="leancloud_visitors" data-flag-title="JDK 8 新特性 之 Strams简单使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  1,473
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><hr>
-<p>Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。<br>Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。<br>Stream API可以极大提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。<br>这种风格将要处理的元素集合看作一种流， 流在管道中传输， 并且可以在管道的上进行操作处理， 比如筛选， 排序，聚合等。<br>元素流在管道中经过中间的一系列操作（intermediate operation）和处理，最后由最终操作(terminal operation)得到前面处理的结果。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/26/JDK8_strams/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2690,7 +2692,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2793,7 +2795,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="全站总字数">20.7k</span>
+    <span title="全站总字数">22.5k</span>
   
 </div>
 

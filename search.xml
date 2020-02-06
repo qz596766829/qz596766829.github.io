@@ -1,12 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker-compose 安装与基本使用(四)</title>
+    <url>/2020/01/28/Docker4-Docker-Hub-Manager/</url>
+    <content><![CDATA[<h3 id="安装-Docker-Compose"><a href="#安装-Docker-Compose" class="headerlink" title="安装 Docker-Compose"></a>安装 Docker-Compose</h3><p>Compose有多种安装方式,例如通过 shell, pip以及将 Compose作为容器安装等。本次安装以Shell 为主。</p>
+<ol>
+<li>通过以下命令自动下载并安装适应系统版本的 Compose:<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure></li>
+<li>为安装脚本添加执行权限<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">chmod +x/usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+这样, Compose就安装完成了。<br>可使用以下命令测试安装结果:<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+可输出类似于如下的内容:4 586bhjnkmv<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker-compose version <span class="number">1.10</span>.<span class="number">0</span>, build <span class="number">4</span>bd6f1a</span><br></pre></td></tr></table></figure>
+说明 Compose已成功安装。</li>
+</ol>
+<h3 id="安装-Compose命令补全工具"><a href="#安装-Compose命令补全工具" class="headerlink" title="安装 Compose命令补全工具"></a>安装 Compose命令补全工具</h3><p>现在已成功安装 Compose,然而当输 Docker Compose并按下Tab键时, Compose并没有补全命令。要想使用 Compose的命令补全,需要安装命令补全工具。<br>命令补全工具在Bash和zsh下的安装方式不同,本次以Bash安装为主。<br>执行以下命令,即可安装命令补全工具:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">curl -l https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+<p>这样,在重新登录后,输入 docker-compose并按下Tab键,compose就可自动补全命令了。</p>
+<h3 id="Docker-Compose-快速入门"><a href="#Docker-Compose-快速入门" class="headerlink" title="Docker Compose 快速入门"></a>Docker Compose 快速入门</h3><h4 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h4><p>使用 Docker Compose 大致有 3 个步骤：</p>
+<ul>
+<li>使用 Dockerfile (或其他方式)定义应用程序环境，以便在任何地方重现该环境。</li>
+<li>在 docker-compose.yml 文件中定义组成应用程序的服务，以便各个服务在一个隔离的环境中一起运行。</li>
+<li>运行 docker-compose up 命令，启动并运行整个应用程序。</li>
+</ul>
+<h4 id="人门示例"><a href="#人门示例" class="headerlink" title="人门示例"></a>人门示例</h4><p>下面以 wzq-swagger-mng 为例讲解 compose 的基本步骤。</p>
+<ol>
+<li>使用 mvn clean package 命令打包项目，获得 wzq-swagger-mng.jar。</li>
+<li>在 wzq-swagger-mng.jar 所在路径(默认是项目的 target 目录)创建 Dockerfile 文件，并在其中添加如下内容。<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> /tmp</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> wzq-swagger-mng.jar app.jar</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> bash -c <span class="string">'touch /app.jar'</span></span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">10086</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"java"</span>,<span class="string">"-Djava.security.edg=file:/dev/.urandom"</span>,<span class="string">"-jar"</span>,<span class="string">"/app.jar"</span>]</span></span><br></pre></td></tr></table></figure></li>
+<li>在 wzq-swagger-mng.jar 所在路径创建文件 docker-compose.yml,在其中添加如下内容。<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">version: <span class="string">'2'</span><span class="comment"># 表示该docker-compose.yml文件使用的是version 2 file</span></span><br><span class="line">services:</span><br><span class="line">  wzq-swagger-mng:<span class="comment"># 指定服务名称</span></span><br><span class="line">    build:<span class="comment">#指定Dockerfile所在文件夹的路径</span></span><br><span class="line">      context: ./</span><br><span class="line">      dockerfile: ./Dockerfile</span><br><span class="line">    ports:</span><br><span class="line">     - <span class="string">"10086:10086"</span><span class="comment"># 指定端口映射，类似 docker run 的 -p 选项,注意使用字符串形式。</span></span><br></pre></td></tr></table></figure></li>
+<li>在 docker-compose.yml 所在路径执行以下命令:<br>docker-compose up<br>Compose就会自动构建镜像并使用镜像启动容器。也可使用 docker-compose up -d后台启动并运行这些容器。</li>
+<li>测试访问<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-compose.jpg" alt="docker-compose测试页面"></li>
+</ol>
+<h4 id="工程、服务、容器"><a href="#工程、服务、容器" class="headerlink" title="工程、服务、容器"></a>工程、服务、容器</h4><p>Docker Compose将所管理的容器分为三层,分别是工程(project),服务(service)以及容器(container)。Docker Compose运行目录下的所有文件( docker-compose.yml、extends文件或环境变量文件等)组成一个工程(默认为 docker-compose.yml所在目录的目录名称)。一个工程可包含多个服务,每个服务中定义了容器运行的镜像、参数和依赖,一个服务可包括多个容器实例。<br>对应上面案例中工程名称是 docker-compose.yml 所在的目录名。该工程包含了1个服务,服务名称是 wzq-swagger-mng。执行 docker-compose up -d 时,启动了 wzq-swagger-mng 服务的1个容器实例。</p>
+<h3 id="docker-compose-yml-常用命令"><a href="#docker-compose-yml-常用命令" class="headerlink" title="docker-compose.yml 常用命令"></a>docker-compose.yml 常用命令</h3><p>docker-compose.yml是 Compose的默认模板文件。该文件有多种写法,例如 Version 1 file format、 Version2 file format、Version2. 1 file format、 Version3 file format等。其中, Version 1 file format将逐步被被弃用, Version2x及 Version3x基本兼容,是未来的趋势。本次只讨论 Version2 file format下的常用命令。</p>
+<ol>
+<li><p>build<br>配置构建时的选项, Compose会利用它自动构建镜像。buld的值可以是一个路径<br>例如</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">build:./Dockerfile</span><br></pre></td></tr></table></figure>
+<p>也可以是一个对象,用于指定 Dockerfile和参数,<br>例如</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">build:</span><br><span class="line">  context: ./</span><br><span class="line">  dockerfile: ./Dockerfile</span><br><span class="line">agrs:</span><br><span class="line">  jacob: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>command<br>覆盖容器启动后默认执行的命令,示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">command: bundle exec thin -p <span class="number">3000</span></span><br></pre></td></tr></table></figure>
+<p>也可以是一个list,类似于 Dockerfile中的CMD指令,格式如下:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">command: [bundle, exec, thin,-p, <span class="number">3000</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dns<br>配置dns服务器。可以是一个值,也可以是一个列表。示例:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">dns: <span class="number">8.8</span>.<span class="number">8.8</span></span><br><span class="line">dns:</span><br><span class="line">  - <span class="number">8.8</span>.<span class="number">8.8</span></span><br><span class="line">  - <span class="number">9.9</span>.<span class="number">9.9</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dns_search<br>配置DNS的搜索域,可以是一个值,也可以是一个列表。示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">dns_search:example.com</span><br><span class="line">dns_search:</span><br><span class="line">  - dc1.example.com</span><br><span class="line">  - dc2.example.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>environment<br>环境变量设置,可使用数组或字典两种方式。示例:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">environment</span><br><span class="line">  RACK_ENV: development</span><br><span class="line">  SHOW: true</span><br><span class="line">  SESSION SECRET</span><br><span class="line"></span><br><span class="line">environment</span><br><span class="line">  - RACK_ENV=development</span><br><span class="line">  - SHOW=true</span><br><span class="line">  - SESSION_SECRET</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>env_file<br>从文件中获取环境变量,可指定一个文件路径或路径列表。如果通过 docker-compose FILe指定了 Compose 文件,那么 eny_file中的路径是 Compose 文件所在目录的相对路径。使用 environment 指定的环境变量会覆盖 eny_file指定的环境变量。示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">eny_file: .<span class="keyword">env</span></span><br><span class="line">eny_file</span><br><span class="line">  - /common.<span class="keyword">env</span></span><br><span class="line">  - /apps/web.<span class="keyword">env</span></span><br><span class="line">  - /opt/secrets. <span class="keyword">env</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>expose<br>暴露端口,只将端口暴露给连接的服务,而不暴露给宿主机。示例:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">expose</span>:</span><br><span class="line">  - <span class="string">"3000"</span></span><br><span class="line">  - <span class="string">"8090"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>external_links<br>连接到 docker-compose.yml外部的容器,甚至并非 Compose 管理的容器,特别是提供共享或公共服务的容器。格式跟 links类似,例如:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">external_links:</span><br><span class="line">  - redis_1</span><br><span class="line">  - project_db_1: mysql</span><br><span class="line">  - project_db_1: postgresql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>image<br>指定镜像名称或镜像Id,如果本地不存在该镜像, Compose会尝试下载该镜像。<br>示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">image: Java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>links<br>连接到其他服务的容器。可以指定服务名称和服务别名( SERVICE: ALIAS),也可只指定服务名称。例如:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">web:</span><br><span class="line">  links:</span><br><span class="line">    - db</span><br><span class="line">    - db:database</span><br><span class="line">    - redis</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>networks<br><a href="#">后续详解</a></p>
+</li>
+<li><p>network_mode<br>设置网络模式。示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">network_mode: <span class="string">"bridge"</span></span><br><span class="line">network_mode: <span class="string">"host"</span></span><br><span class="line">network_mode: <span class="string">"none"</span></span><br><span class="line">network_mode: <span class="string">"service:[service name]"</span></span><br><span class="line">network_mode: <span class="string">"container:[container name/id]"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ports<br>暴露端口信息,可使用H0ST:CONTAINER的格式,也可只指定容器端口(此时宿主机将会随机选择端口),类似于 docker run-p。<br>需要注意的是,当使用H0ST:CONTAINER格式映射端口时,容器端口小于60将会得到错误的接口,因为yaml会把xx:yy的数字解析为60进制。因此,建议使用字符串的形式。示例:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">ports</span><br><span class="line">  - <span class="string">"3000"</span></span><br><span class="line">  - <span class="string">"3000-3905"</span></span><br><span class="line">  - <span class="string">"8000:8000"</span></span><br><span class="line">  - <span class="string">"9099-9091:8080-8081"</span></span><br><span class="line">  - <span class="string">"49100:22"</span></span><br><span class="line">  - <span class="string">"127.0.0.1:8001:8001"</span></span><br><span class="line">  - <span class="string">"127,0.0.1:5000-5010:5000-5010"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>volumes<br>卷挂载路径设置。可以设置宿主机路径(HOST:CONTAINER),也可指定访问模式(HOST:C0ONTAINER:ro)。示例:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">volumes</span><br><span class="line">  <span class="comment"># Just specify a path and let the Engine create a volume</span></span><br><span class="line">  - /var/lib/mysql</span><br><span class="line">  <span class="comment"># Specify an absolute path mapping</span></span><br><span class="line">  - /opt/data:/var/lib/mysql</span><br><span class="line">  <span class="comment"># Path on the host relative to the Compose file</span></span><br><span class="line">  - ./cache:/tmp/cache</span><br><span class="line">  <span class="comment"># User-relative path</span></span><br><span class="line">  - ~/configs:/etc/configs/:ro</span><br><span class="line">  <span class="comment">#f Named volume</span></span><br><span class="line">  - datavolume:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>volumes_from<br>从另一个服务或容器挂载卷。可指定只读(ro)或读写(rw),默认是读写(rw)。<br>示例</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">volumes <span class="keyword">from</span></span><br><span class="line">  - service_name</span><br><span class="line">  - service_name:ro</span><br><span class="line">  - container:container_name</span><br><span class="line">  - container:container_name:rw</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>docker-compose.yml还有很多其他命令,比如 depends_on、pid、 devices等。<br>本次仅挑选常用的命令进行讲解,其他命令不再赘述。感兴趣的读者们可参考官方文档:<a href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener">https://docs.docker.com/compose/compose-file/</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker 使用Dockerfile构建Docker(三)</title>
     <url>/2020/01/25/Docker3-Deockerfile/</url>
     <content><![CDATA[<h3 id="Dockerfile-简单使用"><a href="#Dockerfile-简单使用" class="headerlink" title="Dockerfile 简单使用"></a>Dockerfile 简单使用</h3><p>先来编写一个最简单的 Dockerfile。</p>
 <ol>
 <li>例如：<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
-该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令 </li>
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令</li>
 <li>在 Dockerfile 所在路径执行一下命令构建镜像：<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker build -t nginx:my .</span><br></pre></td></tr></table></figure>
 其中，命令最后的点（.）用于路径参数传递，表示当前路径。<a id="more"></a></li>
 <li>执行以下命令,即可使用该镜像启动一个 Docker容器。<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 92:80 nginx:my</span></span><br></pre></td></tr></table></figure></li>
@@ -20,7 +113,7 @@
 <li><p>ADD复制文件<br>ADD 指令用于复制文件,格式为:<br>ADD &lt;src&gt;… &lt;dest&gt;<br>ADD [“&lt;srv&gt;”… “&lt;dest&gt;”]<br>从src目录复制文件到容器的dest。其中src可以是 Dockerfile所在目录的相对路径,也可以是一个URL,还可以是一个压缩包。</p>
 <blockquote>
 <p>注意:<br>1、src必须在构建的上下文内,不能使用例如:ADD ../somethine/something这样的命令,因为 docker bui1d命令首先会将上下文路径和其子目录发送到 docker daemon。<br>2、如果src是一个URL,同时dest不以斜杠结尾,dest将会被视为文件,src对应内容文件将会被下载到 dest。<br>3、如果src是一个URL,同时dest以斜杠结尾,dest将被视为目录,src对应内容将会被下载到dest目录。<br>4、如果 src 是一个目录，那么整个目录下的内容将会被复制，包括文件系统元数据。<br>5、如果文件是可识别的压缩包格式，则 doclcer 会自动解压。<br>示例：</p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> microserVice-discovery-eureka-0.0.1-SNAPSHOT.jar app.jar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> wzq-swagger-mng.jar app.jar</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>ARG 设置构建参数<br>ARG 指令用于设置构建参数，类似于 ENV。和 ARG 不同的是， ARG 设置的是构建时的环境变量，在容器运行时是不会存在这些变量的。<br>格式为： ARG &lt;name&gt; [&lt;default value&gt;]。<br>示例： ARG user=Jacob</p>
@@ -165,20 +258,19 @@ container port</code></pre> network选项:指定网络模式,该选项有以下�
 <li><p>更新 Yum 包的索引。 </p>
  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></li>
 <li><p>安装最新版本的 Docker。</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y Install docker-ce</span><br></pre></td></tr></table></figure>
 <p> 这样，经过-段时间的等待后， Docker 就安装完成了。</p>
 </li>
-<li><p>在生产系统中，可能需要安装指定版本的 Docker ，而并不总是安装最新版本。执行以下命令，即可列出可用的 Docker 版本。</p>
+<li><p>在生产系统中，可能需要安装指定版本的 Docker ，而并不总是安装最新版本。执行以下命令，即可列出可用的 Docker 版本。 </p>
  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum list docker-ce.x86_64_showduplicates |sort -r</span><br></pre></td></tr></table></figure>
-<p>其中， sort -r 命令表示对结果由高到低排序。列出 Docker 版本，可使用以下命令安装指定版本的 Docker。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum - y install docker-ce-&lt;VERSION_STRIN6&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<p> 其中， sort -r 命令表示对结果由高到低排序。列出 Docker 版本，可使用以下命令安装指定版本的 Docker。</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum - y install docker-ce-＜VERSION_STRIN6&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>设置开机启动</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure></li>
-<li><p>启动 Dockr</p>
+<li><p>启动 DokCero </p>
  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></li>
-<li><p>执行以下命令，验证安装是否正确。</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<li><p>执行以下命令，验证安装是否正确。 </p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo docker run hell0-World</span><br></pre></td></tr></table></figure>
 <p> 如看到类似于如下的结果，则说明安装正确。<br> Unable to find image ‘hello-world:latest’ locally<br> …<br> Hello from docker!<br> This message shows that your installation appears to be working correctly.<br> …</p>
 </li>
 <li><p>查看 Docker 版本。<br>docker version 可看到类似于如下的结果：<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-version.png" alt=""></p>

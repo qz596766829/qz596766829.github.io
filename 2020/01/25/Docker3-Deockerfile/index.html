@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-swagger.jpg">
 <meta property="og:image" content="https://images-1259173443.cos.ap-chengdu.myqcloud.com/docker-test.jpg">
 <meta property="article:published_time" content="2020-01-24T19:32:31.000Z">
-<meta property="article:modified_time" content="2020-01-28T05:25:46.527Z">
+<meta property="article:modified_time" content="2020-02-02T05:49:16.580Z">
 <meta property="article:author" content="Jacob">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -459,7 +459,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  1,898
+                  1,894
                 </span></font>
               
 
@@ -487,7 +487,7 @@
         <h3 id="Dockerfile-简单使用"><a href="#Dockerfile-简单使用" class="headerlink" title="Dockerfile 简单使用"></a>Dockerfile 简单使用</h3><p>先来编写一个最简单的 Dockerfile。</p>
 <ol>
 <li>例如：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;使用Dockerfile构建镜像&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
-该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令 </li>
+该 Dockerfile 非常简单，其中的 FORM 、 RUN 都是 Dockerfile 的指令。<br>FROM 指令用于指定基础镜像 RUN 指令用于执行命令</li>
 <li>在 Dockerfile 所在路径执行一下命令构建镜像：<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nginx:my .</span><br></pre></td></tr></table></figure>
 其中，命令最后的点（.）用于路径参数传递，表示当前路径。<a id="more"></a></li>
 <li>执行以下命令,即可使用该镜像启动一个 Docker容器。<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 92:80 nginx:my</span></span><br></pre></td></tr></table></figure></li>
@@ -501,7 +501,7 @@
 <li><p>ADD复制文件<br>ADD 指令用于复制文件,格式为:<br>ADD &lt;src&gt;… &lt;dest&gt;<br>ADD [“&lt;srv&gt;”… “&lt;dest&gt;”]<br>从src目录复制文件到容器的dest。其中src可以是 Dockerfile所在目录的相对路径,也可以是一个URL,还可以是一个压缩包。</p>
 <blockquote>
 <p>注意:<br>1、src必须在构建的上下文内,不能使用例如:ADD ../somethine/something这样的命令,因为 docker bui1d命令首先会将上下文路径和其子目录发送到 docker daemon。<br>2、如果src是一个URL,同时dest不以斜杠结尾,dest将会被视为文件,src对应内容文件将会被下载到 dest。<br>3、如果src是一个URL,同时dest以斜杠结尾,dest将被视为目录,src对应内容将会被下载到dest目录。<br>4、如果 src 是一个目录，那么整个目录下的内容将会被复制，包括文件系统元数据。<br>5、如果文件是可识别的压缩包格式，则 doclcer 会自动解压。<br>示例：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> microserVice-discovery-eureka-0.0.1-SNAPSHOT.jar app.jar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> wzq-swagger-mng.jar app.jar</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>ARG 设置构建参数<br>ARG 指令用于设置构建参数，类似于 ENV。和 ARG 不同的是， ARG 设置的是构建时的环境变量，在容器运行时是不会存在这些变量的。<br>格式为： ARG &lt;name&gt; [&lt;default value&gt;]。<br>示例： ARG user=Jacob</p>
@@ -556,6 +556,13 @@
     <div class="popular-posts-item">
       
       
+      <div class="popular-posts-title"><a href="\2020\01\23\Docker1-JianDanRuMen\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 简单入门(一)</a></div>
+      
+    </div>
+  
+    <div class="popular-posts-item">
+      
+      
       <div class="popular-posts-title"><a href="\2020\01\24\Docker2-ChangYongMingLing\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 常用命令(二)</a></div>
       
     </div>
@@ -563,7 +570,7 @@
     <div class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\2020\01\23\Docker1-JianDanRuMen\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker 简单入门(一)</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\28\Docker4-Docker-Hub-Manager\" rel="bookmark">🏷️&nbsp;&nbsp;&nbsp;&nbsp;Docker-compose 安装与基本使用(四)</a></div>
       
     </div>
   
@@ -688,6 +695,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/01/28/Docker4-Docker-Hub-Manager/" rel="prev" title="Docker-compose 安装与基本使用(四)">
+                Docker-compose 安装与基本使用(四) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -774,7 +785,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -893,7 +904,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="全站总字数">20.7k</span>
+    <span title="全站总字数">22.5k</span>
   
 </div>
 
