@@ -1,3 +1,5 @@
+http://jacob.org.cn/2020/02/07/GitBug-GitPullException/
+http://jacob.org.cn/2019/12/30/JavaBug-IdAutoException/
 http://jacob.org.cn/2020/01/28/Docker4-Docker-Hub-Manager/
 http://jacob.org.cn/2020/01/23/Docker1-JianDanRuMen/
 http://jacob.org.cn/2020/01/25/Docker3-Deockerfile/
@@ -13,7 +15,6 @@ http://jacob.org.cn/2019/12/26/JDK8_strams/
 http://jacob.org.cn/2019/12/25/JDK8_method/
 http://jacob.org.cn/2019/12/23/JDK8_default/
 http://jacob.org.cn/2019/12/25/JDK8_Lambda/
-http://jacob.org.cn/2019/12/30/Bug-IdAutoException/
 http://jacob.org.cn/2019/12/25/JDK8_FunctionInterface/
 http://jacob.org.cn/tags/index.html
 http://jacob.org.cn/categories/index.html

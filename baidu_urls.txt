@@ -1,1 +1,1 @@
-http://jacob.org.cn/2020/01/28/Docker4-Docker-Hub-Manager/
+http://jacob.org.cn/2020/02/07/GitBug-GitPullException/

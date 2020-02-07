@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jacob.org.cn/2020/02/07/GitBug-GitPullException/</loc>
+    
+    <lastmod>2020-02-07T09:23:26.284Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jacob.org.cn/2019/12/30/JavaBug-IdAutoException/</loc>
+    
+    <lastmod>2020-02-07T09:18:51.917Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jacob.org.cn/2020/01/28/Docker4-Docker-Hub-Manager/</loc>
     
     <lastmod>2020-02-06T07:54:09.931Z</lastmod>
@@ -103,13 +117,6 @@
     <loc>http://jacob.org.cn/2019/12/25/JDK8_Lambda/</loc>
     
     <lastmod>2020-01-14T14:24:43.150Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jacob.org.cn/2019/12/30/Bug-IdAutoException/</loc>
-    
-    <lastmod>2020-01-14T14:24:43.148Z</lastmod>
     
   </url>
   

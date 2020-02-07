@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git pull 报错：The following untracked working tree files would be overwritten by merge</title>
+    <url>/2020/02/07/GitBug-GitPullException/</url>
+    <content><![CDATA[<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>使用 git pull 命令更新报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:   </span><br><span class="line"></span><br><span class="line"> .idea&#x2F;encodings.xml   </span><br><span class="line"></span><br><span class="line"> Please move or remove them before you can merge. Aborting</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用  git clean -d -fx 命令即可。</p>
+]]></content>
+      <categories>
+        <category>BUG</category>
+      </categories>
+      <tags>
+        <tag>Git BUG</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker-compose 安装与基本使用(四)</title>
     <url>/2020/01/28/Docker4-Docker-Hub-Manager/</url>
     <content><![CDATA[<h3 id="安装-Docker-Compose"><a href="#安装-Docker-Compose" class="headerlink" title="安装 Docker-Compose"></a>安装 Docker-Compose</h3><p>Compose有多种安装方式,例如通过 shell, pip以及将 Compose作为容器安装等。本次安装以Shell 为主。</p>
@@ -572,7 +587,7 @@ container port</code></pre> network选项:指定网络模式,该选项有以下�
   </entry>
   <entry>
     <title>IllegalArgumentException：argument type mismatch</title>
-    <url>/2019/12/30/Bug-IdAutoException/</url>
+    <url>/2019/12/30/JavaBug-IdAutoException/</url>
     <content><![CDATA[<h4 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">nested exception is org.apache.ibatis.reflection.ReflectionException: Could not set property <span class="string">'id'</span> of <span class="string">'class com.wzq.test.demo.entity.Fee'</span> with value <span class="string">'1211518556674199553'</span>Cause:java.lang.IllegalArgumentException: argument type mismatch</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="场景"><a href="#场景" class="headerlink" title="场景:"></a>场景:</h4><pre><code>添加不传ID使用数据库中的自增。提示类型转换错误,Long转换Integer错误,原因ID初始化值过大转化成Integer错误。</code></pre><h4 id="解决"><a href="#解决" class="headerlink" title="解决:"></a>解决:</h4><pre><code>设置ID的初始化值:ALTER TABLE TABLENAME AUTO_INCREMENT=1;
@@ -582,7 +597,7 @@ private Integer id;</code></pre>]]></content>
         <category>BUG</category>
       </categories>
       <tags>
-        <tag>BUG</tag>
+        <tag>Java BUG</tag>
       </tags>
   </entry>
   <entry>
