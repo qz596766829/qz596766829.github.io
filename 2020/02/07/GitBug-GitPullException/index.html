@@ -108,14 +108,14 @@
 
 
 
-<meta name="description" content="场景使用 git pull 命令更新报错 12345Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:    .idea&#x2F;encodings.xml    Please move or remove them before yo">
+<meta name="description" content="场景使用 git pull 命令更新报错 123Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:.idea&#x2F;encodings.xmlPlease move or remove them before you can merg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git pull 报错：The following untracked working tree files would be overwritten by merge">
 <meta property="og:url" content="http://jacob.org.cn/2020/02/07/GitBug-GitPullException/index.html">
 <meta property="og:site_name" content="Jacob">
-<meta property="og:description" content="场景使用 git pull 命令更新报错 12345Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:    .idea&#x2F;encodings.xml    Please move or remove them before yo">
+<meta property="og:description" content="场景使用 git pull 命令更新报错 123Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:.idea&#x2F;encodings.xmlPlease move or remove them before you can merg">
 <meta property="article:published_time" content="2020-02-07T09:19:40.000Z">
-<meta property="article:modified_time" content="2020-02-07T09:23:26.284Z">
+<meta property="article:modified_time" content="2020-02-07T09:25:14.514Z">
 <meta property="article:author" content="Jacob">
 <meta property="article:tag" content="Git BUG">
 <meta name="twitter:card" content="summary">
@@ -454,7 +454,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  57
+                  55
                 </span></font>
               
 
@@ -480,7 +480,7 @@
 
       
         <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>使用 git pull 命令更新报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:   </span><br><span class="line"></span><br><span class="line"> .idea&#x2F;encodings.xml   </span><br><span class="line"></span><br><span class="line"> Please move or remove them before you can merge. Aborting</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Updating d652d1c..fa05549 error: The following untracked working tree files would be overwritten by merge:.idea&#x2F;encodings.xml</span><br><span class="line"></span><br><span class="line">Please move or remove them before you can merge. Aborting</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用  git clean -d -fx 命令即可。</p>
 
