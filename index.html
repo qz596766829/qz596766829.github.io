@@ -766,6 +766,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/18/SourceCode-HashMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jacob">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacob">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/SourceCode-HashMap/" itemprop="url">HashMap 源码分析</a></h2>
+        
+
+        <div class="post-meta">
+      <!-- 增加置顶功能 -->
+	    
+		      <font color=red>【置顶】</font>
+	        <span class="post-meta-divider">|</span>
+      
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <!-- 创建时间图标颜色 -->
+                <font color="blue"><i class="fa fa-calendar"></i></font>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-18T16:21:24+08:00">
+                <font color="blue">2020-01-18</font>
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <!-- 分类图标颜色 -->
+                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HashMap-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
+                    <font color="#56b6e7"><span itemprop="name">HashMap 源码</span></font>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+          
+             <span id="/2020/01/18/SourceCode-HashMap/" class="leancloud_visitors" data-flag-title="HashMap 源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <!-- 阅读量图标颜色 -->
+                 <font color="red"><i class="fa fa-eye"></i></font>
+               </span>
+               
+                 <font color="red"><span class="leancloud-visitors-count"></span>
+                 <span>℃</span></font>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                   <!-- 字数统计图标颜色 -->
+                  <font color="green"><i class="fa fa-file-word-o"></i></font>
+                </span>
+                
+                <font color="green"><span title="字数">
+                  5,086
+                </span></font>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>HashMap 底层数据结构是数组、哈希表。数组称之为哈希桶，它是线程不安全的。</p>
+<p>允许key为null,value为null。</p>
+<p>遍历时无序。</p>
+<p>在JDK8中，当链表长度达到8，会转化成红黑树，以提升它的查询、插入效率。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>HashMap继承AbstractMap&lt;K,V&gt;，实现了Map,Cloneable, Serializable。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/18/SourceCode-HashMap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    	<div>
+	   
+        </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/02/07/GitBug-GitPullException/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1053,7 +1248,7 @@
                 </span>
                 
                 <font color="green"><span title="字数">
-                  1,857
+                  1,869
                 </span></font>
               
 
@@ -2463,193 +2658,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jacob.org.cn/2020/01/06/String-equals/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jacob">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacob">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/06/String-equals/" itemprop="url">String equals()方法 源码分析</a></h2>
-        
-
-        <div class="post-meta">
-      <!-- 增加置顶功能 -->
-	    
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <!-- 创建时间图标颜色 -->
-                <font color="blue"><i class="fa fa-calendar"></i></font>
-              </span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T19:48:15+08:00">
-                <font color="blue">2020-01-06</font>
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <!-- 分类图标颜色 -->
-                <font color="#56b6e7"><i class="fa fa-folder-open"></i></font>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/String-equls-%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <font color="#56b6e7"><span itemprop="name">String.equls() 源码</span></font>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-          
-             <span id="/2020/01/06/String-equals/" class="leancloud_visitors" data-flag-title="String equals()方法 源码分析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <!-- 阅读量图标颜色 -->
-                 <font color="red"><i class="fa fa-eye"></i></font>
-               </span>
-               
-                 <font color="red"><span class="leancloud-visitors-count"></span>
-                 <span>℃</span></font>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                   <!-- 字数统计图标颜色 -->
-                  <font color="green"><i class="fa fa-file-word-o"></i></font>
-                </span>
-                
-                <font color="green"><span title="字数">
-                  193
-                </span></font>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// ==:比较的引用类型，比较的是地址值是否相同</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123; <span class="comment">//地址值相等，返回true</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// instanceOf判断一个对象是不是某个类型的实例</span></span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        String anotherString = (String)anObject;</span><br><span class="line">        <span class="keyword">int</span> n = value.length;</span><br><span class="line">        <span class="comment">// 判断长度是否相等</span></span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="keyword">char</span> v1[] = value;</span><br><span class="line">            <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 比较每一个元素，只要有一个元素不想等 返回 false</span></span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/06/String-equals/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    	<div>
-	   
-        </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2706,7 +2714,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2717,7 +2725,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2809,7 +2817,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="全站总字数">24.1k</span>
+    <span title="全站总字数">29.2k</span>
   
 </div>
 
