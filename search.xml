@@ -16,6 +16,20 @@
       </tags>
   </entry>
   <entry>
+    <title>git pull 报错：Untracked Fles Preventing Merge merge</title>
+    <url>/2020/02/07/GitBug-Untracked-Fles-Preventing-Merge/</url>
+    <content><![CDATA[<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>使用 git pull 命令更新报错<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/GitBug-Untracked-Fles-Preventing-Merge.png" alt="git pull:Untracked Fles Preventing Merge"></p>
+<a id="more"></a>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>找到对应的文件删除后重新打开项目。</p>
+]]></content>
+      <categories>
+        <category>BUG</category>
+      </categories>
+      <tags>
+        <tag>Git BUG</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker-compose 安装与基本使用(四)</title>
     <url>/2020/01/28/Docker4-Docker-compose-1/</url>
     <content><![CDATA[<h3 id="安装-Docker-Compose"><a href="#安装-Docker-Compose" class="headerlink" title="安装 Docker-Compose"></a>安装 Docker-Compose</h3><p>Compose有多种安装方式,例如通过 shell, pip以及将 Compose作为容器安装等。本次安装以Shell 为主。</p>

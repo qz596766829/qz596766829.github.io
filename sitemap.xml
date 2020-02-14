@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jacob.org.cn/2020/02/07/GitBug-Untracked-Fles-Preventing-Merge/</loc>
+    
+    <lastmod>2020-02-14T07:25:23.942Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jacob.org.cn/2020/01/18/SourceCode-HashMap/</loc>
     
     <lastmod>2020-02-11T02:04:33.898Z</lastmod>

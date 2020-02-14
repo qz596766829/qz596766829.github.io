@@ -40,6 +40,28 @@
   </entry>
   
   <entry>
+    <title>git pull 报错：Untracked Fles Preventing Merge merge</title>
+    <link href="http://jacob.org.cn/2020/02/07/GitBug-Untracked-Fles-Preventing-Merge/"/>
+    <id>http://jacob.org.cn/2020/02/07/GitBug-Untracked-Fles-Preventing-Merge/</id>
+    <published>2020-02-07T09:19:40.000Z</published>
+    <updated>2020-02-14T07:25:23.942Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>使用 git pull 命令更新报错<br><img src="https://images-1259173443.cos.ap-chengdu.myqcloud.com/GitBug-Untracked-Fles-Preventing-Merge.png" alt="git pull:Untracked Fles Preventing Merge"></p><a id="more"></a><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>找到对应的文件删除后重新打开项目。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;场景&quot;&gt;&lt;a href=&quot;#场景&quot; class=&quot;headerlink&quot; title=&quot;场景&quot;&gt;&lt;/a&gt;场景&lt;/h3&gt;&lt;p&gt;使用 git pull 命令更新报错&lt;br&gt;&lt;img src=&quot;https://images-1259173443.cos.ap-chengdu.myqcloud.com/GitBug-Untracked-Fles-Preventing-Merge.png&quot; alt=&quot;git pull:Untracked Fles Preventing Merge&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="BUG" scheme="http://jacob.org.cn/categories/BUG/"/>
+    
+    
+      <category term="Git BUG" scheme="http://jacob.org.cn/tags/Git-BUG/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker-compose 安装与基本使用(四)</title>
     <link href="http://jacob.org.cn/2020/01/28/Docker4-Docker-compose-1/"/>
     <id>http://jacob.org.cn/2020/01/28/Docker4-Docker-compose-1/</id>
